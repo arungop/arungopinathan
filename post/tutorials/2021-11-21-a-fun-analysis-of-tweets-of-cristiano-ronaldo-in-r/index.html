@@ -1,0 +1,138 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><link rel=icon type=image/png sizes=32x32 href=/img/logo.png><meta name=viewport content="width=device-width,initial-scale=1"><title>Is Cristiano Ronaldo lost his interest in twitter? A fun analysis of tweets of Cristiano Ronaldo using R - Arun Gopinath</title><meta property="og:title" content="Is Cristiano Ronaldo lost his interest in twitter? A fun analysis of tweets of Cristiano Ronaldo using R - Arun Gopinath"><meta name=twitter:card content="summary"><meta property="description" content="Sentimental analysis, wordcloud and lot more are explored here. Is Cristiano Ronaldo lost his interest in twitter? Let&rsquo;s check out."><meta property="og:description" content="Sentimental analysis, wordcloud and lot more are explored here. Is Cristiano Ronaldo lost his interest in twitter? Let&rsquo;s check out."><meta name=twitter:image content="https://arungopi.gitlab.io/post/tutorials/2021-11-21-a-fun-analysis-of-tweets-of-cristiano-ronaldo-in-r/index_files/figure-html/unnamed-chunk-1-1.png"><link href=//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css rel=stylesheet type=text/css><link rel=stylesheet href=/css/style.css><link rel=stylesheet href=/css/fonts.css><link rel=stylesheet href=/css/custom.css></head><body class=post><header class=masthead><h1><a href=/><img src=/img/logo.png alt="Arun Gopinath"></a></h1><p class=tagline>Welcome to blog of Arun Gopinath</p><nav class=menu><input id=menu-check type=checkbox hidden>
+<label id=menu-label for=menu-check class=unselectable hidden><span class="icon close-icon">✕</span>
+<span class="icon open-icon">☰</span>
+<span class=text>Menu</span></label><ul><li><a href=/>Home</a></li><li><a href=/about/>About</a></li><li><a href=/post/>Blog</a></li><li><a href=/galleries/>Gallery</a></li><li><a href=/categories/>Category</a></li></ul></nav></header><article class=main><header class=title><h1>Is Cristiano Ronaldo lost his interest in twitter? A fun analysis of tweets of Cristiano Ronaldo using R</h1><h3>Arun Gopinath
+/ 2021-11-21</h3><hr></header><script src=https://arungopi.gitlab.io/post/tutorials/2021-11-21-a-fun-analysis-of-tweets-of-cristiano-ronaldo-in-r/index_files/header-attrs/header-attrs.js></script><div id=TOC><ul><li><a href=#a-detailed-analysis-of-tweets-of-famous-footballer-cristiano-ronaldo-in-r>A detailed analysis of tweets of famous footballer Cristiano Ronaldo in R</a><ul><li><a href=#get-ronaldos-tweets-timeline>Get Ronaldo’s tweets timeline</a></li></ul></li><li><a href=#lets-dive-into-it.>Let’s dive into it.</a><ul><li><a href=#plotting-tweets-per-months-over-the-time-period>Plotting tweets per months over the time period</a><ul><li><a href=#bar-plot-to-get-more-insight>Bar plot to get more insight</a></li></ul></li></ul></li><li><a href=#is-there-any-pattern-over-the-months>Is there any pattern over the months ?</a></li><li><a href=#what-about-over-the-days>What about over the days ?</a></li><li><a href=#tweets-over-the-time>Tweets over the time</a></li><li><a href=#retweets-vs-original-tweets>Retweets v/s Original tweets</a></li><li><a href=#text-mining---lets-deep-dive-into-the-tweet-data>Text mining - Let’s deep dive into the tweet data</a><ul><li><a href=#what-about-hashtags-frequency>What about Hashtags frequency ?</a></li><li><a href=#most-retweeted-tweet>Most retweeted tweet</a></li><li><a href=#most-liked-tweet>Most liked tweet</a></li><li><a href=#top-mentions>Top mentions</a></li></ul></li><li><a href=#create-a-wordcloud-using-the-words-used-in-his-tweets-so-far.>Create a wordcloud using the words used in his tweets so far.</a><ul><li><a href=#find-top-words>Find top words</a><ul><li><a href=#wordcloud>Wordcloud</a></li></ul></li><li><a href=#sentiment-analysis>Sentiment analysis</a></li><li><a href=#sentiment-plot>Sentiment plot</a></li></ul></li><li><a href=#conclusion>Conclusion</a></li></ul></div><div id=a-detailed-analysis-of-tweets-of-famous-footballer-cristiano-ronaldo-in-r class="section level1"><h1>A detailed analysis of tweets of famous footballer Cristiano Ronaldo in R</h1><p>In this post we are going to have a quick roundup of Cristiano Ronaldo’s tweets. For this mission various powerful tools of ‘R’ are used.</p><pre class=r><code>library(rtweet)
+library(tidyverse)
+library(lubridate)
+library(hms)
+library(scales)
+library(tidytext)
+library(wordcloud) 
+library(syuzhet)</code></pre><div id=get-ronaldos-tweets-timeline class="section level2"><h2>Get Ronaldo’s tweets timeline</h2><p>Due to limitations of twitter new policy, we can only retrieve last 3200 tweets of a user. In our case, as of writing this article his total tweets are just 3733. So we are covering most of his twitter journey here.</p><pre class=r><code>Ronaldo &lt;- get_timeline(&quot;@cristiano&quot;, n= 3200)</code></pre></div></div><div id=lets-dive-into-it. class="section level1"><h1>Let’s dive into it.</h1><div id=plotting-tweets-per-months-over-the-time-period class="section level2"><h2>Plotting tweets per months over the time period</h2><p>As the first user case lets see how he tweets over these years.</p><pre class=r><code>ggplot(data = Ronaldo,
+       aes(month(created_at, label=TRUE, abbr=TRUE),
+           group=factor(year(created_at)), color=factor(year(created_at))))+
+  geom_line(stat= &quot;count&quot;) +
+  geom_point(stat=&quot;count&quot;) +
+  labs(x=&quot;Month&quot;, colour=&quot;Year&quot;, xlab = &quot;Month&quot;, ylab = &quot;Number of tweets&quot;,
+       title = &quot;Cristiano Ronaldo&#39;s tweets over the time period&quot;, 
+       caption = &quot;Created by Arun Gopinath&quot;) +
+  theme_minimal()</code></pre><p><img src=https://arungopi.gitlab.io/post/tutorials/2021-11-21-a-fun-analysis-of-tweets-of-cristiano-ronaldo-in-r/index_files/figure-html/unnamed-chunk-1-1.png width=672></p><p>It’s quite difficult to obtain a trend here. But one thing is sure, his interest in twitter is just fading away.</p><div id=bar-plot-to-get-more-insight class="section level3"><h3>Bar plot to get more insight</h3><pre class=r><code>ggplot(data = Ronaldo, aes(x = year(created_at))) +
+  geom_bar(aes(fill = ..count..)) +
+  xlab(&quot;Year&quot;) + ylab(&quot;Number of tweets&quot;) + 
+  labs(title = &quot;Cristiano Ronaldo&#39;s tweets over the time period&quot;, 
+       subtitle = &quot;2013 &amp; 2014 been his prime time in twitter&quot;,
+       caption = &quot;Created by Arun Gopinath&quot;)+
+  scale_x_continuous (breaks = c(2010:2021)) +
+  theme_minimal() +
+  scale_fill_gradient(low = &quot;yellow&quot;, high = &quot;darkgreen&quot;)</code></pre><p><img src=https://arungopi.gitlab.io/post/tutorials/2021-11-21-a-fun-analysis-of-tweets-of-cristiano-ronaldo-in-r/index_files/figure-html/unnamed-chunk-2-1.png width=672></p></div></div></div><div id=is-there-any-pattern-over-the-months class="section level1"><h1>Is there any pattern over the months ?</h1><pre class=r><code>ggplot(data = Ronaldo, aes(x = month(created_at, label = TRUE))) +
+  geom_bar(aes(fill = ..count..)) +
+  xlab(&quot;Month&quot;) + ylab(&quot;Number of tweets&quot;) +
+  labs(title = &quot;Cristiano Ronaldo&#39;s tweets - Monthwise&quot;, 
+       subtitle = &quot;It&#39;s december&quot;,
+       caption = &quot;Created by Arun Gopinath&quot;)+
+  theme_minimal() +
+  scale_fill_gradient(low = &quot;yellow&quot;, high = &quot;red&quot;)</code></pre><p><img src=https://arungopi.gitlab.io/post/tutorials/2021-11-21-a-fun-analysis-of-tweets-of-cristiano-ronaldo-in-r/index_files/figure-html/unnamed-chunk-3-1.png width=672></p></div><div id=what-about-over-the-days class="section level1"><h1>What about over the days ?</h1><pre class=r><code>ggplot(data = Ronaldo, aes(x = wday(created_at, label = TRUE))) +
+  geom_bar(aes(fill = ..count..)) +
+  xlab(&quot;Day of the week&quot;) + ylab(&quot;Number of tweets&quot;) + 
+  labs(title = &quot;Do you know which day Cristiano Ronaldo pick to tweet least ?&quot;, 
+       subtitle = &quot;Weekends are holidays&quot;,
+       caption = &quot;Created by Arun Gopinath&quot;)+
+  theme_minimal() +
+  scale_fill_gradient(low = &quot;turquoise3&quot;, high = &quot;darkgreen&quot;)</code></pre><p><img src=https://arungopi.gitlab.io/post/tutorials/2021-11-21-a-fun-analysis-of-tweets-of-cristiano-ronaldo-in-r/index_files/figure-html/unnamed-chunk-4-1.png width=672></p><p>Sundays are usually his least tweeted day so far. While Thursdays are more engaged one.</p></div><div id=tweets-over-the-time class="section level1"><h1>Tweets over the time</h1><p>Let’s look another factor which may influence his tweet pattern - Time during a day.</p><p>But our date and time are in combined form so clean it up using hms and scales packages as given below.</p><pre class=r><code>## Get hour, minute and seconds from tweets
+
+Ronaldo$time &lt;- hms::hms(second(Ronaldo$created_at),
+                           minute(Ronaldo$created_at),
+                           hour(Ronaldo$created_at))
+
+## Converting to `POSIXct` as ggplot isn’t compatible with `hms`
+Ronaldo$time &lt;- as.POSIXct(Ronaldo$time)</code></pre><p>Our data is ready to plot. Any guess ?</p><pre class=r><code>ggplot(data = Ronaldo)+
+  geom_density(aes(x = time, y = ..scaled..),
+               fill=&quot;steelblue&quot;, alpha=0.3) +
+  xlab(&quot;Time&quot;) + ylab(&quot;Density&quot;) +
+  labs(title = &quot;Cristiano Ronaldo tweet pattern&quot;, 
+       subtitle = &quot;His sleeping pattern is quite good !&quot;,
+       caption = &quot;Created by Arun Gopinath&quot;)+
+  scale_x_datetime(breaks = date_breaks(&quot;2 hours&quot;),
+                   labels = date_format(&quot;%H:%M&quot;)) +
+  theme_minimal()</code></pre><p><img src=https://arungopi.gitlab.io/post/tutorials/2021-11-21-a-fun-analysis-of-tweets-of-cristiano-ronaldo-in-r/index_files/figure-html/unnamed-chunk-6-1.png width=672></p><p>As expected from a super player like Ronaldo, his twitter usage is negligible between 12 am and 6 am. Another reason for his super powers on the field. Also he spends more time online during evening section.</p></div><div id=retweets-vs-original-tweets class="section level1"><h1>Retweets v/s Original tweets</h1><p>Do Ronaldo retweet more nowadays?</p><pre class=r><code>ggplot(data = Ronaldo, aes(x = created_at, fill = is_retweet)) +
+  geom_histogram(bins=30) +
+  xlab(&quot;Time&quot;) + ylab(&quot;Number of tweets&quot;) +
+  labs(title = &quot;Cristiano Ronaldo&#39;s Retweets v/s Original tweets&quot;, 
+       subtitle = &quot;Almost stopped retweeting after 2015 !&quot;,
+       caption = &quot;Created by Arun Gopinath&quot;)+
+  theme_minimal() +
+  scale_fill_manual(values = c(&quot;darkolivegreen3&quot;, &quot;darkolivegreen4&quot;), name = &quot;Retweet&quot;)</code></pre><p><img src=https://arungopi.gitlab.io/post/tutorials/2021-11-21-a-fun-analysis-of-tweets-of-cristiano-ronaldo-in-r/index_files/figure-html/unnamed-chunk-7-1.png width=672></p><p>No not at all !!</p></div><div id=text-mining---lets-deep-dive-into-the-tweet-data class="section level1"><h1>Text mining - Let’s deep dive into the tweet data</h1><div id=what-about-hashtags-frequency class="section level2"><h2>What about Hashtags frequency ?</h2><p>What are the top 10 hashtags he tweeted ?</p><pre class=r><code>Ronaldo %&gt;% 
+  unnest_tokens(hashtag, text, &quot;tweets&quot;, to_lower = FALSE) %&gt;%
+  filter(str_detect(hashtag, &quot;^#&quot;)) %&gt;%
+  count(hashtag, sort = TRUE) %&gt;%
+  top_n(10) %&gt;% 
+  ggplot(aes(x = reorder(hashtag, -n), y =n))+
+  geom_segment( aes(xend=hashtag, yend=0)) +
+  geom_point( size=4, color=&quot;red&quot;) +
+  theme_bw() +
+  ylab(&quot;Count&quot;)+
+  xlab(&quot;Hashtags&quot;)+
+  labs(title = &quot;Cristiano Ronaldo&#39;s top 10 twitter #hashtags&quot;, 
+       subtitle = &quot;&quot;,
+       caption = &quot;Created by Arun Gopinath&quot;)+
+  coord_flip()</code></pre><p><img src=https://arungopi.gitlab.io/post/tutorials/2021-11-21-a-fun-analysis-of-tweets-of-cristiano-ronaldo-in-r/index_files/figure-html/unnamed-chunk-8-1.png width=672></p><p>Most of them are sports related, especially about teams he represented and his personal milestones.</p></div><div id=most-retweeted-tweet class="section level2"><h2>Most retweeted tweet</h2><p>Which tweet is the most retweeted tweet ?</p><pre class=r><code>Ronaldo %&gt;% 
+  arrange(-retweet_count) %&gt;%
+  slice(1) %&gt;% 
+  select(created_at, screen_name, text, retweet_count, status_id)</code></pre><blockquote class=twitter-tweet><p lang=en dir=ltr>So happy to be able to hold the two new loves of my life 🙏❤ <a href=https://t.co/FIY11aWQm9>pic.twitter.com/FIY11aWQm9</a></p>— Cristiano Ronaldo (<span class=citation>@Cristiano</span>) <a href="https://twitter.com/Cristiano/status/880473340619759616?ref_src=twsrc%5Etfw">June 29, 2017</a></blockquote><script async src=https://platform.twitter.com/widgets.js></script></div><div id=most-liked-tweet class="section level2"><h2>Most liked tweet</h2><pre class=r><code>Ronaldo %&gt;% 
+  arrange(-favorite_count) %&gt;%
+  top_n(5, favorite_count) %&gt;% 
+  select(created_at, screen_name, text, favorite_count)</code></pre><blockquote class=twitter-tweet><p lang=en dir=ltr>So sad to hear the heartbreaking news of the deaths of Kobe and his daughter Gianna. Kobe was a true legend and inspiration to so many. Sending my condolences to his family and friends and the families of all who lost their lives in the crash. RIP Legend💔 <a href=https://t.co/qKb3oiDHxH>pic.twitter.com/qKb3oiDHxH</a></p>— Cristiano Ronaldo (<span class=citation>@Cristiano</span>) <a href="https://twitter.com/Cristiano/status/1221578681472163841?ref_src=twsrc%5Etfw">January 26, 2020</a></blockquote><script async src=https://platform.twitter.com/widgets.js></script></div><div id=top-mentions class="section level2"><h2>Top mentions</h2><pre class=r><code>Ronaldo %&gt;% 
+  unnest_tokens(mentions, text, &quot;tweets&quot;, to_lower = FALSE) %&gt;%
+  filter(str_detect(mentions, &quot;^@&quot;)) %&gt;%  
+  count(mentions, sort = TRUE) %&gt;%
+  top_n(10)</code></pre><pre><code>## # A tibble: 10 x 2
+##    mentions             n
+##    &lt;chr&gt;            &lt;int&gt;
+##  1 @Cristiano         177
+##  2 @nikefootball       54
+##  3 @GAMEbyRonaldo      37
+##  4 @realmadrid         25
+##  5 @VivaRonaldo        25
+##  6 @cristiano          18
+##  7 @TAGHeuer           17
+##  8 @Herbalife          16
+##  9 @SavetheChildren    16
+## 10 @HeadsUp            13</code></pre></div></div><div id=create-a-wordcloud-using-the-words-used-in-his-tweets-so-far. class="section level1"><h1>Create a wordcloud using the words used in his tweets so far.</h1><div id=find-top-words class="section level2"><h2>Find top words</h2><p>Here we want to remove white spaces, symbols, signs etc. Also remove stop words, words which are frequently used by everyone, from the list.And finally sort it <a href=#fn1 class=footnote-ref id=fnref1><sup>1</sup></a>.</p><pre class=r><code>words &lt;- Ronaldo %&gt;%
+  mutate(text = str_remove_all(text, &quot;&amp;amp;|&amp;lt;|&amp;gt;&quot;),
+         text = str_remove_all(text, &quot;\\s?(f|ht)(tp)(s?)(://)([^\\.]*)[\\.|/](\\S*)&quot;),
+         text = str_remove_all(text, &quot;[^\x01-\x7F]&quot;)) %&gt;% 
+  unnest_tokens(word, text, token = &quot;tweets&quot;) %&gt;%
+  filter(!word %in% stop_words$word,
+         !word %in% str_remove_all(stop_words$word, &quot;&#39;&quot;),
+         str_detect(word, &quot;[a-z]&quot;),
+         !str_detect(word, &quot;^#&quot;),         
+         !str_detect(word, &quot;@\\S+&quot;)) %&gt;%
+  count(word, sort = TRUE)</code></pre><div id=wordcloud class="section level3"><h3>Wordcloud</h3><p>Now plot a wordcloud from what we got.</p><pre class=r><code>set.seed(1234)
+
+words %&gt;% 
+  with(wordcloud(word, n, random.order = FALSE, max.words = 150, 
+                 scale=c(2.6,0.25),colors=brewer.pal(8, &quot;Dark2&quot;)))</code></pre><p><img src=https://arungopi.gitlab.io/post/tutorials/2021-11-21-a-fun-analysis-of-tweets-of-cristiano-ronaldo-in-r/index_files/figure-html/unnamed-chunk-13-1.png width=672></p></div></div><div id=sentiment-analysis class="section level2"><h2>Sentiment analysis</h2><blockquote><p>Sentiment analysis (or opinion mining) is a natural language processing (NLP) technique used to determine whether data is positive, negative or neutral. Sentiment analysis is often performed on textual data to help businesses monitor brand and product sentiment in customer feedback, and understand customer needs<a href=#fn2 class=footnote-ref id=fnref2><sup>2</sup></a>.</p></blockquote><p>Here we analyse 10 emotions from positive to disgust.</p><ul><li>First convert text to ASCII to tackle strange characters like what we done above.</li></ul><pre class=r><code>tweet_text &lt;- iconv(words, from=&quot;UTF-8&quot;, to=&quot;ASCII&quot;, sub=&quot;&quot;)</code></pre><ul><li>Since we are playing with tweets of Ronaldo ignore retweets.</li></ul><pre class=r><code>Tweet_text &lt;- gsub(&quot;(RT|via)((?:\\b\\w*@\\w+)+)&quot;,&quot;&quot;,tweet_text)</code></pre><ul><li>Also remove mentions</li></ul><pre class=r><code>Tweet_text &lt;- gsub(&quot;@\\w+&quot;,&quot;&quot;,tweet_text)</code></pre><ul><li>Get sentiment score using ‘get_nrc_sentiment’ function.</li></ul><pre class=r><code>Ron_sentiment &lt;- get_nrc_sentiment((tweet_text))</code></pre><ul><li>To display it in ggplot we want to convert it into a data frame.</li></ul><pre class=r><code>Sentimentscores &lt;- data.frame(colSums(Ron_sentiment[,]))</code></pre><ul><li>For better understanding of data frame better headers are assigned.</li></ul><pre class=r><code>names(Sentimentscores) &lt;- &quot;Score&quot;
+Sentimentscores &lt;- cbind(&quot;sentiment&quot;=rownames(Sentimentscores),Sentimentscores)
+rownames(Sentimentscores) &lt;- NULL</code></pre></div><div id=sentiment-plot class="section level2"><h2>Sentiment plot</h2><p>Finally our sentiment plot of Cristiano Ronaldo’s tweets <a href=#fn3 class=footnote-ref id=fnref3><sup>3</sup></a>.</p><pre class=r><code>ggplot(data=Sentimentscores,aes(x=sentiment,y=Score))+
+  geom_bar(aes(fill=sentiment),stat = &quot;identity&quot;)+
+  theme(legend.position=&quot;none&quot;)+
+  xlab(&quot;Sentiments&quot;)+ylab(&quot;Scores&quot;)+
+  labs(title = &quot;Total sentiment of Cristiano Ronaldo&#39;s tweets based on scores&quot;,
+       subtitle = &quot;Positive vibes&quot;)+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))</code></pre><p><img src=https://arungopi.gitlab.io/post/tutorials/2021-11-21-a-fun-analysis-of-tweets-of-cristiano-ronaldo-in-r/index_files/figure-html/unnamed-chunk-20-1.png width=672></p><ul><li>Positive vibes overall.</li></ul></div></div><div id=conclusion class="section level1"><h1>Conclusion</h1><p>Cristiano Ronaldo is shifting his gears with new age social media like Instagram. Tweet frequency is dramatically getting lower over the years.Further analysis can be done based to mine more and more intersting details. Happy mining.</p></div><div class=footnotes><hr><ol><li id=fn1><p>(<a href=https://blog.bigdataweek.com/ class=uri>https://blog.bigdataweek.com/</a>)<a href=#fnref1 class=footnote-back>↩︎</a></p></li><li id=fn2><p><a href=https://monkeylearn.com/sentiment-analysis/ class=uri>https://monkeylearn.com/sentiment-analysis/</a><a href=#fnref2 class=footnote-back>↩︎</a></p></li><li id=fn3><p>(<a href=https://towardsdatascience.com class=uri>https://towardsdatascience.com</a>)<a href=#fnref3 class=footnote-back>↩︎</a></p></li></ol></div><nav class=post-nav><span class=nav-prev>&larr; <a href=/post/tutorials/data-exploration-of-covid-19-data-india/>Exploratory Data Analysis of Covid 19 data of India</a></span>
+<span class=nav-next><a href=/post/tutorials/qgis_bound_box_model/qgis_bound_box_model/>QGIS model to quickly calculate bound box of all polygons in a shapefile</a> &rarr;</span></nav><script type=text/javascript>document.addEventListener("keyup",function(e){if(e.target.nodeName.toUpperCase()!="BODY")return;var t=!1;e.which==37?t="/post/tutorials/data-exploration-of-covid-19-data-india/":e.which==39&&(t="/post/tutorials/qgis_bound_box_model/qgis_bound_box_model/"),t&&(window.location=t)})</script><section class=comments><div id=disqus_thread></div><script>var disqus_config=function(){this.page.url="https://arungopi.gitlab.io"+location.pathname};(function(){if(a=function(){var e=!0;try{e=window.self!==window.top}catch{}return e},a())return;var e,s,o,i,a,r="//blogging-and-beyond.disqus.com/embed.js",t=document,n=t.createElement("script");if(n.src=r,n.async=!0,n.setAttribute("data-timestamp",+new Date),e=t.getElementById("disqus_thread"),s=!1,o=function(o){if(s)return;(t.head||t.body).appendChild(n),s=!0,o&&e.scrollIntoView()},n.onerror=function(){if(sessionStorage.getItem("failure-note"))return;e.innerText="Sorry, but you cannot make comments because Disqus failed to load for some reason. If you are sure it is not blocked in your region, please refresh the page. 中国大陆地区读者需要翻墙才能发表评论。",e.style.border="1px dashed",e.style.padding=".5em",e.style.background="lightyellow",sessionStorage.setItem("failure-note",!0)},location.hash.match(/^#comment-[0-9]+$/))return o(!0);i=function(){if(s)return;var t=e.getBoundingClientRect();t.top<window.innerHeight&&t.bottom>=0&&o()},window.addEventListener("load",i),t.addEventListener("scroll",i)})()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></section><script async src=/js/fix-toc.js></script>
+<script async src=/js/center-img.js></script>
+<script async src=/js/right-quote.js></script>
+<script async src=/js/no-highlight.js></script>
+<script async src=/js/fix-footnote.js></script>
+<script async src=/js/math-code.js></script>
+<script async src=/js/external-link.js></script>
+<script async src=/js/alt-title.js></script>
+<script async src=/js/header-link.js></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src=//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js></script>
+<script src=//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js></script>
+<script src=//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js></script>
+<script src=//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/tex.min.js></script>
+<script>hljs.configure({languages:[]}),hljs.initHighlightingOnLoad()</script><hr><div class=copyright>© <a href=/>Arun Gopinath</a> 2019-2021</div></footer></article><script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(e,t,n,s,o,i,a){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,i=t.createElement(n),a=t.getElementsByTagName(n)[0],i.async=1,i.src=s,a.parentNode.insertBefore(i,a)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-159568026-1","auto"),ga("send","pageview"))</script></body></html>

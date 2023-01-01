@@ -1,0 +1,2149 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>tutorials on Arun Gopinath</title><link>https://arungopi.gitlab.io/categories/tutorials/</link><description>Recent content in tutorials on Arun Gopinath</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 17 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://arungopi.gitlab.io/categories/tutorials/index.xml" rel="self" type="application/rss+xml"/><item><title>Movie barcodes of Dileesh Pothan movies</title><link>https://arungopi.gitlab.io/post/tutorials/2022-12-18-movie-barcode-of-dileesh-pothan-movies/</link><pubDate>Sat, 17 Dec 2022 00:00:00 +0000</pubDate><guid>https://arungopi.gitlab.io/post/tutorials/2022-12-18-movie-barcode-of-dileesh-pothan-movies/</guid><description>&lt;h1 id="movie-barcodes-of-dileesh-pothan-movies">Movie barcodes of Dileesh Pothan movies&lt;/h1>
+&lt;p>&lt;a href="https://www.imdb.com/name/nm4584004/">Dileesh Pothan&lt;/a> is already a rocking star in the Malayalam movie industry for his outstanding movies. Within just three films, he already owns a place in the minds of movie buffs. Subtle details and realistic presentation of stories are popularly known as Pothettan brilliance.His works with &lt;a href="https://www.imdb.com/name/nm1335704/?ref_=tt_cl_t_1">Fahad Faasil&lt;/a> are a treat to watch. Apart from directorial skills, he is also known for his produced movies.&lt;/p>
+&lt;p>In this post, I will show you three barcodes of Pothen’s movie. Each line of the barcode represents the average colour of the frame. These frames are stacked to form a barcode.&lt;/p>
+&lt;h2 id="can-you-guess-the-movies-">Can you guess the movies ?&lt;/h2>
+&lt;h3 id="a">A&lt;/h3>
+&lt;p>&lt;img src="images/mah.JPG" alt="">&lt;/p>
+&lt;h3 id="b">B&lt;/h3>
+&lt;p>&lt;img src="images/joji.jpg" alt="">&lt;/p>
+&lt;h3 id="c">C&lt;/h3>
+&lt;p>&lt;img src="images/tmd.jpg" alt="">&lt;/p>
+&lt;h3 id="answers">Answers&lt;/h3>
+&lt;p>Movies are:&lt;/p>
+&lt;p>C: &lt;a href="https://www.imdb.com/title/tt5906392/?ref_=nm_knf_t_2">Thondimuthalum Driksakshiyum&lt;/a>&lt;/p>
+&lt;p>B: &lt;a href="https://www.imdb.com/title/tt13206926/?ref_=nm_knf_t_1">Joji&lt;/a>&lt;/p>
+&lt;p>A: &lt;a href="https://www.imdb.com/title/tt4851630/?ref_=nm_knf_t_3">Maheshinte Prathikaaram&lt;/a>&lt;/p>
+&lt;h2 id="whats-next-">What&amp;rsquo;s next ?&lt;/h2>
+&lt;p>If you are a movie buff, then you can recollect scenes by analysing the barcode. Like the one where the Chachan character of the movie Maheshinte Prathikaram develops his photographs in a dark room with red lights. Yes, just goosebumps&amp;hellip;&lt;/p>
+&lt;blockquote>
+&lt;p>All movie barcodes are made using python code created by &lt;a href="https://github.com/andrewdcampbell/movie-barcodes">Andrew Campbell&lt;/a>&lt;/p>
+&lt;/blockquote></description><category>python</category><category>movie</category><category>barcode</category><category>fun</category><category>tutorials</category></item><item><title>Creating a rainfall forecasting dashboard of Kerala, India. A non-shiny dashboard for all seasons.</title><link>https://arungopi.gitlab.io/post/tutorials/2022-03-03-creating-a-rainfall-forecasting-dashboard-of-kerala-india-a-non-shiny-dashboard-for-all-seasons/</link><pubDate>Thu, 03 Mar 2022 00:00:00 +0000</pubDate><guid>https://arungopi.gitlab.io/post/tutorials/2022-03-03-creating-a-rainfall-forecasting-dashboard-of-kerala-india-a-non-shiny-dashboard-for-all-seasons/</guid><description>
+&lt;script src="https://arungopi.gitlab.io/post/tutorials/2022-03-03-creating-a-rainfall-forecasting-dashboard-of-kerala-india-a-non-shiny-dashboard-for-all-seasons/index_files/header-attrs/header-attrs.js">&lt;/script>
+&lt;div id="TOC">
+&lt;ul>
+&lt;li>&lt;a href="#a-non-shiny-dashboard-for-all-seasons">A non-shiny dashboard for all seasons&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="#ideas-and-implemenation">Ideas and implemenation&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#lets-dive-in">Let’s dive in&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="#part-1---tabulizer-helps-but..">Part 1 - Tabulizer helps but..&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#part-2---flexdashboard-and-leaflet-is-a-great-combo.">Part 2 - Flexdashboard and leaflet is a great combo.&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#part-3---automation-using-github-actions.">Part 3 - Automation using Github actions.&lt;/a>&lt;/li>
+&lt;/ul>&lt;/li>
+&lt;/ul>&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;div id="a-non-shiny-dashboard-for-all-seasons" class="section level1">
+&lt;h1>A non-shiny dashboard for all seasons&lt;/h1>
+&lt;p>Dashboards are exciting tools to present an idea in the most human-friendly form available. Ideas are infectious it took some time to fix the theme of my dashboard will be ‘Rainfall forecast of Kerala’. Indian meteorological department(IMD) is keen to release rainfall forecast of Kerala state, India number of times a day (usually three times). But the journey is not as smooth as expected.&lt;/p>
+&lt;p>&lt;a href="https://keralaweather.netlify.app">&lt;strong>CHECKOUT DASHBOARD NOW&lt;/strong>&lt;/a>&lt;/p>
+&lt;div class="figure">
+&lt;img src="images/mobile.png" alt="" />
+&lt;p class="caption">Mobile version of rainfall dashboard&lt;/p>
+&lt;/div>
+&lt;div id="ideas-and-implemenation" class="section level2">
+&lt;h2>Ideas and implemenation&lt;/h2>
+&lt;p>The major drawback with these ‘IMD’ data is that all bulletins are in &lt;a href="https://mausam.imd.gov.in/thiruvananthapuram/mcdata/district_rainfall_forecast.pdf">pdf format&lt;/a>. ‘Tabulizer’ package comes in handy to scrape this pdf and converts data into dataframe. This data is joined with shapefile to plot in leaflet. But this dashboard is useless until it is automated. Github actions are super useful for these minimal processes.&lt;/p>
+&lt;/div>
+&lt;div id="lets-dive-in" class="section level2">
+&lt;h2>Let’s dive in&lt;/h2>
+&lt;p>Whole process is divided into three parts&lt;/p>
+&lt;ol style="list-style-type: decimal">
+&lt;li>Data scrapping&lt;/li>
+&lt;li>Dashboard creation&lt;/li>
+&lt;li>Automation using github actions&lt;/li>
+&lt;/ol>
+&lt;div id="packages-used" class="section level4">
+&lt;h4>Packages used&lt;/h4>
+&lt;p>{tidyverse}
+{tabulizer}
+{lubridate}
+{janitor}
+{sf}
+{lubridate}
+{flexdashboard}
+{leaflet}&lt;/p>
+&lt;/div>
+&lt;div id="part-1---tabulizer-helps-but.." class="section level3">
+&lt;h3>Part 1 - Tabulizer helps but..&lt;/h3>
+&lt;p>Package ‘Tabulizer’ is super handy to scrape pdf files. But things may get weird sometimes. Weird tables are painful to extract. ‘extract_tables’ function gives a complex output.&lt;/p>
+&lt;pre class="r">&lt;code>
+# Source data
+pdf &amp;lt;- &amp;quot;https://mausam.imd.gov.in/thiruvananthapuram/mcdata/district_rainfall_forecast.pdf&amp;quot;
+# Collect data from pdf
+warning &amp;lt;- extract_tables(pdf,
+output = &amp;quot;matrix&amp;quot;,
+pages = c(1,1),
+area = list(
+c(164.24098 , 32.80293, 708.75162 ,550.67989),
+c(149.44450, 29.84363, 164.24098, 555.11884 )),
+guess = FALSE,
+method = &amp;quot;stream&amp;quot;)
+# Convert both matrix to data.frames
+data &amp;lt;- as.data.frame(warning[[1]])
+header &amp;lt;- as.data.frame(warning[[2]])&lt;/code>&lt;/pre>
+&lt;p>I found that every third line of table is what I actually looking for. A half an hour internet search solves that problem.&lt;/p>
+&lt;pre class="r">&lt;code># Date as header
+data &amp;lt;- data[,-1]
+data_tvm &amp;lt;- slice_head(data,n = 1)
+row_tri &amp;lt;- seq_len(nrow(data)) %% 3 # Table issues fixed
+data_row_tri &amp;lt;- data[row_tri == 0, ]
+&lt;/code>&lt;/pre>
+&lt;p>Districts are assigned as headers. {Janitor} package helps to solve header issues and makes table good looking.&lt;/p>
+&lt;pre class="r">&lt;code># Districts as headers
+combined &amp;lt;- rbind(data_tvm, data_row_tri ) %&amp;gt;%
+mutate(V1= c(&amp;quot;Thiruvananthapuram&amp;quot;,&amp;quot;Kollam&amp;quot;,&amp;quot;Pathanamthitta&amp;quot;,
+&amp;quot;Alappuzha&amp;quot;,&amp;quot;Kottayam&amp;quot;,&amp;quot;Ernakulam&amp;quot;,&amp;quot;Idukki&amp;quot;,
+&amp;quot;Thrissur&amp;quot;,&amp;quot;Palakkad&amp;quot;,&amp;quot;Malappuram&amp;quot;,&amp;quot;Kozhikode&amp;quot;,
+&amp;quot;Wayanad&amp;quot;,&amp;quot;Kannur&amp;quot;,&amp;quot;Kasaragode&amp;quot;,&amp;quot;Lakshadweep&amp;quot;) )
+# Reorder coloumns
+combined &amp;lt;- combined[,c(6,1,2,3,4,5)]
+warning_five &amp;lt;- rbind(header,combined) %&amp;gt;%
+row_to_names(row_number = 1)&lt;/code>&lt;/pre>
+&lt;p>To avoid complexity the output is saved as .csv format. All codes above are saved in ‘warn.R’ file. Later in the process this R file is called within dashboard Rmd file.&lt;/p>
+&lt;pre class="r">&lt;code># Write output
+write.csv(warning_five,&amp;quot;./data/weather_warn.csv&amp;quot;, row.names = F,quote=F)
+&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;div id="part-2---flexdashboard-and-leaflet-is-a-great-combo." class="section level3">
+&lt;h3>Part 2 - Flexdashboard and leaflet is a great combo.&lt;/h3>
+&lt;p>I want this dashboard independent from server side approach of {Shiny}. Only solution I have right now is {flexdashboard}. Before choosing leaflet as mapping option {ggiraph} is tried but is avoided due to non-friendliness in mobile web browsers.&lt;/p>
+&lt;p>Previously created ‘warn.R’ is set to run within this ‘index.Rmd’ file. Shapefile of kerala state and output of ‘warn.R’ is loaded as shown below.&lt;/p>
+&lt;pre class="r">&lt;code>
+source(&amp;quot;warn.R&amp;quot;, local = knitr::knit_global())
+map_in &amp;lt;- st_read(&amp;quot;./data/kerala/kerala_lak.shp&amp;quot;)
+weather_a &amp;lt;- read_csv(&amp;quot;./data/weather_warn.csv&amp;quot;)&lt;/code>&lt;/pre>
+&lt;p>IMD chooses another weird way of representing alerts with acronymns worse as possible. So you have to recode to display it beautifully.&lt;/p>
+&lt;pre class="r">&lt;code># re-code
+weather_a[weather_a == &amp;quot;No rain&amp;quot;] &amp;lt;- &amp;quot;No alert&amp;quot;
+weather_a[weather_a == &amp;quot;L.&amp;quot; ] &amp;lt;- &amp;quot;Green alert&amp;quot;
+weather_a[weather_a == &amp;quot;L. to M&amp;quot; ] &amp;lt;- &amp;quot;Green alert&amp;quot;
+weather_a[weather_a == &amp;quot;L to M&amp;quot; ] &amp;lt;- &amp;quot;Green alert&amp;quot;
+weather_a[weather_a == &amp;quot;VL&amp;quot; ] &amp;lt;- &amp;quot;No alert&amp;quot;
+weather_a[weather_a == &amp;quot;VL.&amp;quot; ] &amp;lt;- &amp;quot;No alert&amp;quot;
+weather_a[weather_a == &amp;quot;M&amp;quot; ] &amp;lt;- &amp;quot;Yellow alert&amp;quot;
+weather_a[weather_a == &amp;quot;M.&amp;quot; ] &amp;lt;- &amp;quot;Yellow alert&amp;quot;
+weather_a[weather_a == &amp;quot;M. to H&amp;quot; ] &amp;lt;- &amp;quot;Yellow alert&amp;quot;
+weather_a[weather_a == &amp;quot;M to H&amp;quot; ] &amp;lt;- &amp;quot;Yellow alert&amp;quot;
+weather_a[weather_a == &amp;quot;H&amp;quot; ] &amp;lt;- &amp;quot;Orange alert&amp;quot;
+weather_a[weather_a == &amp;quot;H.&amp;quot; ] &amp;lt;- &amp;quot;Orange alert&amp;quot;
+weather_a[weather_a == &amp;quot;VH&amp;quot; ] &amp;lt;- &amp;quot;Red alert&amp;quot;
+weather_a[weather_a == &amp;quot;VH.&amp;quot; ] &amp;lt;- &amp;quot;Red alert&amp;quot;
+weather_a[weather_a == &amp;quot;XH&amp;quot; ] &amp;lt;- &amp;quot;Red alert - Extremely heavy rainfall&amp;quot;
+weather_a[weather_a == &amp;quot;XH.&amp;quot; ] &amp;lt;- &amp;quot;Red alert - Extremely heavy rainfall&amp;quot;&lt;/code>&lt;/pre>
+&lt;p>Shapefile and csv data is merged with ‘merge’ function. Coloumn names represent dates. These values are stored for ease of use. Also, to avoid complex issues with changing headers values (date values) they are replaced with dummy variables.&lt;/p>
+&lt;pre class="r">&lt;code>
+# col
+colnames(weather_a)[1] &amp;lt;- &amp;quot;Name_1&amp;quot;
+# shp + csv
+map_latest &amp;lt;- merge(map_in,weather_a, by =&amp;quot;Name_1&amp;quot;) %&amp;gt;%
+filter(!grepl(&amp;#39;Lakshadweep&amp;#39;, Name_1))
+# Col names
+col2 &amp;lt;- sym(names(map_latest)[2])
+col3 &amp;lt;- sym(names(map_latest)[3])
+col4 &amp;lt;- sym(names(map_latest)[4])
+col5 &amp;lt;- sym(names(map_latest)[5])
+col6 &amp;lt;- sym(names(map_latest)[6])
+# Select only date headers
+col &amp;lt;- colnames(map_latest[2:6])
+# Dummy date headers
+map_ker &amp;lt;- map_latest %&amp;gt;%
+`colnames&amp;lt;-`(c(&amp;quot;District&amp;quot;,&amp;quot;d1&amp;quot;,&amp;quot;d2&amp;quot;,&amp;quot;d3&amp;quot;,&amp;quot;d4&amp;quot;,&amp;quot;d5&amp;quot;,&amp;quot;geometry&amp;quot;))&lt;/code>&lt;/pre>
+&lt;p>Let’s move on to {leaflet} part. As a first step, rainfall warnings are categorised and are colour coded.&lt;/p>
+&lt;pre class="r">&lt;code>pal &amp;lt;-
+colorFactor(palette = c(&amp;#39;White&amp;#39;, &amp;#39;#188f14&amp;#39;, &amp;#39;Yellow&amp;#39;, &amp;#39;Orange&amp;#39;, &amp;#39;Red&amp;#39;, &amp;#39;#8B0000&amp;#39;),
+levels = c(&amp;quot;No alert&amp;quot;,&amp;quot;Green alert&amp;quot;,&amp;quot;Yellow alert&amp;quot;,&amp;quot;Orange alert&amp;quot;,
+&amp;quot;Red alert&amp;quot;,&amp;quot;Red alert - Extremely heavy rainfall&amp;quot;))
+&lt;/code>&lt;/pre>
+&lt;p>Since warning data is available for five days, each of them is added after adding a base tile (OSM). Setview is set after some iterations. For ease of use, layer controls are added with first layer always checked. An inset map is added to increase overall aesthetic value.&lt;/p>
+&lt;pre class="r">&lt;code>map &amp;lt;-leaflet(map_ker) %&amp;gt;%
+addTiles() %&amp;gt;%
+# A base layer of Kerala to always visible
+addPolygons(fillColor = pal(map_ker$District), fillOpacity = 0, color = &amp;quot;black&amp;quot;) %&amp;gt;%
+# Day 1
+addPolygons(fillColor = pal(map_ker$d1), fillOpacity = .5,
+popup = paste(&amp;quot;Date: &amp;quot;,col2, &amp;quot;&amp;lt;br&amp;gt;&amp;quot;,
+&amp;quot;District: &amp;quot;,map_ker$District, &amp;quot;&amp;lt;br&amp;gt;&amp;quot;,
+&amp;quot;Rainfall alert: &amp;quot;, map_ker$d1, &amp;quot;&amp;lt;br&amp;gt;&amp;quot;), group = col[1]) %&amp;gt;%
+# Day 2
+addPolygons(fillColor = pal(map_ker$d2), fillOpacity = .5,
+popup = paste(&amp;quot;Date: &amp;quot;,col3, &amp;quot;&amp;lt;br&amp;gt;&amp;quot;,
+&amp;quot;District: &amp;quot;,map_ker$District, &amp;quot;&amp;lt;br&amp;gt;&amp;quot;,
+&amp;quot;Rainfall alert: &amp;quot;, map_ker$d2, &amp;quot;&amp;lt;br&amp;gt;&amp;quot;) , group = col[2]) %&amp;gt;%
+#Day 3
+addPolygons(fillColor = pal(map_ker$d3), fillOpacity = .5,
+popup = paste(&amp;quot;Date: &amp;quot;,col4, &amp;quot;&amp;lt;br&amp;gt;&amp;quot;,
+&amp;quot;District: &amp;quot;,map_ker$District, &amp;quot;&amp;lt;br&amp;gt;&amp;quot;,
+&amp;quot;Rainfall alert: &amp;quot;, map_ker$d3, &amp;quot;&amp;lt;br&amp;gt;&amp;quot;) , group = col[3]) %&amp;gt;%
+# Day 4
+addPolygons(fillColor = pal(map_ker$d4), fillOpacity = .5,
+popup = paste(&amp;quot;Date: &amp;quot;,col5, &amp;quot;&amp;lt;br&amp;gt;&amp;quot;,
+&amp;quot;District: &amp;quot;,map_ker$District, &amp;quot;&amp;lt;br&amp;gt;&amp;quot;,
+&amp;quot;Rainfall alert: &amp;quot;, map_ker$d4, &amp;quot;&amp;lt;br&amp;gt;&amp;quot;) , group = col[4]) %&amp;gt;%
+# Day 5
+addPolygons(fillColor = pal(map_ker$d5), fillOpacity = .5,
+popup = paste(&amp;quot;Date: &amp;quot;,col6, &amp;quot;&amp;lt;br&amp;gt;&amp;quot;,
+&amp;quot;District: &amp;quot;,map_ker$District, &amp;quot;&amp;lt;br&amp;gt;&amp;quot;,
+&amp;quot;Rainfall alert: &amp;quot;, map_ker$d5, &amp;quot;&amp;lt;br&amp;gt;&amp;quot;) , group = col[5]) %&amp;gt;%
+setView(lng = 76.5711, lat = 10.5, zoom = 7) %&amp;gt;%
+# More freedom to you
+addLayersControl(overlayGroups = col[1:5] ,
+options = layersControlOptions(collapsed = T))%&amp;gt;%
+# add inset map
+addMiniMap(
+tiles = providers$Esri.OceanBasemap,
+position = &amp;#39;bottomleft&amp;#39;,
+width = 120, height = 120,
+toggleDisplay = FALSE) %&amp;gt;%
+# Only first layer need to toggle
+hideGroup(col[2:5])
+&lt;/code>&lt;/pre>
+&lt;p>Dashboard consists of two parts, one with map and other with warning explanation.&lt;/p>
+&lt;pre class="r">&lt;code>Rainfall alert
+=====================================
+Column {.tabset}
+-----------------------------------------------------------------------
+### Rainfall Alert for the week - Weather Forecast for Kerala
+&lt;/code>&lt;/pre>
+&lt;pre class="r">&lt;code>Info
+=====================================
+&lt;/code>&lt;/pre>
+&lt;p>What does these alerts actually mean ?&lt;/p>
+&lt;table>
+&lt;colgroup>
+&lt;col width="18%" />
+&lt;col width="49%" />
+&lt;col width="31%" />
+&lt;/colgroup>
+&lt;thead>
+&lt;tr class="header">
+&lt;th>Type&lt;/th>
+&lt;th>Intensity of rainfall&lt;/th>
+&lt;th>Warning colour code&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr class="odd">
+&lt;td>No alert&lt;/td>
+&lt;td>Very Light Rainfall (0.1 to 2.4 mm)&lt;/td>
+&lt;td>No warning (No action)&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td>Green alert&lt;/td>
+&lt;td>Light rainfall (2.5-15.5 mm)&lt;/td>
+&lt;td>No warning (No action)&lt;/td>
+&lt;/tr>
+&lt;tr class="odd">
+&lt;td>Yellow alert&lt;/td>
+&lt;td>Moderate (15.6-64.4 mm)&lt;/td>
+&lt;td>Watch (Be updated)&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td>Orange alert&lt;/td>
+&lt;td>Heavy Rainfall (64.5-115.5 mm)&lt;/td>
+&lt;td>Alert (Be prepared)&lt;/td>
+&lt;/tr>
+&lt;tr class="odd">
+&lt;td>Red alert&lt;/td>
+&lt;td>Very Heavy Rainfall (115.6-204,4 mm)&lt;/td>
+&lt;td>Warning (Take action)&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td>Red alert&lt;/td>
+&lt;td>Extremely Heavy Rainfall (&amp;gt;204.4mm)&lt;/td>
+&lt;td>Warning (Take action)&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;div id="part-3---automation-using-github-actions." class="section level3">
+&lt;h3>Part 3 - Automation using Github actions.&lt;/h3>
+&lt;p>This part is the core of the project. Thanks &lt;a href="https://github.com/athulvis">Athul&lt;/a> for the invaluable help in this part of work. For activation of github actions one have to create a folder named ‘workflow’ and create ‘anyname.yaml’. Job of this yaml file is to activate at scheduled time and run the task repeatedly. Basically, these actions will give you a working operating system to play with. Here, an ubuntu os is selected and necessary packages are installed and cached for further use. Finally whenever a change is detected in processed files, they will commit automatically. More info on github actions can be &lt;a href="https://github.com/r-lib/actions">read here&lt;/a>.&lt;/p>
+&lt;div class="figure">
+&lt;img src="images/desktop.png" alt="" />
+&lt;p class="caption">Desktop version of rainfall dashboard&lt;/p>
+&lt;/div>
+&lt;p>Netlify solves rendering issues as smooth as possible. &lt;a href="https://github.com/arungop/kerala-weather-collector">Source code&lt;/a> is available on github.&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;/div></description><category>R</category><category>tutorials</category></item><item><title>QGIS model to quickly calculate bound box of all polygons in a shapefile</title><link>https://arungopi.gitlab.io/post/tutorials/qgis_bound_box_model/qgis_bound_box_model/</link><pubDate>Thu, 23 Dec 2021 00:00:00 +0000</pubDate><guid>https://arungopi.gitlab.io/post/tutorials/qgis_bound_box_model/qgis_bound_box_model/</guid><description>&lt;p>Calculating the boundary box of a large number of polygons in a shapefile in QGIS is discussed earlier in &lt;a href="https://arungopi.gitlab.io/post/tutorials/bound-extend/">this post&lt;/a>. The process itself is tedious and required a support from Microsoft Office. There has been numerous updates arrived in QGIS and several algorithms were incorporated. Keeping this in mind I developed a QGIS model which can create an output with a simple click.&lt;/p>
+&lt;p>&lt;a href="https://raw.githubusercontent.com/arungop/QGIS_boundbox/main/Boundary_box.model3">Download this Model&lt;/a> and save it in suitable location.&lt;/p>
+&lt;blockquote>
+&lt;p>More on this &lt;a href="https://github.com/arungop/QGIS_boundbox">github repo&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;p>Open the shapefile in QGIS and follow these steps.&lt;/p>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/147188898-8031d826-b981-4628-9731-c6d8bd1f6820.png" alt="">&lt;/p>
+&lt;p>Now, select &lt;em>model tool box&lt;/em> icon and select Open &lt;em>existing model&lt;/em>. In the window that appears select above saved file and click apply.&lt;/p>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/147188884-17c280bc-f68c-4c6d-a7ef-19e373d9807d.png" alt="">&lt;/p>
+&lt;p>After that in &lt;em>processing toolbox&lt;/em>, we can see our &lt;strong>Boundarybox model&lt;/strong> appears in Models tool.&lt;/p>
+&lt;p>Double click the &lt;strong>Boundarybox icon&lt;/strong> and in the dialog box that appears &lt;strong>unselect&lt;/strong> all the options denoting &lt;em>&amp;ldquo;Open output file after running algorithm&amp;rdquo;&lt;/em>
+&lt;strong>except&lt;/strong> for the last section [Bound (optional)] (see picture).&lt;/p>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/147188891-c8da0f85-0ad0-4c58-8aae-0593088c7b8b.png" alt="">&lt;/p>
+&lt;p>You can provide suitable name and save the file in the last option.&lt;/p>
+&lt;p>Click &lt;strong>Run&lt;/strong>.&lt;/p>
+&lt;p>If you not saved the file in last option, then right click the temporary file named &lt;em>Bound&lt;/em> &lt;strong>(Default name)&lt;/strong> and save it in your required location.&lt;/p>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/147188892-d7528b5f-e8e4-4bca-91b2-e3f6ccf76ace.png" alt="">&lt;/p>
+&lt;ul>
+&lt;li>Check attribute table.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/147188895-f23694bb-c7e7-4fa6-9caa-6bf4f6afa830.png" alt="">
+Hope it hepls.&lt;/p>
+&lt;blockquote>
+&lt;p>Note: This model only works after QGIS 3.16&lt;/p>
+&lt;/blockquote></description><category>GIS</category><category>QGIS</category><category>tutorials</category></item><item><title>Is Cristiano Ronaldo lost his interest in twitter? A fun analysis of tweets of Cristiano Ronaldo using R</title><link>https://arungopi.gitlab.io/post/tutorials/2021-11-21-a-fun-analysis-of-tweets-of-cristiano-ronaldo-in-r/</link><pubDate>Sun, 21 Nov 2021 00:00:00 +0000</pubDate><guid>https://arungopi.gitlab.io/post/tutorials/2021-11-21-a-fun-analysis-of-tweets-of-cristiano-ronaldo-in-r/</guid><description>
+&lt;script src="https://arungopi.gitlab.io/post/tutorials/2021-11-21-a-fun-analysis-of-tweets-of-cristiano-ronaldo-in-r/index_files/header-attrs/header-attrs.js">&lt;/script>
+&lt;div id="TOC">
+&lt;ul>
+&lt;li>&lt;a href="#a-detailed-analysis-of-tweets-of-famous-footballer-cristiano-ronaldo-in-r">A detailed analysis of tweets of famous footballer Cristiano Ronaldo in R&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="#get-ronaldos-tweets-timeline">Get Ronaldo’s tweets timeline&lt;/a>&lt;/li>
+&lt;/ul>&lt;/li>
+&lt;li>&lt;a href="#lets-dive-into-it.">Let’s dive into it.&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="#plotting-tweets-per-months-over-the-time-period">Plotting tweets per months over the time period&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="#bar-plot-to-get-more-insight">Bar plot to get more insight&lt;/a>&lt;/li>
+&lt;/ul>&lt;/li>
+&lt;/ul>&lt;/li>
+&lt;li>&lt;a href="#is-there-any-pattern-over-the-months">Is there any pattern over the months ?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#what-about-over-the-days">What about over the days ?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#tweets-over-the-time">Tweets over the time&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#retweets-vs-original-tweets">Retweets v/s Original tweets&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#text-mining---lets-deep-dive-into-the-tweet-data">Text mining - Let’s deep dive into the tweet data&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="#what-about-hashtags-frequency">What about Hashtags frequency ?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#most-retweeted-tweet">Most retweeted tweet&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#most-liked-tweet">Most liked tweet&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#top-mentions">Top mentions&lt;/a>&lt;/li>
+&lt;/ul>&lt;/li>
+&lt;li>&lt;a href="#create-a-wordcloud-using-the-words-used-in-his-tweets-so-far.">Create a wordcloud using the words used in his tweets so far.&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="#find-top-words">Find top words&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="#wordcloud">Wordcloud&lt;/a>&lt;/li>
+&lt;/ul>&lt;/li>
+&lt;li>&lt;a href="#sentiment-analysis">Sentiment analysis&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#sentiment-plot">Sentiment plot&lt;/a>&lt;/li>
+&lt;/ul>&lt;/li>
+&lt;li>&lt;a href="#conclusion">Conclusion&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;div id="a-detailed-analysis-of-tweets-of-famous-footballer-cristiano-ronaldo-in-r" class="section level1">
+&lt;h1>A detailed analysis of tweets of famous footballer Cristiano Ronaldo in R&lt;/h1>
+&lt;p>In this post we are going to have a quick roundup of Cristiano Ronaldo’s tweets. For this mission various powerful tools of ‘R’ are used.&lt;/p>
+&lt;pre class="r">&lt;code>library(rtweet)
+library(tidyverse)
+library(lubridate)
+library(hms)
+library(scales)
+library(tidytext)
+library(wordcloud)
+library(syuzhet)&lt;/code>&lt;/pre>
+&lt;div id="get-ronaldos-tweets-timeline" class="section level2">
+&lt;h2>Get Ronaldo’s tweets timeline&lt;/h2>
+&lt;p>Due to limitations of twitter new policy, we can only retrieve last 3200 tweets of a user. In our case, as of writing this article his total tweets are just 3733. So we are covering most of his twitter journey here.&lt;/p>
+&lt;pre class="r">&lt;code>Ronaldo &amp;lt;- get_timeline(&amp;quot;@cristiano&amp;quot;, n= 3200)&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;/div>
+&lt;div id="lets-dive-into-it." class="section level1">
+&lt;h1>Let’s dive into it.&lt;/h1>
+&lt;div id="plotting-tweets-per-months-over-the-time-period" class="section level2">
+&lt;h2>Plotting tweets per months over the time period&lt;/h2>
+&lt;p>As the first user case lets see how he tweets over these years.&lt;/p>
+&lt;pre class="r">&lt;code>ggplot(data = Ronaldo,
+aes(month(created_at, label=TRUE, abbr=TRUE),
+group=factor(year(created_at)), color=factor(year(created_at))))+
+geom_line(stat= &amp;quot;count&amp;quot;) +
+geom_point(stat=&amp;quot;count&amp;quot;) +
+labs(x=&amp;quot;Month&amp;quot;, colour=&amp;quot;Year&amp;quot;, xlab = &amp;quot;Month&amp;quot;, ylab = &amp;quot;Number of tweets&amp;quot;,
+title = &amp;quot;Cristiano Ronaldo&amp;#39;s tweets over the time period&amp;quot;,
+caption = &amp;quot;Created by Arun Gopinath&amp;quot;) +
+theme_minimal()&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="https://arungopi.gitlab.io/post/tutorials/2021-11-21-a-fun-analysis-of-tweets-of-cristiano-ronaldo-in-r/index_files/figure-html/unnamed-chunk-1-1.png" width="672" />&lt;/p>
+&lt;p>It’s quite difficult to obtain a trend here. But one thing is sure, his interest in twitter is just fading away.&lt;/p>
+&lt;div id="bar-plot-to-get-more-insight" class="section level3">
+&lt;h3>Bar plot to get more insight&lt;/h3>
+&lt;pre class="r">&lt;code>ggplot(data = Ronaldo, aes(x = year(created_at))) +
+geom_bar(aes(fill = ..count..)) +
+xlab(&amp;quot;Year&amp;quot;) + ylab(&amp;quot;Number of tweets&amp;quot;) +
+labs(title = &amp;quot;Cristiano Ronaldo&amp;#39;s tweets over the time period&amp;quot;,
+subtitle = &amp;quot;2013 &amp;amp; 2014 been his prime time in twitter&amp;quot;,
+caption = &amp;quot;Created by Arun Gopinath&amp;quot;)+
+scale_x_continuous (breaks = c(2010:2021)) +
+theme_minimal() +
+scale_fill_gradient(low = &amp;quot;yellow&amp;quot;, high = &amp;quot;darkgreen&amp;quot;)&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="https://arungopi.gitlab.io/post/tutorials/2021-11-21-a-fun-analysis-of-tweets-of-cristiano-ronaldo-in-r/index_files/figure-html/unnamed-chunk-2-1.png" width="672" />&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;div id="is-there-any-pattern-over-the-months" class="section level1">
+&lt;h1>Is there any pattern over the months ?&lt;/h1>
+&lt;pre class="r">&lt;code>ggplot(data = Ronaldo, aes(x = month(created_at, label = TRUE))) +
+geom_bar(aes(fill = ..count..)) +
+xlab(&amp;quot;Month&amp;quot;) + ylab(&amp;quot;Number of tweets&amp;quot;) +
+labs(title = &amp;quot;Cristiano Ronaldo&amp;#39;s tweets - Monthwise&amp;quot;,
+subtitle = &amp;quot;It&amp;#39;s december&amp;quot;,
+caption = &amp;quot;Created by Arun Gopinath&amp;quot;)+
+theme_minimal() +
+scale_fill_gradient(low = &amp;quot;yellow&amp;quot;, high = &amp;quot;red&amp;quot;)&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="https://arungopi.gitlab.io/post/tutorials/2021-11-21-a-fun-analysis-of-tweets-of-cristiano-ronaldo-in-r/index_files/figure-html/unnamed-chunk-3-1.png" width="672" />&lt;/p>
+&lt;/div>
+&lt;div id="what-about-over-the-days" class="section level1">
+&lt;h1>What about over the days ?&lt;/h1>
+&lt;pre class="r">&lt;code>ggplot(data = Ronaldo, aes(x = wday(created_at, label = TRUE))) +
+geom_bar(aes(fill = ..count..)) +
+xlab(&amp;quot;Day of the week&amp;quot;) + ylab(&amp;quot;Number of tweets&amp;quot;) +
+labs(title = &amp;quot;Do you know which day Cristiano Ronaldo pick to tweet least ?&amp;quot;,
+subtitle = &amp;quot;Weekends are holidays&amp;quot;,
+caption = &amp;quot;Created by Arun Gopinath&amp;quot;)+
+theme_minimal() +
+scale_fill_gradient(low = &amp;quot;turquoise3&amp;quot;, high = &amp;quot;darkgreen&amp;quot;)&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="https://arungopi.gitlab.io/post/tutorials/2021-11-21-a-fun-analysis-of-tweets-of-cristiano-ronaldo-in-r/index_files/figure-html/unnamed-chunk-4-1.png" width="672" />&lt;/p>
+&lt;p>Sundays are usually his least tweeted day so far. While Thursdays are more engaged one.&lt;/p>
+&lt;/div>
+&lt;div id="tweets-over-the-time" class="section level1">
+&lt;h1>Tweets over the time&lt;/h1>
+&lt;p>Let’s look another factor which may influence his tweet pattern - Time during a day.&lt;/p>
+&lt;p>But our date and time are in combined form so clean it up using hms and scales packages as given below.&lt;/p>
+&lt;pre class="r">&lt;code>## Get hour, minute and seconds from tweets
+Ronaldo$time &amp;lt;- hms::hms(second(Ronaldo$created_at),
+minute(Ronaldo$created_at),
+hour(Ronaldo$created_at))
+## Converting to `POSIXct` as ggplot isn’t compatible with `hms`
+Ronaldo$time &amp;lt;- as.POSIXct(Ronaldo$time)&lt;/code>&lt;/pre>
+&lt;p>Our data is ready to plot. Any guess ?&lt;/p>
+&lt;pre class="r">&lt;code>ggplot(data = Ronaldo)+
+geom_density(aes(x = time, y = ..scaled..),
+fill=&amp;quot;steelblue&amp;quot;, alpha=0.3) +
+xlab(&amp;quot;Time&amp;quot;) + ylab(&amp;quot;Density&amp;quot;) +
+labs(title = &amp;quot;Cristiano Ronaldo tweet pattern&amp;quot;,
+subtitle = &amp;quot;His sleeping pattern is quite good !&amp;quot;,
+caption = &amp;quot;Created by Arun Gopinath&amp;quot;)+
+scale_x_datetime(breaks = date_breaks(&amp;quot;2 hours&amp;quot;),
+labels = date_format(&amp;quot;%H:%M&amp;quot;)) +
+theme_minimal()&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="https://arungopi.gitlab.io/post/tutorials/2021-11-21-a-fun-analysis-of-tweets-of-cristiano-ronaldo-in-r/index_files/figure-html/unnamed-chunk-6-1.png" width="672" />&lt;/p>
+&lt;p>As expected from a super player like Ronaldo, his twitter usage is negligible between 12 am and 6 am. Another reason for his super powers on the field. Also he spends more time online during evening section.&lt;/p>
+&lt;/div>
+&lt;div id="retweets-vs-original-tweets" class="section level1">
+&lt;h1>Retweets v/s Original tweets&lt;/h1>
+&lt;p>Do Ronaldo retweet more nowadays?&lt;/p>
+&lt;pre class="r">&lt;code>ggplot(data = Ronaldo, aes(x = created_at, fill = is_retweet)) +
+geom_histogram(bins=30) +
+xlab(&amp;quot;Time&amp;quot;) + ylab(&amp;quot;Number of tweets&amp;quot;) +
+labs(title = &amp;quot;Cristiano Ronaldo&amp;#39;s Retweets v/s Original tweets&amp;quot;,
+subtitle = &amp;quot;Almost stopped retweeting after 2015 !&amp;quot;,
+caption = &amp;quot;Created by Arun Gopinath&amp;quot;)+
+theme_minimal() +
+scale_fill_manual(values = c(&amp;quot;darkolivegreen3&amp;quot;, &amp;quot;darkolivegreen4&amp;quot;), name = &amp;quot;Retweet&amp;quot;)&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="https://arungopi.gitlab.io/post/tutorials/2021-11-21-a-fun-analysis-of-tweets-of-cristiano-ronaldo-in-r/index_files/figure-html/unnamed-chunk-7-1.png" width="672" />&lt;/p>
+&lt;p>No not at all !!&lt;/p>
+&lt;/div>
+&lt;div id="text-mining---lets-deep-dive-into-the-tweet-data" class="section level1">
+&lt;h1>Text mining - Let’s deep dive into the tweet data&lt;/h1>
+&lt;div id="what-about-hashtags-frequency" class="section level2">
+&lt;h2>What about Hashtags frequency ?&lt;/h2>
+&lt;p>What are the top 10 hashtags he tweeted ?&lt;/p>
+&lt;pre class="r">&lt;code>Ronaldo %&amp;gt;%
+unnest_tokens(hashtag, text, &amp;quot;tweets&amp;quot;, to_lower = FALSE) %&amp;gt;%
+filter(str_detect(hashtag, &amp;quot;^#&amp;quot;)) %&amp;gt;%
+count(hashtag, sort = TRUE) %&amp;gt;%
+top_n(10) %&amp;gt;%
+ggplot(aes(x = reorder(hashtag, -n), y =n))+
+geom_segment( aes(xend=hashtag, yend=0)) +
+geom_point( size=4, color=&amp;quot;red&amp;quot;) +
+theme_bw() +
+ylab(&amp;quot;Count&amp;quot;)+
+xlab(&amp;quot;Hashtags&amp;quot;)+
+labs(title = &amp;quot;Cristiano Ronaldo&amp;#39;s top 10 twitter #hashtags&amp;quot;,
+subtitle = &amp;quot;&amp;quot;,
+caption = &amp;quot;Created by Arun Gopinath&amp;quot;)+
+coord_flip()&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="https://arungopi.gitlab.io/post/tutorials/2021-11-21-a-fun-analysis-of-tweets-of-cristiano-ronaldo-in-r/index_files/figure-html/unnamed-chunk-8-1.png" width="672" />&lt;/p>
+&lt;p>Most of them are sports related, especially about teams he represented and his personal milestones.&lt;/p>
+&lt;/div>
+&lt;div id="most-retweeted-tweet" class="section level2">
+&lt;h2>Most retweeted tweet&lt;/h2>
+&lt;p>Which tweet is the most retweeted tweet ?&lt;/p>
+&lt;pre class="r">&lt;code>Ronaldo %&amp;gt;%
+arrange(-retweet_count) %&amp;gt;%
+slice(1) %&amp;gt;%
+select(created_at, screen_name, text, retweet_count, status_id)&lt;/code>&lt;/pre>
+&lt;blockquote class="twitter-tweet">
+&lt;p lang="en" dir="ltr">
+So happy to be able to hold the two new loves of my life 🙏❤ &lt;a href="https://t.co/FIY11aWQm9">pic.twitter.com/FIY11aWQm9&lt;/a>
+&lt;/p>
+— Cristiano Ronaldo (&lt;span class="citation">@Cristiano&lt;/span>) &lt;a href="https://twitter.com/Cristiano/status/880473340619759616?ref_src=twsrc%5Etfw">June 29, 2017&lt;/a>
+&lt;/blockquote>
+&lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8">&lt;/script>
+&lt;/div>
+&lt;div id="most-liked-tweet" class="section level2">
+&lt;h2>Most liked tweet&lt;/h2>
+&lt;pre class="r">&lt;code>Ronaldo %&amp;gt;%
+arrange(-favorite_count) %&amp;gt;%
+top_n(5, favorite_count) %&amp;gt;%
+select(created_at, screen_name, text, favorite_count)&lt;/code>&lt;/pre>
+&lt;blockquote class="twitter-tweet">
+&lt;p lang="en" dir="ltr">
+So sad to hear the heartbreaking news of the deaths of Kobe and his daughter Gianna. Kobe was a true legend and inspiration to so many. Sending my condolences to his family and friends and the families of all who lost their lives in the crash. RIP Legend💔 &lt;a href="https://t.co/qKb3oiDHxH">pic.twitter.com/qKb3oiDHxH&lt;/a>
+&lt;/p>
+— Cristiano Ronaldo (&lt;span class="citation">@Cristiano&lt;/span>) &lt;a href="https://twitter.com/Cristiano/status/1221578681472163841?ref_src=twsrc%5Etfw">January 26, 2020&lt;/a>
+&lt;/blockquote>
+&lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8">&lt;/script>
+&lt;/div>
+&lt;div id="top-mentions" class="section level2">
+&lt;h2>Top mentions&lt;/h2>
+&lt;pre class="r">&lt;code>Ronaldo %&amp;gt;%
+unnest_tokens(mentions, text, &amp;quot;tweets&amp;quot;, to_lower = FALSE) %&amp;gt;%
+filter(str_detect(mentions, &amp;quot;^@&amp;quot;)) %&amp;gt;%
+count(mentions, sort = TRUE) %&amp;gt;%
+top_n(10)&lt;/code>&lt;/pre>
+&lt;pre>&lt;code>## # A tibble: 10 x 2
+## mentions n
+## &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt;
+## 1 @Cristiano 177
+## 2 @nikefootball 54
+## 3 @GAMEbyRonaldo 37
+## 4 @realmadrid 25
+## 5 @VivaRonaldo 25
+## 6 @cristiano 18
+## 7 @TAGHeuer 17
+## 8 @Herbalife 16
+## 9 @SavetheChildren 16
+## 10 @HeadsUp 13&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;/div>
+&lt;div id="create-a-wordcloud-using-the-words-used-in-his-tweets-so-far." class="section level1">
+&lt;h1>Create a wordcloud using the words used in his tweets so far.&lt;/h1>
+&lt;div id="find-top-words" class="section level2">
+&lt;h2>Find top words&lt;/h2>
+&lt;p>Here we want to remove white spaces, symbols, signs etc. Also remove stop words, words which are frequently used by everyone, from the list.And finally sort it &lt;a href="#fn1" class="footnote-ref" id="fnref1">&lt;sup>1&lt;/sup>&lt;/a>.&lt;/p>
+&lt;pre class="r">&lt;code>words &amp;lt;- Ronaldo %&amp;gt;%
+mutate(text = str_remove_all(text, &amp;quot;&amp;amp;amp;|&amp;amp;lt;|&amp;amp;gt;&amp;quot;),
+text = str_remove_all(text, &amp;quot;\\s?(f|ht)(tp)(s?)(://)([^\\.]*)[\\.|/](\\S*)&amp;quot;),
+text = str_remove_all(text, &amp;quot;[^\x01-\x7F]&amp;quot;)) %&amp;gt;%
+unnest_tokens(word, text, token = &amp;quot;tweets&amp;quot;) %&amp;gt;%
+filter(!word %in% stop_words$word,
+!word %in% str_remove_all(stop_words$word, &amp;quot;&amp;#39;&amp;quot;),
+str_detect(word, &amp;quot;[a-z]&amp;quot;),
+!str_detect(word, &amp;quot;^#&amp;quot;),
+!str_detect(word, &amp;quot;@\\S+&amp;quot;)) %&amp;gt;%
+count(word, sort = TRUE)&lt;/code>&lt;/pre>
+&lt;div id="wordcloud" class="section level3">
+&lt;h3>Wordcloud&lt;/h3>
+&lt;p>Now plot a wordcloud from what we got.&lt;/p>
+&lt;pre class="r">&lt;code>set.seed(1234)
+words %&amp;gt;%
+with(wordcloud(word, n, random.order = FALSE, max.words = 150,
+scale=c(2.6,0.25),colors=brewer.pal(8, &amp;quot;Dark2&amp;quot;)))&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="https://arungopi.gitlab.io/post/tutorials/2021-11-21-a-fun-analysis-of-tweets-of-cristiano-ronaldo-in-r/index_files/figure-html/unnamed-chunk-13-1.png" width="672" />&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;div id="sentiment-analysis" class="section level2">
+&lt;h2>Sentiment analysis&lt;/h2>
+&lt;blockquote>
+&lt;p>Sentiment analysis (or opinion mining) is a natural language processing (NLP) technique used to determine whether data is positive, negative or neutral. Sentiment analysis is often performed on textual data to help businesses monitor brand and product sentiment in customer feedback, and understand customer needs&lt;a href="#fn2" class="footnote-ref" id="fnref2">&lt;sup>2&lt;/sup>&lt;/a>.&lt;/p>
+&lt;/blockquote>
+&lt;p>Here we analyse 10 emotions from positive to disgust.&lt;/p>
+&lt;ul>
+&lt;li>First convert text to ASCII to tackle strange characters like what we done above.&lt;/li>
+&lt;/ul>
+&lt;pre class="r">&lt;code>tweet_text &amp;lt;- iconv(words, from=&amp;quot;UTF-8&amp;quot;, to=&amp;quot;ASCII&amp;quot;, sub=&amp;quot;&amp;quot;)&lt;/code>&lt;/pre>
+&lt;ul>
+&lt;li>Since we are playing with tweets of Ronaldo ignore retweets.&lt;/li>
+&lt;/ul>
+&lt;pre class="r">&lt;code>Tweet_text &amp;lt;- gsub(&amp;quot;(RT|via)((?:\\b\\w*@\\w+)+)&amp;quot;,&amp;quot;&amp;quot;,tweet_text)&lt;/code>&lt;/pre>
+&lt;ul>
+&lt;li>Also remove mentions&lt;/li>
+&lt;/ul>
+&lt;pre class="r">&lt;code>Tweet_text &amp;lt;- gsub(&amp;quot;@\\w+&amp;quot;,&amp;quot;&amp;quot;,tweet_text)&lt;/code>&lt;/pre>
+&lt;ul>
+&lt;li>Get sentiment score using ‘get_nrc_sentiment’ function.&lt;/li>
+&lt;/ul>
+&lt;pre class="r">&lt;code>Ron_sentiment &amp;lt;- get_nrc_sentiment((tweet_text))&lt;/code>&lt;/pre>
+&lt;ul>
+&lt;li>To display it in ggplot we want to convert it into a data frame.&lt;/li>
+&lt;/ul>
+&lt;pre class="r">&lt;code>Sentimentscores &amp;lt;- data.frame(colSums(Ron_sentiment[,]))&lt;/code>&lt;/pre>
+&lt;ul>
+&lt;li>For better understanding of data frame better headers are assigned.&lt;/li>
+&lt;/ul>
+&lt;pre class="r">&lt;code>names(Sentimentscores) &amp;lt;- &amp;quot;Score&amp;quot;
+Sentimentscores &amp;lt;- cbind(&amp;quot;sentiment&amp;quot;=rownames(Sentimentscores),Sentimentscores)
+rownames(Sentimentscores) &amp;lt;- NULL&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;div id="sentiment-plot" class="section level2">
+&lt;h2>Sentiment plot&lt;/h2>
+&lt;p>Finally our sentiment plot of Cristiano Ronaldo’s tweets &lt;a href="#fn3" class="footnote-ref" id="fnref3">&lt;sup>3&lt;/sup>&lt;/a>.&lt;/p>
+&lt;pre class="r">&lt;code>ggplot(data=Sentimentscores,aes(x=sentiment,y=Score))+
+geom_bar(aes(fill=sentiment),stat = &amp;quot;identity&amp;quot;)+
+theme(legend.position=&amp;quot;none&amp;quot;)+
+xlab(&amp;quot;Sentiments&amp;quot;)+ylab(&amp;quot;Scores&amp;quot;)+
+labs(title = &amp;quot;Total sentiment of Cristiano Ronaldo&amp;#39;s tweets based on scores&amp;quot;,
+subtitle = &amp;quot;Positive vibes&amp;quot;)+
+theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="https://arungopi.gitlab.io/post/tutorials/2021-11-21-a-fun-analysis-of-tweets-of-cristiano-ronaldo-in-r/index_files/figure-html/unnamed-chunk-20-1.png" width="672" />&lt;/p>
+&lt;ul>
+&lt;li>Positive vibes overall.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/div>
+&lt;div id="conclusion" class="section level1">
+&lt;h1>Conclusion&lt;/h1>
+&lt;p>Cristiano Ronaldo is shifting his gears with new age social media like Instagram. Tweet frequency is dramatically getting lower over the years.Further analysis can be done based to mine more and more intersting details. Happy mining.&lt;/p>
+&lt;/div>
+&lt;div class="footnotes">
+&lt;hr />
+&lt;ol>
+&lt;li id="fn1">&lt;p>(&lt;a href="https://blog.bigdataweek.com/" class="uri">https://blog.bigdataweek.com/&lt;/a>)&lt;a href="#fnref1" class="footnote-back">↩︎&lt;/a>&lt;/p>&lt;/li>
+&lt;li id="fn2">&lt;p>&lt;a href="https://monkeylearn.com/sentiment-analysis/" class="uri">https://monkeylearn.com/sentiment-analysis/&lt;/a>&lt;a href="#fnref2" class="footnote-back">↩︎&lt;/a>&lt;/p>&lt;/li>
+&lt;li id="fn3">&lt;p>(&lt;a href="https://towardsdatascience.com" class="uri">https://towardsdatascience.com&lt;/a>)&lt;a href="#fnref3" class="footnote-back">↩︎&lt;/a>&lt;/p>&lt;/li>
+&lt;/ol>
+&lt;/div></description><category>R</category><category>infographics</category><category>wordcloud</category><category>tutorials</category></item><item><title>Exploratory Data Analysis of Covid 19 data of India</title><link>https://arungopi.gitlab.io/post/tutorials/data-exploration-of-covid-19-data-india/</link><pubDate>Tue, 03 Aug 2021 00:00:00 +0000</pubDate><guid>https://arungopi.gitlab.io/post/tutorials/data-exploration-of-covid-19-data-india/</guid><description>
+&lt;script src="https://arungopi.gitlab.io/post/tutorials/data-exploration-of-covid-19-data-india/index_files/header-attrs/header-attrs.js">&lt;/script>
+&lt;script src="https://arungopi.gitlab.io/post/tutorials/data-exploration-of-covid-19-data-india/index_files/kePrint/kePrint.js">&lt;/script>
+&lt;link href="https://arungopi.gitlab.io/post/tutorials/data-exploration-of-covid-19-data-india/index_files/lightable/lightable.css" rel="stylesheet" />
+&lt;script src="https://arungopi.gitlab.io/post/tutorials/data-exploration-of-covid-19-data-india/index_files/htmlwidgets/htmlwidgets.js">&lt;/script>
+&lt;script src="https://arungopi.gitlab.io/post/tutorials/data-exploration-of-covid-19-data-india/index_files/pymjs/pym.v1.js">&lt;/script>
+&lt;script src="https://arungopi.gitlab.io/post/tutorials/data-exploration-of-covid-19-data-india/index_files/widgetframe-binding/widgetframe.js">&lt;/script>
+&lt;div id="TOC">
+&lt;ul>
+&lt;li>&lt;a href="#exploring-and-visualising-covid-19-dataset-of-indian-states-using-r">Exploring and visualising Covid 19 dataset of Indian states using R&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="#load-required-packages">Load required packages&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#data-data..">Data… Data..&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="#loading-latest-shapefile-of-indian-states">Loading latest shapefile of Indian states&lt;/a>&lt;/li>
+&lt;/ul>&lt;/li>
+&lt;/ul>&lt;/li>
+&lt;li>&lt;a href="#exploratory-data-analysis">Exploratory Data Analysis&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="#first-reporting-case---when-where">First reporting case - When ? Where ?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#peak-active-covid-case-in-india---when">Peak active covid case in India - When ?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#which-day-records-maximum-tpr-in-india">Which day records maximum TPR in India?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#highest-death-rate-recorded">Highest death rate recorded ?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#top-5-states-with-cumulative-confirmed-cases">Top 5 states with cumulative confirmed cases ?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#least-cumulative-confirmed-cases">Least cumulative confirmed cases ?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#most-deaths---top-5">Most deaths - Top 5 ?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#least-deaths---state-or-ut">Least deaths - State or UT ?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#which-state-has-most-number-of-active-cases">Which state has most number of active cases ?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#which-state-has-least-number-of-active-cases">Which state has least number of active cases ?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#highest-tpr-ever-recorded-in-a-state">Highest TPR ever recorded in a state ?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#highest-tpr-7-day-moving-average-recorded">Highest TPR 7 day moving average recorded ?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#check-weather-any-reletion-between-weekdays-and-covid-19-deaths">Check weather any reletion between weekdays and Covid 19 deaths&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#daily-cases-in-india">Daily cases in India&lt;/a>&lt;/li>
+&lt;/ul>&lt;/li>
+&lt;li>&lt;a href="#lets-see-some-interesting-heat-maps-created-using-plotly-package.">Let’s see some interesting heat maps created using Plotly package.&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="#covid-19-confirmed-cases">Covid 19 confirmed cases&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#deaths-during-pandemic-cummulative">Deaths during pandemic (Cummulative)&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#test-positivity-rate-tpr-during-pandemic">Test Positivity Rate (TPR) during pandemic&lt;/a>&lt;/li>
+&lt;/ul>&lt;/li>
+&lt;li>&lt;a href="#maps-tell-more-stories..">Maps tell more stories..&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;div id="exploring-and-visualising-covid-19-dataset-of-indian-states-using-r" class="section level1">
+&lt;h1>Exploring and visualising Covid 19 dataset of Indian states using R&lt;/h1>
+&lt;blockquote>
+&lt;p>Last update : Oct 31,2021&lt;/p>
+&lt;/blockquote>
+&lt;p>Covid 19 data is availabe publically and updates on daily basis. This is an attempt to explore the same with interesting questions all done using the power of “R”.&lt;/p>
+&lt;p>I will try to make sure to update the post on regular basis. So you can revisit this post again to see latest stats (atleast weekly update will be provided).&lt;/p>
+&lt;div id="load-required-packages" class="section level2">
+&lt;h2>Load required packages&lt;/h2>
+&lt;p>Load R packages needed for this data exploration and proper visualisation.&lt;/p>
+&lt;pre class="r">&lt;code>library(plotly)
+library(tidyverse)
+library(lubridate)
+library(knitr)
+library(kableExtra)
+library(sf)
+library(viridis)
+library(glue)
+library(scales)
+library(widgetframe)
+library(here)&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;div id="data-data.." class="section level2">
+&lt;h2>Data… Data..&lt;/h2>
+&lt;p>Data is obtained from &lt;a href="https://github.com/covid19india/api">Github&lt;/a>.&lt;/p>
+&lt;ul>
+&lt;li>Removed “India” and “State unassigned” from ’State coloumn&lt;/li>
+&lt;li>Calculate TPR rate = (Confirmed cases/Total tests)* 100)&lt;/li>
+&lt;li>Calculate 7 day moving average of TPR&lt;/li>
+&lt;li>Calculate active cases per state = Confirmed -(Recovered + Deceased)&lt;/li>
+&lt;li>Calculate Mortality rate per confirmed cases = (Deceased / Confirmed ) * 100&lt;/li>
+&lt;li>Calculate daily deaths&lt;/li>
+&lt;/ul>
+&lt;pre class="r">&lt;code>states &amp;lt;- read_csv(&amp;quot;https://api.covid19india.org/csv/latest/states.csv&amp;quot;)
+states_daily &amp;lt;- states %&amp;gt;%
+filter(!(State %in% c(&amp;quot;India&amp;quot;,&amp;quot;State Unassigned&amp;quot;))) %&amp;gt;%
+mutate(TPR = (Confirmed/Tested)* 100) %&amp;gt;%
+group_by(State) %&amp;gt;%
+mutate(Daily_cases = Confirmed - lag(Confirmed, default = 0)) %&amp;gt;%
+mutate(Daily_deaths = Deceased - lag(Deceased, default = 0)) %&amp;gt;%
+mutate(TPR_7d = zoo::rollmean(TPR, k=7,fill = NA)) %&amp;gt;%
+mutate(Active_cases = Confirmed - (Recovered + Deceased)) %&amp;gt;%
+mutate(Mortality_rate = (Deceased / Confirmed ) * 100) %&amp;gt;%
+mutate(across(where(is.numeric), ~ round(., 3))) %&amp;gt;%
+mutate(Code = toupper(substr(State,0,3))) %&amp;gt;%
+ungroup()
+states_daily$Date &amp;lt;- ymd(states_daily$Date)
+covid_latest &amp;lt;- states_daily %&amp;gt;%
+filter(Date==max(Date)) %&amp;gt;%
+rename(State_Name = State)&lt;/code>&lt;/pre>
+&lt;ul>
+&lt;li>A national level data subset&lt;/li>
+&lt;/ul>
+&lt;pre class="r">&lt;code># India_stats
+India_stats&amp;lt;- states %&amp;gt;%
+filter((State %in% c(&amp;quot;India&amp;quot;))) %&amp;gt;%
+mutate(TPR = (Confirmed/Tested)* 100) %&amp;gt;%
+group_by(State) %&amp;gt;%
+mutate(Daily_cases = Confirmed - lag(Confirmed, default = 0)) %&amp;gt;%
+mutate(Daily_deaths = Deceased - lag(Deceased, default = 0)) %&amp;gt;%
+mutate(TPR_7d = zoo::rollmean(TPR, k=7,fill = NA)) %&amp;gt;%
+mutate(Active_cases = Confirmed - (Recovered + Deceased)) %&amp;gt;%
+mutate(Mortality_rate = (Deceased / Confirmed ) * 100) %&amp;gt;%
+mutate(across(where(is.numeric), ~ round(., 3))) %&amp;gt;%
+ungroup()
+India_stats$Date &amp;lt;- ymd(India_stats$Date)&lt;/code>&lt;/pre>
+&lt;div id="loading-latest-shapefile-of-indian-states" class="section level3">
+&lt;h3>Loading latest shapefile of Indian states&lt;/h3>
+&lt;p>Covid stats are merged with this shapefile for further analysis&lt;/p>
+&lt;pre class="r">&lt;code># India latest map
+map_in &amp;lt;- st_read(here(&amp;quot;static&amp;quot;,&amp;quot;/data/india/India_State_Boundary.shp&amp;quot;))&lt;/code>&lt;/pre>
+&lt;pre>&lt;code>## Reading layer `India_State_Boundary&amp;#39; from data source
+## `/home/arungopinath/Public/arungopi.gitlab.io/static/data/india/India_State_Boundary.shp&amp;#39;
+## using driver `ESRI Shapefile&amp;#39;
+## Simple feature collection with 37 features and 1 field
+## Geometry type: MULTIPOLYGON
+## Dimension: XY
+## Bounding box: xmin: 7583508 ymin: 753607.8 xmax: 10843390 ymax: 4452638
+## Projected CRS: WGS 84 / Pseudo-Mercator&lt;/code>&lt;/pre>
+&lt;pre class="r">&lt;code>map_latest &amp;lt;- merge(map_in,covid_latest, by =&amp;quot;State_Name&amp;quot;)&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;div id="exploratory-data-analysis" class="section level1">
+&lt;h1>Exploratory Data Analysis&lt;/h1>
+&lt;p>This section is interesting because here we can explore our data to seek important and cool facts.&lt;/p>
+&lt;div id="first-reporting-case---when-where" class="section level2">
+&lt;h2>First reporting case - When ? Where ?&lt;/h2>
+&lt;pre class="r">&lt;code>first &amp;lt;- states_daily %&amp;gt;%
+filter(Date==min(Date)) %&amp;gt;%
+select(Date,State,Confirmed) %&amp;gt;%
+kable() %&amp;gt;%
+kable_styling()
+first&lt;/code>&lt;/pre>
+&lt;table class="table" style="margin-left: auto; margin-right: auto;">
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left;">
+Date
+&lt;/th>
+&lt;th style="text-align:left;">
+State
+&lt;/th>
+&lt;th style="text-align:right;">
+Confirmed
+&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left;">
+2020-01-30
+&lt;/td>
+&lt;td style="text-align:left;">
+Kerala
+&lt;/td>
+&lt;td style="text-align:right;">
+1
+&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;ul>
+&lt;li>State = Kerala &amp;amp; Date: 30 Jan,2020&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;div id="peak-active-covid-case-in-india---when" class="section level2">
+&lt;h2>Peak active covid case in India - When ?&lt;/h2>
+&lt;pre class="r">&lt;code>Peak_day &amp;lt;- India_stats %&amp;gt;%
+arrange(desc(Daily_cases)) %&amp;gt;%
+top_n(1,Daily_cases) %&amp;gt;%
+select(Date,Daily_cases) %&amp;gt;%
+kable() %&amp;gt;%
+kable_styling()
+Peak_day&lt;/code>&lt;/pre>
+&lt;table class="table" style="margin-left: auto; margin-right: auto;">
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left;">
+Date
+&lt;/th>
+&lt;th style="text-align:right;">
+Daily_cases
+&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left;">
+2021-05-06
+&lt;/td>
+&lt;td style="text-align:right;">
+414280
+&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;div id="which-day-records-maximum-tpr-in-india" class="section level2">
+&lt;h2>Which day records maximum TPR in India?&lt;/h2>
+&lt;pre class="r">&lt;code>Peak_tpr &amp;lt;- India_stats %&amp;gt;%
+arrange(desc(TPR)) %&amp;gt;%
+top_n(1,TPR) %&amp;gt;%
+select(Date,TPR) %&amp;gt;%
+kable() %&amp;gt;%
+kable_styling()
+Peak_tpr&lt;/code>&lt;/pre>
+&lt;table class="table" style="margin-left: auto; margin-right: auto;">
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left;">
+Date
+&lt;/th>
+&lt;th style="text-align:right;">
+TPR
+&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left;">
+2020-08-09
+&lt;/td>
+&lt;td style="text-align:right;">
+9.007
+&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;div id="highest-death-rate-recorded" class="section level2">
+&lt;h2>Highest death rate recorded ?&lt;/h2>
+&lt;pre class="r">&lt;code>Peak_mortality &amp;lt;- India_stats %&amp;gt;%
+arrange(desc(Mortality_rate)) %&amp;gt;%
+top_n(1,Mortality_rate) %&amp;gt;%
+select(Date,Mortality_rate) %&amp;gt;%
+kable() %&amp;gt;%
+kable_styling()
+Peak_mortality&lt;/code>&lt;/pre>
+&lt;table class="table" style="margin-left: auto; margin-right: auto;">
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left;">
+Date
+&lt;/th>
+&lt;th style="text-align:right;">
+Mortality_rate
+&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left;">
+2020-04-12
+&lt;/td>
+&lt;td style="text-align:right;">
+3.604
+&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;div id="top-5-states-with-cumulative-confirmed-cases" class="section level2">
+&lt;h2>Top 5 states with cumulative confirmed cases ?&lt;/h2>
+&lt;pre class="r">&lt;code>top_5 &amp;lt;- states_daily %&amp;gt;%
+filter(Date==max(Date)) %&amp;gt;%
+arrange(desc(Confirmed)) %&amp;gt;%
+top_n(5,Confirmed)%&amp;gt;%
+select(Date,State,Confirmed) %&amp;gt;%
+kable() %&amp;gt;%
+kable_styling()
+top_5 &lt;/code>&lt;/pre>
+&lt;table class="table" style="margin-left: auto; margin-right: auto;">
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left;">
+Date
+&lt;/th>
+&lt;th style="text-align:left;">
+State
+&lt;/th>
+&lt;th style="text-align:right;">
+Confirmed
+&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left;">
+2021-10-31
+&lt;/td>
+&lt;td style="text-align:left;">
+Maharashtra
+&lt;/td>
+&lt;td style="text-align:right;">
+6611078
+&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left;">
+2021-10-31
+&lt;/td>
+&lt;td style="text-align:left;">
+Kerala
+&lt;/td>
+&lt;td style="text-align:right;">
+4968657
+&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left;">
+2021-10-31
+&lt;/td>
+&lt;td style="text-align:left;">
+Karnataka
+&lt;/td>
+&lt;td style="text-align:right;">
+2988333
+&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left;">
+2021-10-31
+&lt;/td>
+&lt;td style="text-align:left;">
+Tamil Nadu
+&lt;/td>
+&lt;td style="text-align:right;">
+2702623
+&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left;">
+2021-10-31
+&lt;/td>
+&lt;td style="text-align:left;">
+Andhra Pradesh
+&lt;/td>
+&lt;td style="text-align:right;">
+2066450
+&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;div id="least-cumulative-confirmed-cases" class="section level2">
+&lt;h2>Least cumulative confirmed cases ?&lt;/h2>
+&lt;pre class="r">&lt;code>least_affect &amp;lt;- states_daily %&amp;gt;%
+filter(Date==max(Date)) %&amp;gt;%
+arrange(desc(Confirmed)) %&amp;gt;%
+slice_min(order_by = Confirmed) %&amp;gt;%
+select(Date,State,Confirmed) %&amp;gt;%
+kable() %&amp;gt;%
+kable_styling()
+least_affect &lt;/code>&lt;/pre>
+&lt;table class="table" style="margin-left: auto; margin-right: auto;">
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left;">
+Date
+&lt;/th>
+&lt;th style="text-align:left;">
+State
+&lt;/th>
+&lt;th style="text-align:right;">
+Confirmed
+&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left;">
+2021-10-31
+&lt;/td>
+&lt;td style="text-align:left;">
+Andaman and Nicobar Islands
+&lt;/td>
+&lt;td style="text-align:right;">
+7651
+&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;div id="most-deaths---top-5" class="section level2">
+&lt;h2>Most deaths - Top 5 ?&lt;/h2>
+&lt;pre class="r">&lt;code>most_death &amp;lt;- states_daily %&amp;gt;%
+filter(Date==max(Date)) %&amp;gt;%
+arrange(desc(Deceased)) %&amp;gt;%
+top_n(5,Deceased) %&amp;gt;%
+select(State,Deceased) %&amp;gt;%
+kable() %&amp;gt;%
+kable_styling()
+most_death &lt;/code>&lt;/pre>
+&lt;table class="table" style="margin-left: auto; margin-right: auto;">
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left;">
+State
+&lt;/th>
+&lt;th style="text-align:right;">
+Deceased
+&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left;">
+Maharashtra
+&lt;/td>
+&lt;td style="text-align:right;">
+140216
+&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left;">
+Karnataka
+&lt;/td>
+&lt;td style="text-align:right;">
+38082
+&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left;">
+Tamil Nadu
+&lt;/td>
+&lt;td style="text-align:right;">
+36116
+&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left;">
+Kerala
+&lt;/td>
+&lt;td style="text-align:right;">
+31681
+&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left;">
+Delhi
+&lt;/td>
+&lt;td style="text-align:right;">
+25091
+&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;div id="least-deaths---state-or-ut" class="section level2">
+&lt;h2>Least deaths - State or UT ?&lt;/h2>
+&lt;pre class="r">&lt;code>least_death &amp;lt;- states_daily %&amp;gt;%
+filter(Date==max(Date)) %&amp;gt;%
+arrange(desc(Deceased)) %&amp;gt;%
+top_n(-1,Deceased)%&amp;gt;%
+select(State,Deceased) %&amp;gt;%
+kable() %&amp;gt;%
+kable_styling()
+least_death &lt;/code>&lt;/pre>
+&lt;table class="table" style="margin-left: auto; margin-right: auto;">
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left;">
+State
+&lt;/th>
+&lt;th style="text-align:right;">
+Deceased
+&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left;">
+Dadra and Nagar Haveli and Daman and Diu
+&lt;/td>
+&lt;td style="text-align:right;">
+4
+&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;div id="which-state-has-most-number-of-active-cases" class="section level2">
+&lt;h2>Which state has most number of active cases ?&lt;/h2>
+&lt;pre class="r">&lt;code>active_cases_top &amp;lt;- states_daily %&amp;gt;%
+filter(Date==max(Date)) %&amp;gt;%
+arrange(desc(Active_cases)) %&amp;gt;%
+top_n(1,Active_cases) %&amp;gt;%
+select(Date,State,Active_cases,TPR) %&amp;gt;%
+kable() %&amp;gt;%
+kable_styling()
+active_cases_top &lt;/code>&lt;/pre>
+&lt;table class="table" style="margin-left: auto; margin-right: auto;">
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left;">
+Date
+&lt;/th>
+&lt;th style="text-align:left;">
+State
+&lt;/th>
+&lt;th style="text-align:right;">
+Active_cases
+&lt;/th>
+&lt;th style="text-align:right;">
+TPR
+&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left;">
+2021-10-31
+&lt;/td>
+&lt;td style="text-align:left;">
+Kerala
+&lt;/td>
+&lt;td style="text-align:right;">
+79795
+&lt;/td>
+&lt;td style="text-align:right;">
+13.115
+&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;div id="which-state-has-least-number-of-active-cases" class="section level2">
+&lt;h2>Which state has least number of active cases ?&lt;/h2>
+&lt;pre class="r">&lt;code>active_cases_least&amp;lt;- states_daily %&amp;gt;%
+filter(Date==max(Date)) %&amp;gt;%
+arrange(desc(Active_cases)) %&amp;gt;%
+top_n(-1,Active_cases) %&amp;gt;%
+select(Date,State,Active_cases,TPR) %&amp;gt;%
+kable() %&amp;gt;%
+kable_styling()
+active_cases_least &lt;/code>&lt;/pre>
+&lt;table class="table" style="margin-left: auto; margin-right: auto;">
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left;">
+Date
+&lt;/th>
+&lt;th style="text-align:left;">
+State
+&lt;/th>
+&lt;th style="text-align:right;">
+Active_cases
+&lt;/th>
+&lt;th style="text-align:right;">
+TPR
+&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left;">
+2021-10-31
+&lt;/td>
+&lt;td style="text-align:left;">
+Andaman and Nicobar Islands
+&lt;/td>
+&lt;td style="text-align:right;">
+4
+&lt;/td>
+&lt;td style="text-align:right;">
+1.279
+&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;div id="highest-tpr-ever-recorded-in-a-state" class="section level2">
+&lt;h2>Highest TPR ever recorded in a state ?&lt;/h2>
+&lt;pre class="r">&lt;code>tpr_highest &amp;lt;- states_daily %&amp;gt;%
+arrange(desc(TPR)) %&amp;gt;%
+top_n(1,TPR)%&amp;gt;%
+select(Date,State,Active_cases,TPR) %&amp;gt;%
+kable() %&amp;gt;%
+kable_styling()
+tpr_highest &lt;/code>&lt;/pre>
+&lt;table class="table" style="margin-left: auto; margin-right: auto;">
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left;">
+Date
+&lt;/th>
+&lt;th style="text-align:left;">
+State
+&lt;/th>
+&lt;th style="text-align:right;">
+Active_cases
+&lt;/th>
+&lt;th style="text-align:right;">
+TPR
+&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left;">
+2020-06-15
+&lt;/td>
+&lt;td style="text-align:left;">
+Telangana
+&lt;/td>
+&lt;td style="text-align:right;">
+2240
+&lt;/td>
+&lt;td style="text-align:right;">
+22.204
+&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;div id="highest-tpr-7-day-moving-average-recorded" class="section level2">
+&lt;h2>Highest TPR 7 day moving average recorded ?&lt;/h2>
+&lt;pre class="r">&lt;code>tpr_7_highest &amp;lt;- states_daily %&amp;gt;%
+arrange(desc(TPR_7d)) %&amp;gt;%
+top_n(1,TPR_7d) %&amp;gt;%
+select(Date,State,Active_cases,TPR_7d) %&amp;gt;%
+kable() %&amp;gt;%
+kable_styling()
+tpr_7_highest &lt;/code>&lt;/pre>
+&lt;table class="table" style="margin-left: auto; margin-right: auto;">
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left;">
+Date
+&lt;/th>
+&lt;th style="text-align:left;">
+State
+&lt;/th>
+&lt;th style="text-align:right;">
+Active_cases
+&lt;/th>
+&lt;th style="text-align:right;">
+TPR_7d
+&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left;">
+2020-07-08
+&lt;/td>
+&lt;td style="text-align:left;">
+Telangana
+&lt;/td>
+&lt;td style="text-align:right;">
+11933
+&lt;/td>
+&lt;td style="text-align:right;">
+21.287
+&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;div id="check-weather-any-reletion-between-weekdays-and-covid-19-deaths" class="section level2">
+&lt;h2>Check weather any reletion between weekdays and Covid 19 deaths&lt;/h2>
+&lt;pre class="r">&lt;code># Calculate weekdays
+India_stats &amp;lt;- India_stats %&amp;gt;%
+mutate(weekdays = weekdays(Date))
+# Reorder weekdays
+India_stats$weekdays &amp;lt;- factor(India_stats$weekdays, weekdays(as.Date(&amp;#39;1970-01-03&amp;#39;) + 1:7))&lt;/code>&lt;/pre>
+&lt;pre class="r">&lt;code>ggplot(India_stats, aes(x=weekdays, y=Daily_deaths)) +
+geom_bar(stat=&amp;quot;identity&amp;quot;, width=.5, fill=&amp;quot;tomato3&amp;quot;)+
+labs(title=&amp;quot;Any relation between Weekdays and Daily deaths&amp;quot;,
+subtitle=&amp;quot;Mondays have lowest reported deaths&amp;quot;,
+caption= glue(&amp;quot;Last update: {max(map_latest$Date)}&amp;quot;)) +
+theme(axis.text.x = element_text(angle=65, vjust=0.6))&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="https://arungopi.gitlab.io/post/tutorials/data-exploration-of-covid-19-data-india/index_files/figure-html/unnamed-chunk-16-1.png" width="100%" />&lt;/p>
+&lt;ul>
+&lt;li>Mondays record minimum deaths while tuesdays are having higher number of deaths.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;div id="daily-cases-in-india" class="section level2">
+&lt;h2>Daily cases in India&lt;/h2>
+&lt;pre class="r">&lt;code># Daily cases
+active &amp;lt;- ggplot(India_stats)+
+geom_line(aes(Date,Daily_cases, color =&amp;quot;Daily_cases&amp;quot;),show.legend = F)+
+labs(title=&amp;quot;Covid 19 cases in India a time series&amp;quot;,
+subtitle=&amp;quot;&amp;quot;,
+caption= glue(&amp;quot;Last update: {max(map_latest$Date)}&amp;quot;)) +
+theme(axis.text.x = element_text(angle=65, vjust=0.6),legend.position=&amp;#39;none&amp;#39;)
+covid_time &amp;lt;- ggplotly(active, dynamicTicks = TRUE) %&amp;gt;%
+rangeslider() %&amp;gt;%
+layout(hovermode = &amp;quot;x&amp;quot;)
+frameWidget(covid_time)&lt;/code>&lt;/pre>
+&lt;div id="htmlwidget-1" style="width:100%;height:480px;" class="widgetframe html-widget">&lt;/div>
+&lt;script type="application/json" data-for="htmlwidget-1">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-17.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}&lt;/script>
+&lt;/div>
+&lt;/div>
+&lt;div id="lets-see-some-interesting-heat-maps-created-using-plotly-package." class="section level1">
+&lt;h1>Let’s see some interesting heat maps created using Plotly package.&lt;/h1>
+&lt;div id="covid-19-confirmed-cases" class="section level2">
+&lt;h2>Covid 19 confirmed cases&lt;/h2>
+&lt;pre class="r">&lt;code>Confirmed &amp;lt;- plot_ly(x=states_daily$Date,
+y=states_daily$Code,
+z = states_daily$Confirmed,
+type = &amp;quot;heatmap&amp;quot;,
+hoverinfo=&amp;#39;text&amp;#39;,
+showscale=FALSE ,
+text = ~paste(&amp;#39;State: &amp;#39;,states_daily$State, &amp;#39;&amp;lt;br&amp;gt;Date : &amp;lt;/br&amp;gt;&amp;#39;, states_daily$Date,&amp;#39;&amp;lt;br&amp;gt;Total Confirmed: &amp;lt;/br&amp;gt;&amp;#39;,states_daily$Confirmed),
+colorscale= &amp;quot;Portland&amp;quot;)%&amp;gt;%
+layout(title=&amp;quot;Covid 19 cases in Indian states (Cummulative)&amp;quot;)
+frameWidget(Confirmed) &lt;/code>&lt;/pre>
+&lt;div id="htmlwidget-2" style="width:100%;height:480px;" class="widgetframe html-widget">&lt;/div>
+&lt;script type="application/json" data-for="htmlwidget-2">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-18.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}&lt;/script>
+&lt;/div>
+&lt;div id="deaths-during-pandemic-cummulative" class="section level2">
+&lt;h2>Deaths during pandemic (Cummulative)&lt;/h2>
+&lt;pre class="r">&lt;code>Deaths &amp;lt;- plot_ly(x=states_daily$Date,
+y=states_daily$Code,
+z = states_daily$Daily_deaths,
+type = &amp;quot;heatmap&amp;quot;,
+hoverinfo=&amp;#39;text&amp;#39;,
+showscale=FALSE ,
+text = ~paste(&amp;#39;State: &amp;#39;,states_daily$State, &amp;#39;&amp;lt;br&amp;gt;Date : &amp;lt;/br&amp;gt;&amp;#39;, states_daily$Date,&amp;#39;&amp;lt;br&amp;gt;Deaths &amp;lt;/br&amp;gt;&amp;#39;,states_daily$Daily_deaths),
+colorscale= &amp;quot;Blackbody&amp;quot;) %&amp;gt;%
+layout(title=&amp;quot;Life lost in Indian states during Covid 19 pandemic&amp;quot;)
+frameWidget(Deaths) &lt;/code>&lt;/pre>
+&lt;div id="htmlwidget-3" style="width:100%;height:480px;" class="widgetframe html-widget">&lt;/div>
+&lt;script type="application/json" data-for="htmlwidget-3">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-19.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}&lt;/script>
+&lt;ul>
+&lt;li>Abnormality numbers may occur while states re-evaluate their stats.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;div id="test-positivity-rate-tpr-during-pandemic" class="section level2">
+&lt;h2>Test Positivity Rate (TPR) during pandemic&lt;/h2>
+&lt;pre class="r">&lt;code>TPR &amp;lt;- plot_ly(x=states_daily$Date,
+y=states_daily$Code,
+z = states_daily$TPR,
+type = &amp;quot;heatmap&amp;quot;,
+showscale=FALSE ,
+hoverinfo=&amp;#39;text&amp;#39;,
+text = ~paste(&amp;#39;State: &amp;#39;,states_daily$State, &amp;#39;&amp;lt;br&amp;gt;Date : &amp;lt;/br&amp;gt;&amp;#39;, states_daily$Date,&amp;#39;&amp;lt;br&amp;gt;TPR rate:&amp;lt;/br&amp;gt;&amp;#39;,states_daily$TPR, &amp;#39;&amp;lt;br&amp;gt;Cases today: &amp;lt;/br&amp;gt;&amp;#39;,states_daily$Daily_cases))%&amp;gt;%
+layout(title=&amp;quot;TPR rate in India states during Covid 19 pandemic&amp;quot;)
+frameWidget(TPR) &lt;/code>&lt;/pre>
+&lt;div id="htmlwidget-4" style="width:100%;height:480px;" class="widgetframe html-widget">&lt;/div>
+&lt;script type="application/json" data-for="htmlwidget-4">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-20.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}&lt;/script>
+&lt;/div>
+&lt;/div>
+&lt;div id="maps-tell-more-stories.." class="section level1">
+&lt;h1>Maps tell more stories..&lt;/h1>
+&lt;pre class="r">&lt;code># Covid 19 Confirmed cases in India
+ggplot(map_latest)+
+geom_sf(aes(fill = Confirmed))+
+scale_fill_viridis_c(option = &amp;quot;magma&amp;quot;,labels = comma)+
+labs(
+title = &amp;quot;Covid 19 Confirmed cases in India&amp;quot;,
+subtitle = glue(&amp;quot;Last update: {max(map_latest$Date)}&amp;quot;)
+) +
+theme(
+text = element_text(color = &amp;quot;#22211d&amp;quot;),
+plot.background = element_rect(fill = &amp;quot;#f5f5f2&amp;quot;, color = NA),
+panel.background = element_rect(fill = &amp;quot;#f5f5f2&amp;quot;, color = NA),
+legend.background = element_rect(fill = &amp;quot;#f5f5f2&amp;quot;, color = NA),
+plot.title = element_text(size= 13, hjust=0.01, color = &amp;quot;#4e4d47&amp;quot;, margin = margin(b = -0.1, t = 0.4, l = 2, unit = &amp;quot;cm&amp;quot;)),
+plot.subtitle = element_text(size= 10, hjust=0.01, color = &amp;quot;#4e4d47&amp;quot;, margin = margin(b = -0.1, t = 0.43, l = 2, unit = &amp;quot;cm&amp;quot;)),
+plot.caption = element_text( size=12, color = &amp;quot;#4e4d47&amp;quot;, margin = margin(b = 0.3, r=-99, unit = &amp;quot;cm&amp;quot;) ),
+legend.position = c(1.3, 0.25)
+)&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="https://arungopi.gitlab.io/post/tutorials/data-exploration-of-covid-19-data-india/index_files/figure-html/unnamed-chunk-21-1.png" width="100%" />&lt;/p>
+&lt;pre class="r">&lt;code># Covid 19 Deaths in India
+ggplot(map_latest)+
+geom_sf(aes(fill = Deceased))+
+scale_fill_viridis_c(labels = comma)+
+labs(
+title = &amp;quot;Covid 19 Deaths in India&amp;quot;,
+subtitle = glue(&amp;quot;Last update: {max(map_latest$Date)}&amp;quot;)
+) +
+theme(
+text = element_text(color = &amp;quot;#22211d&amp;quot;),
+plot.background = element_rect(fill = &amp;quot;#f5f5f2&amp;quot;, color = NA),
+panel.background = element_rect(fill = &amp;quot;#f5f5f2&amp;quot;, color = NA),
+legend.background = element_rect(fill = &amp;quot;#f5f5f2&amp;quot;, color = NA),
+plot.title = element_text(size= 13, hjust=0.01, color = &amp;quot;#4e4d47&amp;quot;, margin = margin(b = -0.1, t = 0.4, l = 2, unit = &amp;quot;cm&amp;quot;)),
+plot.subtitle = element_text(size= 10, hjust=0.01, color = &amp;quot;#4e4d47&amp;quot;, margin = margin(b = -0.1, t = 0.43, l = 2, unit = &amp;quot;cm&amp;quot;)),
+plot.caption = element_text( size=12, color = &amp;quot;#4e4d47&amp;quot;, margin = margin(b = 0.3, r=-99, unit = &amp;quot;cm&amp;quot;) ),
+legend.position = c(1.3, 0.25)
+)&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="https://arungopi.gitlab.io/post/tutorials/data-exploration-of-covid-19-data-india/index_files/figure-html/unnamed-chunk-22-1.png" width="100%" />&lt;/p>
+&lt;pre class="r">&lt;code># Covid 19 Test Positivity rate (TPR) in India
+ggplot(map_latest)+
+geom_sf(aes(fill = TPR))+
+scale_fill_gradient(low = &amp;quot;#EEFCDF&amp;quot;, high = &amp;quot;#F2251D&amp;quot;,labels = comma)+
+labs(
+title = &amp;quot;Covid 19 Test Positivity rate (TPR) in India&amp;quot;,
+subtitle = glue(&amp;quot;Last update: {max(map_latest$Date)}&amp;quot;)
+) +
+theme(
+text = element_text(color = &amp;quot;#22211d&amp;quot;),
+plot.background = element_rect(fill = &amp;quot;#f5f5f2&amp;quot;, color = NA),
+panel.background = element_rect(fill = &amp;quot;#f5f5f2&amp;quot;, color = NA),
+legend.background = element_rect(fill = &amp;quot;#f5f5f2&amp;quot;, color = NA),
+plot.title = element_text(size= 11.6, hjust=0.01, color = &amp;quot;#4e4d47&amp;quot;, margin = margin(b = -0.1, t = 0.4, l = 2, unit = &amp;quot;cm&amp;quot;)),
+plot.subtitle = element_text(size= 10, hjust=0.01, color = &amp;quot;#4e4d47&amp;quot;, margin = margin(b = -0.1, t = 0.43, l = 2, unit = &amp;quot;cm&amp;quot;)),
+plot.caption = element_text( size=12, color = &amp;quot;#4e4d47&amp;quot;, margin = margin(b = 0.3, r=-99, unit = &amp;quot;cm&amp;quot;) ),
+legend.position = c(1.3, 0.25)
+)&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="https://arungopi.gitlab.io/post/tutorials/data-exploration-of-covid-19-data-india/index_files/figure-html/unnamed-chunk-23-1.png" width="100%" />&lt;/p>
+&lt;pre class="r">&lt;code># Covid 19 Active case in India
+ggplot(map_latest)+
+geom_sf(aes(fill = Active_cases))+
+scale_fill_gradient(low = &amp;quot;white&amp;quot;, high = &amp;quot;#3D94EF&amp;quot;,labels = comma)+
+labs(
+title = &amp;quot;Covid 19 active cases in India&amp;quot;,
+subtitle = glue(&amp;quot;Last update: {max(map_latest$Date)}&amp;quot;)
+) +
+theme(
+text = element_text(color = &amp;quot;#22211d&amp;quot;),
+plot.background = element_rect(fill = &amp;quot;#f5f5f2&amp;quot;, color = NA),
+panel.background = element_rect(fill = &amp;quot;#f5f5f2&amp;quot;, color = NA),
+legend.background = element_rect(fill = &amp;quot;#f5f5f2&amp;quot;, color = NA),
+plot.title = element_text(size= 11.6, hjust=0.01, color = &amp;quot;#4e4d47&amp;quot;, margin = margin(b = -0.1, t = 0.4, l = 2, unit = &amp;quot;cm&amp;quot;)),
+plot.subtitle = element_text(size= 10, hjust=0.01, color = &amp;quot;#4e4d47&amp;quot;, margin = margin(b = -0.1, t = 0.43, l = 2, unit = &amp;quot;cm&amp;quot;)),
+plot.caption = element_text( size=12, color = &amp;quot;#4e4d47&amp;quot;, margin = margin(b = 0.3, r=-99, unit = &amp;quot;cm&amp;quot;) ),
+legend.position = c(1.3, 0.25)
+)&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="https://arungopi.gitlab.io/post/tutorials/data-exploration-of-covid-19-data-india/index_files/figure-html/unnamed-chunk-24-1.png" width="100%" />
+# Feel free to add intresting questions&lt;/p>
+&lt;p>Please point out any error you found as soon as possible. Also, comment your thoughts and raise interesting questions so that we can explore this data more.&lt;/p>
+&lt;/div></description><category>R</category><category>infographics</category><category>tutorials</category></item><item><title>Convert a bulk of pdf files into images in just two lines of code (Only for linux users)</title><link>https://arungopi.gitlab.io/post/tutorials/2021-07-31-convert-a-bulk-of-pdf-into-images-in-two-lines-of-code/</link><pubDate>Sat, 31 Jul 2021 00:00:00 +0000</pubDate><guid>https://arungopi.gitlab.io/post/tutorials/2021-07-31-convert-a-bulk-of-pdf-into-images-in-two-lines-of-code/</guid><description>&lt;h1 id="just-two-lines-of-code-for-linux-users">Just two lines of code for linux users&lt;/h1>
+&lt;p>Let&amp;rsquo;s say you have a folder consists of hundreds of pdf files. Your job is to convert it into image format (jpg or png). If you are in a Linux environment, then the solution is pretty simple. &lt;strong>Just two lines of code!&lt;/strong>&lt;/p>
+&lt;p>In the &lt;em>file manager&lt;/em> open the folder containing pdf files. &lt;em>Right-click and select Open terminal (here)&lt;/em>. Once inside that directory,then you can type or copy and paste the following command in the terminal and press enter:&lt;/p>
+&lt;pre tabindex="0">&lt;code>find . -maxdepth 1 -type f -name &amp;#39;*.pdf&amp;#39; -exec pdftoppm -jpeg {} {} \;
+&lt;/code>&lt;/pre>&lt;p>Here we used a cool tool called [pdftoppm]&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>. In the above line of code, we use &amp;lsquo;find&amp;rsquo; to search for pdf files and set it to &amp;lsquo;-maxdepth&amp;rsquo; and convert it to jpeg format. Done, you will find the converted jpg files in the same directory alongside the old pdf files. But it&amp;rsquo;s a mess to identify, isn&amp;rsquo;t it? Make use of &amp;lsquo;mkdir&amp;rsquo; and &amp;lsquo;mv&amp;rsquo; functions to move these images to a new folder:&lt;/p>
+&lt;pre tabindex="0">&lt;code>mkdir jpg_files &amp;amp;&amp;amp; mv *.jpg jpg_files/
+&lt;/code>&lt;/pre>&lt;h2 id="there-are-other-methods-too-but">There are other methods too, but&amp;hellip;&lt;/h2>
+&lt;p>There are other ways to do this especially with [ImageMagick]&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup> but this method is efficient and lossless method for practical use.&lt;/p>
+&lt;p>&lt;a href="https://gpay.app.goo.gl/pay-sCjOGpyBhXM" target="_blank">&lt;img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A " style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" >&lt;/a>&lt;/p>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>&lt;a href="https://linux.die.net/man/1/pdftoppm">https://linux.die.net/man/1/pdftoppm&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:2">
+&lt;p>&lt;a href="https://askubuntu.com/questions/150100/extracting-embedded-images-from-a-pdf/1187844#1187844">https://askubuntu.com/questions/150100/extracting-embedded-images-from-a-pdf/1187844#1187844&lt;/a>&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description><category>linux</category><category>pdftojpg</category><category>tutorials</category></item><item><title>Can you identify this legendary malayalam novel ? A ggwordcloud experiment in R</title><link>https://arungopi.gitlab.io/post/tutorials/r-wordcloud/</link><pubDate>Thu, 17 Jun 2021 00:00:00 +0000</pubDate><guid>https://arungopi.gitlab.io/post/tutorials/r-wordcloud/</guid><description>
+&lt;script src="https://arungopi.gitlab.io/post/tutorials/r-wordcloud/index_files/header-attrs/header-attrs.js">&lt;/script>
+&lt;div id="a-legendary-novel" class="section level1">
+&lt;h1>A legendary novel&lt;/h1>
+&lt;p>Yesterday out of nowhere the masterpiece novel, which changed the course of Malayalam literature forever pop up in my social media feed. After reading the digital copy (.epub) of the same, the idea for this article came into my mind.
+All I have for you is “words”.&lt;/p>
+&lt;div id="create-a-word-cloud-using-r" class="section level2">
+&lt;h2>Create a word cloud using R&lt;/h2>
+&lt;p>First of all, load necessary R packages. {readtext} and {tidytext} for load our novel. {tidyverse} - the most important package for data wrangling. {ggplot2} and {ggwordcloud} for visualisation.&lt;/p>
+&lt;pre class="r">&lt;code>library(tidytext)
+library(readtext)
+library(here)
+library(tidyverse)
+library(ggplot2)
+library(ggwordcloud)&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;div id="load-files" class="section level2">
+&lt;h2>Load files&lt;/h2>
+&lt;p>Load files. (If you follow the clue, you are already in the right direction to find this masterpiece novel). Here, the novel is in ‘.txt’ format. “unnest_token” will convert the entire file into a two-column table.&lt;/p>
+&lt;pre class="r">&lt;code>k &amp;lt;- readtext(here(&amp;quot;static/data&amp;quot;,&amp;quot;k.txt&amp;quot;))
+token_k &amp;lt;- k %&amp;gt;% unnest_tokens(word,text)&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;/div>
+&lt;div id="little-bit-data-wrangling" class="section level1">
+&lt;h1>Little bit data wrangling&lt;/h1>
+&lt;p>We are almost there. The only thing we want to visualise is nothing but the word count. “count(word,sort = TRUE)” will get the job done for us. For tidiness of the plot count greater than “25” is used (Who loves messy visuals?). As a final step,{ggwordcloud} is applied with suitable text size, colour. The benefit of {ggwordcloud} is its integration with {ggplot2} outputs. For cooler representation some tilting of words are also included and stored in a new coloumn named “angle”.&lt;/p>
+&lt;pre class="r">&lt;code>wcloud &amp;lt;- token_k %&amp;gt;%
+count(word,sort = TRUE) %&amp;gt;%
+filter(n &amp;gt; 25) %&amp;gt;%
+mutate(word = reorder(word,n)) %&amp;gt;%
+mutate(angle = 45 * sample(-2:2, n(), replace = TRUE, prob = c(1, 1, 4, 1, 1)))&lt;/code>&lt;/pre>
+&lt;div id="final-step---visualisation" class="section level2">
+&lt;h2>Final step - Visualisation&lt;/h2>
+&lt;p>In the visualisation step, {ggplot} is used along with “geom_text_wordcloud_area” function in {ggwordcloud}. Colour is based on the frequency of words in the file. Also, most frequent words are set to “red” and less frequent ones to “blue”. Finally, a cool title and caption are added (Theme section)&lt;/p>
+&lt;pre class="r">&lt;code>set.seed(42)
+kplot &amp;lt;- ggplot(wcloud, aes(label = word,size =n, angle = angle,
+color = n)) +
+geom_text_wordcloud_area() +
+scale_size_area(max_size = 20) +
+# theme section
+theme_minimal()+
+scale_colour_gradient(low = &amp;quot;blue&amp;quot;, high = &amp;quot;red&amp;quot;, na.value = NA)+
+# title and caption
+labs(
+title = &amp;quot;Can you identify this legendary malayalam novel ?&amp;quot;,
+caption = &amp;quot;Design: Arun Gopinath&amp;quot;
+)+
+theme(
+plot.title = element_text(color = &amp;quot;red&amp;quot;, size = 18, face = &amp;quot;bold&amp;quot;,hjust = 0.5),
+plot.caption = element_text(color = &amp;quot;darkgreen&amp;quot;, face = &amp;quot;italic&amp;quot;)
+)
+kplot&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="https://arungopi.gitlab.io/post/tutorials/r-wordcloud/index_files/figure-html/unnamed-chunk-3-1.png" width="672" />&lt;/p>
+&lt;/div>
+&lt;/div></description><category>R</category><category>wordcloud</category><category>tutorials</category></item><item><title>Convert a shapefile into a interactive online map</title><link>https://arungopi.gitlab.io/post/tutorials/maps-online/</link><pubDate>Fri, 07 May 2021 17:05:59 +0530</pubDate><guid>https://arungopi.gitlab.io/post/tutorials/maps-online/</guid><description>&lt;h1 id="introduction">Introduction&lt;/h1>
+&lt;p>Imagine you have a shapefile (.shp) with you. Now you want to show the interactive map to your colleague. There are two options:&lt;/p>
+&lt;ul>
+&lt;li>Share your shapefile via e-mail&lt;/li>
+&lt;/ul>
+&lt;p>OR&lt;/p>
+&lt;ul>
+&lt;li>Share as a link (more user friendly).
+Not everytime you are equipped with ArcGIS or QGIS. Its difficult to open those files in your mobile devices.
+So a easy link which opens an interactive map will be cool idea to checkout.&lt;/li>
+&lt;/ul>
+&lt;h1 id="lets-begin">Let&amp;rsquo;s begin&lt;/h1>
+&lt;p>From this point, I assume you have a shapefile with you. Incase you don&amp;rsquo;t have use this file from &lt;a href="https://arungopi.gitlab.io/post/tutorials/assembly2021/">previous post&lt;/a>.&lt;/p>
+&lt;blockquote>
+&lt;p>Download &lt;a href="https://github.com/arungop/kerala-LA-election-2021-main/archive/refs/heads/master.zip">shapefile&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;p>Now this is our plan.&lt;/p>
+&lt;ul>
+&lt;li>Convert shapefile into Geojson format (Using QGIS or ArcGIS or any other platform)&lt;/li>
+&lt;li>Start a github account ( &lt;a href="https://en.wikipedia.org/wiki/GitHub">Learn more&lt;/a> )&lt;/li>
+&lt;li>Learn how to create a gist ( A code snippet sharing platform)&lt;/li>
+&lt;li>Sharing the created gist as an interactive map&lt;/li>
+&lt;/ul>
+&lt;h2 id="steps">Steps&lt;/h2>
+&lt;ol>
+&lt;li>Open the shapefile in &lt;strong>QGIS&lt;/strong>.&lt;/li>
+&lt;li>Right click the shapefile in the layers tab. Then, Export &amp;ndash;&amp;gt; Save Features as.
+&lt;img src="https://arungopi.gitlab.io/jpg/map/export.webp" alt="Export option ">&lt;/li>
+&lt;li>Select format as &lt;strong>GeoJSON&lt;/strong>, Choose &lt;strong>file destination&lt;/strong> and select &lt;strong>Reference system(CRS)&lt;/strong>. Then click &lt;strong>Ok&lt;/strong>.
+&lt;img src="https://arungopi.gitlab.io/jpg/map/ke.webp" alt="Export to GeoJSON format">&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>Enable &lt;em>Add saved file to map&lt;/em> to view the successfully converted file. Now we have a file ready to upload.&lt;/li>
+&lt;/ul>
+&lt;ol start="4">
+&lt;li>Go to github.com and &lt;a href="https://github.com/join">create an account&lt;/a>.&lt;/li>
+&lt;li>After successfully creating an account in Github, go to &lt;a href="https://gist.github.com">gist.github.com&lt;/a>.
+&lt;img src="https://arungopi.gitlab.io/jpg/map/gist.webp" alt="Open gisy">&lt;/li>
+&lt;li>Easiest way to add the file is drag and drop method. That means open the folder containing the &lt;em>.geojson&lt;/em> file.
+Drag the file and drop in the blank space (check figure).&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://arungopi.gitlab.io/jpg/map/drag.webp" alt="Drag and drop">&lt;/p>
+&lt;blockquote>
+&lt;p>If the blank space is filled with text data, then proceed to next step.&lt;/p>
+&lt;/blockquote>
+&lt;ol start="7">
+&lt;li>Most important part - make sure that you name the file you just copied with &lt;em>.geojson&lt;/em> extension.
+&lt;img src="https://arungopi.gitlab.io/jpg/map/naming.webp" alt="Name the file with .geojson extension">&lt;/li>
+&lt;li>Select &lt;strong>Create public gist&lt;/strong> ( Secret gist cannot be used because our aim is to share the map with public ) . Next page will load our interactive map.&lt;/li>
+&lt;li>Select &lt;strong>Share&lt;/strong> option and &lt;strong>copy the link&lt;/strong>.
+&lt;img src="https://arungopi.gitlab.io/jpg/map/share.webp" alt="Share options">
+&lt;img src="https://arungopi.gitlab.io/jpg/map/link.webp" alt="Share link">&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>Instead of sharing as link you can embed the map in your website (if you have one ).&lt;/li>
+&lt;/ul>
+&lt;ol start="10">
+&lt;li>What are you waiting for ? Happy sharing.&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>Output of this tutorial can be &lt;a href="https://gist.github.com/arungop/8b6fd47102ba44080a33ebae32172010">view here&lt;/a>.&lt;/p>
+&lt;/blockquote></description><category>GIS</category><category>tutorials</category></item><item><title>Detailed map of Kerala assembly elections 2021</title><link>https://arungopi.gitlab.io/post/tutorials/assembly2021/</link><pubDate>Wed, 05 May 2021 00:00:00 +0000</pubDate><guid>https://arungopi.gitlab.io/post/tutorials/assembly2021/</guid><description>&lt;h1 id="kerala-assembly-election-results-2021">Kerala assembly election results 2021&lt;/h1>
+&lt;p>The 2021 Kerala Legislative Assembly election was held in Kerala on 6 April 2021 to elect 140 members to the 15th Kerala Legislative Assembly. The results declared on 2 May.&lt;/p>
+&lt;h2 id="results-in-a-nut-shell">Results in a nut shell&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Party&lt;/th>
+&lt;th>Seats&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>LDF&lt;/td>
+&lt;td>99&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>UDF&lt;/td>
+&lt;td>41&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>NDA&lt;/td>
+&lt;td>Nil&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Total seats&lt;/td>
+&lt;td>140&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>This article provides the shapefile containing the details of candidates in each legislative assembly. Shapefile used here are obtained from Kerala Open Data. Details such as Party, Second best candidate &amp;amp; their party and winning margin are also incorporated.&lt;/p>
+&lt;p>Source code: &lt;a href="https://github.com/arungop/kerala-LA-election-2021-main">Github&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>This is an updated version of map created by &lt;a href="https://github.com/opendatakerala/kerala-assembly-map">Kerala open data&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="detailed-map">Detailed map&lt;/h2>
+&lt;script type="application/javascript" src="https://gist.github.com/arungop/bf5964fd121b7b018d131da7d4de259a.js">&lt;/script>
+&lt;p>&lt;a href="https://gpay.app.goo.gl/pay-sCjOGpyBhXM" target="_blank">&lt;img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A " style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" >&lt;/a>&lt;/p></description><category>assembly election</category><category>infographics</category><category>tutorials</category></item><item><title>Extracting the boundary extends of polygons in a shapefile using QGIS and VBA in Microsoft excel</title><link>https://arungopi.gitlab.io/post/tutorials/bound-extend/</link><pubDate>Sat, 30 Jan 2021 17:05:59 +0530</pubDate><guid>https://arungopi.gitlab.io/post/tutorials/bound-extend/</guid><description>&lt;h1 id="introduction">Introduction&lt;/h1>
+&lt;p>In this tutorial lets us learn how to extract the boundary limits or bbox values of each polygon in a shapefile using QGIS. First of all, imagine a shapefile consists of some number of polygons. So each polygon can be exactly fit into imaginary rectangles each having upper and lower limits of latitude and longitude values. These four limits will be the boundary for that polygon. Similarly, remaining polygons will also have such boundaries. In this article, we will extract those values into a spreadsheet format.&lt;/p>
+&lt;h2 id="required-tools">Required tools&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>QGIS&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Mircrosoft Excel&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="follow-these-steps">Follow these steps&lt;/h2>
+&lt;p>To calculate the boundary extend of a shapefile ( Contains multiple polygons )&lt;/p>
+&lt;ol>
+&lt;li>Open the required shapefile in &lt;strong>QGIS&lt;/strong>&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/106386381-b8e63300-63fa-11eb-9bdc-8def30a46145.jpg" alt="0">&lt;/p>
+&lt;ol start="2">
+&lt;li>Now open attribute table&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/106386388-c1d70480-63fa-11eb-97e0-9139815dfe41.jpg" alt="1 ">&lt;/p>
+&lt;ol start="3">
+&lt;li>Click Start editing button (pencil) [Ctrl + E].&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/106386397-ca2f3f80-63fa-11eb-8693-c2d0f788e2da.jpg" alt="2 ">&lt;/p>
+&lt;p>Also, select &amp;lsquo;Open Field Calculator&amp;rsquo; [ Ctrl + I ]&lt;/p>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/106386403-d0bdb700-63fa-11eb-9733-cb17159f522e.jpg" alt="3">&lt;/p>
+&lt;ol start="4">
+&lt;li>Check create new field, Add output field name as xmin&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>xmin and xmax represents North(upper limit) and South (lower limt) of boundary respectively. Similarly ymin and ymax represents West and East boundary limts.&lt;/p>
+&lt;/blockquote>
+&lt;ol start="5">
+&lt;li>
+&lt;p>Output field type as &amp;rsquo;text&amp;rsquo;&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Output field type = 20 (Optional)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>In the Expression tab below, enter&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;pre tabindex="0">&lt;code>x_min($geometry)
+&lt;/code>&lt;/pre>&lt;blockquote>
+&lt;p>If everything is fine, then an output preview can be seen in the left bottom of that tab.&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/106387357-6a876300-63ff-11eb-8ef7-9529f1c383da.jpg" alt="4">&lt;/p>
+&lt;ol start="8">
+&lt;li>Click OK. The attribute table will be populated with xmin values.&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/106386413-da471f00-63fa-11eb-8b96-8516219ed845.jpg" alt="5">&lt;/p>
+&lt;blockquote>
+&lt;p>The values will be in decimals. We have to convert it into DMS(Degree,Minute,Seconds) later.&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>Similarly, follow the above steps for xmax, ymin &amp;amp; ymax. Respective expressions will be&lt;/li>
+&lt;/ul>
+&lt;pre tabindex="0">&lt;code>x_max($geometry)
+y_min($geometry)
+y_max($geometry)
+&lt;/code>&lt;/pre>&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/106386416-df0bd300-63fa-11eb-98b1-33f8806a4b03.jpg" alt="6">&lt;/p>
+&lt;ol start="9">
+&lt;li>Now in the layers panel of QGIS, right click to save as the shape file as .csv format and click save.&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/106386419-e337f080-63fa-11eb-89d3-f2da86ba6144.jpg" alt="7">&lt;/p>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/106386424-e92dd180-63fa-11eb-86ec-ca22a81f0b51.jpg" alt="8">&lt;/p>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/106386428-ecc15880-63fa-11eb-90af-ab1d6a698d84.jpg" alt="9">&lt;/p>
+&lt;ol start="10">
+&lt;li>
+&lt;p>Now open the above saved spread sheet in Excel.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Add XMIN, XMAX, YMIN and YMAX columns.&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/106386431-efbc4900-63fa-11eb-8a6f-82e1aa487fbf.jpg" alt="10">&lt;/p>
+&lt;ol start="12">
+&lt;li>
+&lt;p>Click Alt + F11 , which means you are opening the Visual Basic for Applications (VBA)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Select &lt;strong>Insert&lt;/strong> , then &lt;strong>Module&lt;/strong>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/106386434-f3e86680-63fa-11eb-816e-21b0278ebc40.jpg" alt="11">&lt;/p>
+&lt;ol start="14">
+&lt;li>A blank tab will open up. Copy the code given below and paste it in that blank space.&lt;/li>
+&lt;/ol>
+&lt;pre tabindex="0">&lt;code>Function Convert_Degree(Decimal_Deg) As Variant
+With Application
+&amp;#39;Set degree to Integer of Argument Passed
+Degrees = Int(Decimal_Deg)
+&amp;#39;Set minutes to 60 times the number to the right
+&amp;#39;of the decimal for the variable Decimal_Deg
+Minutes = (Decimal_Deg - Degrees) * 60
+&amp;#39;Set seconds to 60 times the number to the right of the
+&amp;#39;decimal for the variable Minute
+Seconds = Format(((Minutes - Int(Minutes)) * 60), &amp;#34;0.000&amp;#34;)
+&amp;#39;Returns the Result of degree conversion
+&amp;#39;(for example, 10.46 = 10~ 27 &amp;#39; 36&amp;#34;)
+Convert_Degree = &amp;#34; &amp;#34; &amp;amp; Degrees &amp;amp; &amp;#34;° &amp;#34; &amp;amp; Int(Minutes) &amp;amp; &amp;#34; &amp;#39; &amp;#34; &amp;amp; Seconds + Chr(34)
+End With
+End Function
+&lt;/code>&lt;/pre>&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/106386438-f77bed80-63fa-11eb-86eb-da409ea138ba.jpg" alt="12">&lt;/p>
+&lt;blockquote>
+&lt;p>Click Alt + F11 to go back to the spreadsheet.&lt;/p>
+&lt;/blockquote>
+&lt;ol start="15">
+&lt;li>Now select the cell just below the XMIN and type&lt;/li>
+&lt;/ol>
+&lt;pre tabindex="0">&lt;code>=Convert_Degree(C2)
+&lt;/code>&lt;/pre>&lt;p>in the formula box and click &lt;strong>ENTER&lt;/strong>.&lt;/p>
+&lt;p>&lt;strong>Change the C2 with the cell name contains the first decimal value of xmin&lt;/strong>.&lt;/p>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/106386440-fa76de00-63fa-11eb-9e40-02a596d1e14f.jpg" alt="13">&lt;/p>
+&lt;ol start="16">
+&lt;li>
+&lt;p>Drag the + sign in the right bottom corner of the same cell to the last valued row.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Repeat the same for XMAX, YMIN and YMAX.&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/106386445-fd71ce80-63fa-11eb-8473-5563365044f4.jpg" alt="14">&lt;/p>
+&lt;blockquote>
+&lt;p>Note: Remember to change the cell value in the Step 15 in next steps.&lt;/p>
+&lt;/blockquote>
+&lt;ol start="18">
+&lt;li>Save the file in Excel macro enabled format (.xlxm). By selecting this format, the module we added in VBA will be attached with the workbook.&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/106386448-006cbf00-63fb-11eb-974f-489896d06ba2.jpg" alt="15">&lt;/p>
+&lt;h3 id="things-to-be-noted">Things to be noted&lt;/h3>
+&lt;p>If the required output is in decimal values, then up to step 9 is enough. Those processes are also possible in ArcGIS software.&lt;/p>
+&lt;p>&lt;a href="https://gpay.app.goo.gl/pay-sCjOGpyBhXM" target="_blank">&lt;img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A " style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" >&lt;/a>&lt;/p></description><category>GIS</category><category>QGIS</category><category>VBA</category><category>tutorials</category></item><item><title>Visualising Election Ink in 3D</title><link>https://arungopi.gitlab.io/post/tutorials/silvernitrate/</link><pubDate>Tue, 08 Dec 2020 00:00:00 +0000</pubDate><guid>https://arungopi.gitlab.io/post/tutorials/silvernitrate/</guid><description>&lt;h1 id="election-day-thought">Election day thought&lt;/h1>
+&lt;p>I was at the polling station to take part in covid19 election era. As usual, the violet ink marked my participation in the mega event. This ink is a super solution capable of changing the lives of the people. After reaching home, all I want to know is &amp;quot; what is this solution? &amp;ldquo;. The answer is Silver nitrate. According to Wikipedia, the exact composition consists of alcohol and biocides for longevity and to ensure bacteria not transferred from voter to voter.&lt;/p>
+&lt;h2 id="election-ink">Election Ink&lt;/h2>
+&lt;blockquote>
+&lt;p>Electoral ink, indelible ink, electoral stain or phosphoric ink is a semi-permanent ink or dye that is applied to the forefinger (usually) of voters during elections in order to prevent electoral fraud such as double voting. It is an effective method for countries where identification documents for citizens are not always standardised or institutionalised. Election ink uses silver nitrate, and excessive exposure can cause argyria. It was first used during the 1962 Indian general election, in Mysore State, now the modern-day state of Karnataka.&lt;a href="https://en.wikipedia.org/wiki/Election_ink">^1&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;p>Silver nitrate is a compound known even for the elementary school students, but how it looks in 3D? The search ends in &lt;a href="https://molview.org/">Molview&lt;/a>. All you want to do is search for Silver nitrate or silver nitrate solution. There are numerous options to play around. Van der Waal spheres are 3D representation option with axis rotation. The output is available in &lt;a href="https://drive.google.com/file/d/1IUZko9_Ez-NqnZkJczW2sf7xFahGkDlg/view?usp=sharing">&amp;rsquo;.mol&amp;rsquo; format&lt;/a>.&lt;/p>
+&lt;p>Chemical formula: AgNO&lt;sub>3&lt;/sub>&lt;/p>
+&lt;h3 id="3d-view">3D view&lt;/h3>
+&lt;p>Interactive Silver Nitrate compound in Molview.&lt;/p>
+&lt;iframe style="width: 500px; height: 300px;" frameborder="0" src="https://embed.molview.org/v1/?mode=vdw&amp;cid=24470">&lt;/iframe>
+&lt;p>That white ball represents Silver and three red balls are Oxygen molecules. The jammed blue ball is non-other than Nitrogen.&lt;/p>
+&lt;h3 id="other-options">Other options&lt;/h3>
+&lt;p>More interactive and animated molecules can be view in &lt;a href="http://vchem3d.univ-tlse3.fr/">virtual Chemistry 3D&lt;/a> created by &lt;a href="http://romuald-poteau.blogspot.com/">Romuald Poteau&lt;/a>.One can import already created &amp;lsquo;.mol&amp;rsquo; files for advanced animations and analysis.&lt;/p>
+&lt;p>That white ball represents Silver and three red balls are Oxygen molecules. The jammed blue ball is non-other than Nitrogen.&lt;/p>
+&lt;h3 id="other-options-1">Other options&lt;/h3>
+&lt;p>More interactive and animated molecules can be view in &lt;a href="http://vchem3d.univ-tlse3.fr/">virtual Chemistry 3D&lt;/a> created by &lt;a href="http://romuald-poteau.blogspot.com/">Romuald Poteau&lt;/a>.One can import already created &amp;lsquo;.mol&amp;rsquo; files for advanced animations and analysis.&lt;/p></description><category>election</category><category>chemistry</category><category>tutorials</category></item><item><title>Curated list of amazing websites - Part 1</title><link>https://arungopi.gitlab.io/post/tutorials/websites/</link><pubDate>Mon, 23 Nov 2020 00:00:00 +0000</pubDate><guid>https://arungopi.gitlab.io/post/tutorials/websites/</guid><description>&lt;h1 id="amazing-websites">Amazing websites&lt;/h1>
+&lt;p>There are websites which are fun to surf in the web world. Some of them are useful in day-to-day life. But there are some websites which are made with the sheer genius and make us wonder “How they made this?”. So, this is a curated list of such websites Part 1.&lt;/p>
+&lt;h2 id="webgl-fluid-simulation">WebGL fluid simulation&lt;/h2>
+&lt;p>As the name suggests, one can play with fluid simulation all day. It works on any web browser irrespective of their OS platform. There is a mobile app version for this website. There are a lot of control options in the sidebar to work around. This is a dedicated work by &lt;a href="https://github.com/PavelDoGreat">Paveldogreat&lt;/a>.&lt;/p>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/100114256-3dff1a00-2e97-11eb-919c-144b3a18d3be.jpg" alt="web_fluid">&lt;/p>
+&lt;p>&lt;a href="(https://paveldogreat.github.io/WebGL-Fluid-Simulation/)">Visit&lt;/a>&lt;/p>
+&lt;p>Check the source code: &lt;a href="https://github.com/PavelDoGreat/WebGL-Fluid-Simulation">&lt;img src="https://s18955.pcdn.co/wp-content/uploads/2018/02/github.png" width="25"/>&lt;/a>&lt;/p>
+&lt;h2 id="muscle-wiki">Muscle wiki&lt;/h2>
+&lt;p>You don&amp;rsquo;t have to be a fitness freak to understand this site. Simply select a muscle it provides you with the exact exercises to workout that muscle (either video or gif format). They are keen to include both the male and female versions. There are more cool features hidden to checkout.&lt;/p>
+&lt;ul>
+&lt;li>If you select the biceps:&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/100117107-7c4a0880-2e9a-11eb-8a8c-244c9a9deef8.jpg" alt="Muscle enquiry">&lt;/p>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/100117103-7b18db80-2e9a-11eb-9c70-f4507b229d7e.jpg" alt="Muscle result">&lt;/p>
+&lt;p>&lt;a href="https://musclewiki.com/">Visit&lt;/a>&lt;/p>
+&lt;h2 id="radio-garden">Radio Garden&lt;/h2>
+&lt;p>One of the popular visual treat on the internet. Radio Garden is a non-profit Dutch radio and digital research project developed from 2013 to 2016, by the Netherlands Institute for Sound and Vision (under the supervision of Martin Luther University of Halle-Wittenberg&amp;rsquo;s Goal Föllmer), by the Transnational Radio Knowledge Platform and five other European universities.&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/p>
+&lt;p>You have a globe in front of you with numerous radio stations broadcasting live. Just rotate, search, zoom or even pinch to find out the radio stations according to your mood. Sound quality and buffering are quite good. They also have a dedicated mobile application.&lt;/p>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/100118924-53c30e00-2e9c-11eb-8da0-0a7d063ace4b.jpg" alt="Radio garden">&lt;/p>
+&lt;p>&lt;a href="http://radio.garden/">Visit&lt;/a>&lt;/p>
+&lt;h2 id="what-every-browser-knows-about-you">What every Browser knows about you&lt;/h2>
+&lt;p>Your browser knows almost everything about you. Here is the proof. Check out yourself. This website is a creation of &lt;a href="https://github.com/robinlinus">Robin Linus&lt;/a>.&lt;/p>
+&lt;p>&lt;a href="https://webkay.robinlinus.com/">Visit&lt;/a>&lt;/p>
+&lt;h2 id="outriderorg">Outrider.org&lt;/h2>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/100122467-6ab72f80-2e9f-11eb-859c-c0a73fec537f.jpg" alt="nuclear_impact">&lt;/p>
+&lt;p>Did you ever think about the devasting power of Nuclear bombs? What if the bomb just dropped over your location? Here you can see the approximate impact of the nuclear bombs on any location on the earth. One can change the bomb and check various impact parameters.&lt;/p>
+&lt;p>&lt;a href="https://outrider.org/nuclear-weapons/interactive/bomb-blast">Visit&lt;/a>&lt;/p>
+&lt;h2 id="what-its-like-to-have-dyslexia">What it&amp;rsquo;s like to have dyslexia&lt;/h2>
+&lt;p>Dyslexia, also known as reading disorder, is characterized by trouble with reading despite normal intelligence &lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>. This site provides the exact trouble to normal readers by randomizing the letters each second. Created by &lt;a href="http://geon.github.io/">Victor Widell&lt;/a>&lt;/p>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/100124297-7c99d200-2ea1-11eb-8e76-038ffd940393.jpg" alt="Dyslexia">&lt;/p>
+&lt;p>&lt;a href="http://geon.github.io/programming/2016/03/03/dsxyliea">Visit&lt;/a>&lt;/p>
+&lt;h2 id="lineschromeexperimentscom">lines.chromeexperiments.com&lt;/h2>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/100127627-4f4f2300-2ea5-11eb-9beb-d697ed428c0d.jpg" alt="Lines chrome">&lt;/p>
+&lt;p>Simply draw a line or curve, the result will surely amaze you. Corresponding geometry on the earth surface will show immediately. This is a pet site of google with the blessings of ever growing image library of Google Earth.&lt;/p>
+&lt;p>&lt;a href="https://lines.chromeexperiments.com/">Visit&lt;/a>&lt;/p>
+&lt;h2 id="deskspacing">Deskspacing&lt;/h2>
+&lt;p>If you are planning to sort out your desk which is a total mess right now, then deskspacing is the right tool for you. Play with different objects, camera angles and finally arrive at your dream arrangement. Sorry mobile users this gem of a site is currently has Desktop only experience.&lt;/p>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/100129110-1ca62a00-2ea7-11eb-8630-f8ce88f62e4b.jpg" alt="Deskspacing">&lt;/p>
+&lt;p>&lt;a href="https://deskspacing.com/">Visit&lt;/a>&lt;/p>
+&lt;h2 id="wikiverse">Wikiverse&lt;/h2>
+&lt;p>Wikipedia is now becoming the go-to knowledge base for most people. Imagine the quantity of the articles there. Wikiverse is such a platform where you can visualise the Wikipedia as a universe full of galaxies and stars (wiki articles). The size of the globe and the number of articles to display can change. The interactive interface is fun to explore. Created by &lt;a href="http://byowen.com/">Owen Cornec&lt;/a> and &lt;strong>not&lt;/strong> affiliated to Wikipedia or Wikimedia.&lt;/p>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/100130375-a5719580-2ea8-11eb-8d7c-47c45b5373fc.jpg" alt="Wikiverse">&lt;/p>
+&lt;p>&lt;a href="http://wikiverse.io/">Visit&lt;/a>&lt;/p>
+&lt;h2 id="emupedia">Emupedia&lt;/h2>
+&lt;p>If you still missing the old windows version. Even the apps are working fine. A classic tribute to a vintage operating system.&lt;/p>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/100131825-8d9b1100-2eaa-11eb-854e-47f6840f2005.jpg" alt="Old windows">&lt;/p>
+&lt;p>&lt;a href="https://emupedia.net/beta/emuos/">Visit&lt;/a>&lt;/p>
+&lt;h2 id="windycom">Windy.com&lt;/h2>
+&lt;p>An all-rounder website to weather-related queries. &lt;strong>Windy.com&lt;/strong> provides far better visualization of weather phenomenon. Their forecasting models with a wide variety of data toggles make this unique website to checkout.&lt;/p>
+&lt;p>&lt;a href="windy.com">Visit&lt;/a>&lt;/p>
+&lt;h3 id="cyclone-tracker">Cyclone tracker&lt;/h3>
+&lt;p>A live cyclone tracker by Windy.com.&lt;/p>
+&lt;iframe width="400" height="600" src="https://embed.windy.com/embed2.html?lat=7.450&amp;lon=78.552&amp;detailLat=8.429&amp;detailLon=76.959&amp;width=400&amp;height=600&amp;zoom=7&amp;level=surface&amp;overlay=gustAccu&amp;product=ecmwf&amp;menu=&amp;message=true&amp;marker=&amp;calendar=now&amp;pressure=true&amp;type=map&amp;location=coordinates&amp;detail=true&amp;metricWind=km%2Fh&amp;metricTemp=%C2%B0C&amp;radarRange=-1" frameborder="0">&lt;/iframe>
+&lt;p>Liked this blog post? Con­sid­er &lt;a href="https://www.buymeacoffee.com/arungopi">buy­ing me a cof­fee!&lt;/a>&lt;/p>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>&lt;a href="https://en.wikipedia.org/wiki/Radio_Garden">https://en.wikipedia.org/wiki/Radio_Garden&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:2">
+&lt;p>&lt;a href="https://en.wikipedia.org/wiki/Dyslexia">https://en.wikipedia.org/wiki/Dyslexia&lt;/a>&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description><category>amazing websites</category><category>tutorials</category></item><item><title>Automatically update the titles in your Youtube videos.</title><link>https://arungopi.gitlab.io/post/tutorials/title_youtube/</link><pubDate>Tue, 17 Nov 2020 00:00:00 +0000</pubDate><guid>https://arungopi.gitlab.io/post/tutorials/title_youtube/</guid><description>&lt;h1 id="magic-video">Magic video&lt;/h1>
+&lt;p>The idea of changing the title of the youtube video automatically seems insane to me. There is a tutorial about how to achieve this feat is thoroughly done by &lt;a href="https://digitalinspiration.com/">Amit Agarwaal&lt;/a>. The original concept was by &lt;a href="youtu.be/BxV14h0kFs0">Tom Scott&lt;/a>. This article is all about the implementation of the same in my video.&lt;/p>
+&lt;p>Youtube api and Google scripts are primarily responsible for this weird feat. Most of the contents of this article are from &lt;a href="labnol.org">labnol.org&lt;/a>.&lt;/p>
+&lt;h2 id="what-you-have-to-do-">What you have to do ?&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>Copy this &lt;a href="https://www.labnol.org/topic/google-apps-script">google script&lt;/a> to your google drive.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Now, go to your youtube video and look for the &lt;em>youtube id&lt;/em>. It&amp;rsquo;s more like the tail end of the link. For my case, video link is &lt;a href="https://youtube.com/watch?v=z_-P9oLM92k">https://youtube.com/watch?v=z_-P9oLM92k&lt;/a> and z_-P9oLM92k is the id.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>So you have your video id. Copy this code and paste the same in the script.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;pre tabindex="0">&lt;code>const id = &amp;#34;z_-P9oLM92k&amp;#34;;
+&lt;/code>&lt;/pre>&lt;ul>
+&lt;li>The video title is basically the next title.&lt;/li>
+&lt;/ul>
+&lt;pre tabindex="0">&lt;code>const template = &amp;#39;This timelapse of fisherman has VIEWCOUNT views and counting&amp;#39;;
+&lt;/code>&lt;/pre>&lt;ul>
+&lt;li>
+&lt;p>The &lt;strong>VIEWCOUNT&lt;/strong> and &lt;strong>COMMENTCOUNT&lt;/strong> are the two variables. Modify the title and place the variables in cool positions. I have omitted the commentcount.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>This script set to run in every minute.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;pre tabindex="0">&lt;code>// If time based trigger doesn&amp;#39;t exist, create one that runs every 1 minutes
+if (triggers.length === 0) {
+ScriptApp.newTrigger(triggerName).timeBased().everyMinutes(1).create();
+}
+}
+&lt;/code>&lt;/pre>&lt;ul>
+&lt;li>The coding part is done. Now select &lt;strong>Run&lt;/strong> &amp;ndash;&amp;gt; &lt;strong>Run function&lt;/strong> &amp;ndash;&amp;gt; &lt;strong>UpdateYoutubeVideo&lt;/strong>.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/99362924-1e398600-28da-11eb-8840-187bc53a9e24.png" alt="Run function">&lt;/p>
+&lt;ul>
+&lt;li>Give permissions and Enjoy.&lt;/li>
+&lt;/ul>
+&lt;div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+&lt;iframe src="https://www.youtube.com/embed/z_-P9oLM92k" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video">&lt;/iframe>
+&lt;/div></description><category>youtube</category><category>tutorials</category></item><item><title>People in space right now - R shiny app</title><link>https://arungopi.gitlab.io/post/tutorials/iss_live/</link><pubDate>Sat, 14 Nov 2020 00:00:00 +0000</pubDate><guid>https://arungopi.gitlab.io/post/tutorials/iss_live/</guid><description>&lt;h1 id="the-idea">The idea&lt;/h1>
+&lt;p>The inception of fancy R shiny apps in my mind came from the mysterious web algorithm of google I guess. I have to start something. Now, where to start? Suddenly this idea of an R Shiny app which shows the details of International Space Station popup. Ok, that sounds good. But where to start?&lt;/p>
+&lt;h1 id="the-implementation">The implementation&lt;/h1>
+&lt;p>The benefit of the shiny app is the sharing options it provides. Thankfully, the data obtained from &lt;a href="http://api.open-notify.org/">api.open-notify.org&lt;/a>. So I have the near-live data of both the present-day crew members and location data of ISS. All the data here is in JSON format.&lt;/p>
+&lt;h2 id="r-shiny">R shiny&lt;/h2>
+&lt;script src="https://gist.github.com/arungop/b5a8c3cc5242f3ef5aae0d8fb8923bfe.js">&lt;/script>
+&lt;p>Libraries required are httr, jsonlite and of course, shiny. Next step was the key. I loaded both the crew data and the location data in &amp;lsquo;data&amp;rsquo; and &amp;rsquo;now&amp;rsquo; respectively. The crew data is displayed in tabular form and live location data of the ISS is displayed in the summary tab.&lt;/p>
+&lt;p>The UI part includes:&lt;/p>
+&lt;ul>
+&lt;li>Title panel&lt;/li>
+&lt;li>Tabular display of data&lt;/li>
+&lt;li>Summary tab&lt;/li>
+&lt;/ul>
+&lt;p>The final output is uploaded in &lt;a href="shinyapps.io">shinyapps.io&lt;/a>. You can view the shiny app below or &lt;a href="https://arun-gopinath.shinyapps.io/People_space_now/">here&lt;/a>.&lt;/p>
+&lt;iframe src="https://arun-gopinath.shinyapps.io/People_space_now/" width=1000 height=800">&lt;/iframe></description><category>R shiny</category><category>tutorials</category></item><item><title>EIA and mailto</title><link>https://arungopi.gitlab.io/post/tutorials/mailto/</link><pubDate>Thu, 13 Aug 2020 09:05:59 +0530</pubDate><guid>https://arungopi.gitlab.io/post/tutorials/mailto/</guid><description>&lt;h1 id="ഇത-അതലല">ഇത് അതല്ല&lt;/h1>
+&lt;p>വളരെ വൈകി വന്ന വിവേകം പോലെയാണ് EIA- 2020നു എതിരെ ഉയർന്ന പ്രതിഷേധം. ഓഗസ്റ്റ് 11 നു അവസാന തിയതി എന്ന് വന്നപ്പോൾ, സോഷ്യൽ മീഡിയയും മാധ്യമങ്ങളും എന്തിനു രാഷ്ട്രീയ നേതൃത്വം വരെ ഉണർന്നു. ഇവിടെ EIA 2020 യെ പറ്റി അല്ല പകരം അവിടെ തരംഗമായ &lt;a href="https://environmentnetworkindia.github.io/">https://environmentnetworkindia.github.io/&lt;/a> എന്നൊരു സൈറ്റ് നിങ്ങളിൽ പലരും കണ്ടിട്ടുണ്ടാകും. ഒറ്റ ക്ലിക്കിൽ ഇതാ, അതാതു മന്ത്രാലയത്തിന് മെയിൽ അയയ്ക്കാൻ ഇന്ദ്രജാലം പോലെ നിങ്ങളെ കൊണ്ട് പോകുന്നു. മലയാളം, ഇംഗ്ലീഷ് എന്ന് വേണ്ട ഒട്ടുമിക്ക ഭാഷകളിലും മെയിൽ തയ്യാർ. ഇവിടെ നിങ്ങളെ അതിനു സഹായിച്ച ഒരു ടെക്‌നിക്‌ ആണ് &lt;strong>mailto&lt;/strong> (ഇതേ പേരിൽ ഒരു സ്ഥലം അങ്ങ് ഇറ്റലിയിൽ ഉണ്ട് , ഇത് അതല്ല ).&lt;/p>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/98445620-9b2c6900-213e-11eb-8911-95b18ffde3ad.png" alt="web">&lt;/p>
+&lt;h1 id="mailto">mailto&lt;/h1>
+&lt;p>mailto എന്നത് ഇമെയിലുകൾക്കു ഉള്ള ഒരു Uniform Resource Identifier (URI) സ്കീം ആണ്. ഇത് വെബ്സൈറ്റുകളിൽ ഹൈപ്പർലിങ്ക് ഉണ്ടാക്കുകയും, അതുവഴി ഒരു നിർദ്ദിഷ്ട വിലാസത്തിലേക്ക് ഒരു ഇമെയിൽ അയയ്ക്കാൻ ഉപയോക്താക്കളെ അനുവദിക്കുകയും ചെയ്യുന്നു. പ്രധാനപ്പെട്ട ഉപയോഗം കോപ്പി / പേസ്റ്റ് ചെയ്യാതെ കാര്യം നടക്കുന്നു എന്നതാണ്.&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/p>
+&lt;h1 id="creating-a-mailto-link">Creating a mailto link&lt;/h1>
+&lt;p>ഒരു * ഡോക്യൂമെന്റിൽ * ലിങ്ക് തയ്യാറാക്കാൻ വളരെ ലളിതമായി ഒരു ഹൈപ്പർലിങ്ക് ഉണ്ടാക്കുക എന്നതാണ് .&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-html" data-lang="html">&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#f92672">a&lt;/span> &lt;span style="color:#a6e22e">href&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;eia2020-moefcc@gov.in&amp;#34;&lt;/span>&amp;gt;Send email&amp;lt;/&lt;span style="color:#f92672">a&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>ഇത് നിങ്ങളെ നിങ്ങളുടെ മെയിൽ ക്ലൈന്റിൽ ( ജിമെയിൽ ), മെയിൽ കിട്ടേണ്ട ആളുടെ വിലാസവുമായി (mailto:eia2020-moefcc@gov.in) ഓപ്പൺ ആകും.&lt;/p>
+&lt;p>ഹെൽഡറുകൾ അതായതു സബ്ജക്ട് മുതലായവ ഉൾപ്പെടുത്തി ഇവ വിപുലീകരിക്കാൻ കഴിയും. വാക്കുകൾക്കിടയിൽ സ്പേസ് അനുവദിനീയമല്ല. പകരം %20 എന്നത് സ്പേസിനെ സൂചിപ്പിക്കുന്നു.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-html" data-lang="html">&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#f92672">a&lt;/span> &lt;span style="color:#a6e22e">href&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34; mailto:mefcc@gov.in,eia2020-moefcc@gov.in,connect@mygov.nic.in,secy-moef@nic.in?bcc=eia@hi2.in&amp;amp;?subject=Withdraw%20EIA%20draft&amp;amp;body=To%20whom%20it%20may%20concern &amp;#34;&lt;/span>&amp;gt;Send email&amp;lt;/&lt;span style="color:#f92672">a&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href=" mailto:mefcc@gov.in,eia2020-moefcc@gov.in,connect@mygov.nic.in,secy-moef@nic.in?bcc=eia@hi2.in&amp;?subject=Withdraw%20EIA%20draft&amp;body=To%20whom%20it%20may%20concern ">Send email&lt;/a>&lt;/p>
+&lt;p>ഒന്നിലധികം വിലാസങ്ങൾ ചേർക്കാൻ &lt;strong>, (comma)&lt;/strong> ഉപയോഗിക്കണം.&lt;/p>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/98445617-99fb3c00-213e-11eb-9afd-1bb580628bc6.png" alt="output">&lt;/p>
+&lt;h1 id="mailto-link-generator">mailto link generator&lt;/h1>
+&lt;p>വളരെ വേഗത്തിൽ ഓൺലൈൻ ആയി &lt;strong>mailto&lt;/strong> ലിങ്കുകൾ നിർമിക്കാൻ ഈ വെബ്സൈറ്റുകൾ ഉപയോഗിക്കാവുന്നതാണ്.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;a href="https://mailtolink.me/">https://mailtolink.me/&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://e-mailer.link/en/">https://e-mailer.link/en/&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://htmlstrip.com/mailto-generator">https://htmlstrip.com/mailto-generator&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>&lt;a href="https://en.wikipedia.org/wiki/Mailto">https://en.wikipedia.org/wiki/Mailto&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description><category>mailto</category><category>tutorials</category></item><item><title>Beginners guide to ERDAS IMAGINE</title><link>https://arungopi.gitlab.io/post/tutorials/erdas-imagine-for-beginners/</link><pubDate>Thu, 06 Aug 2020 17:05:59 +0530</pubDate><guid>https://arungopi.gitlab.io/post/tutorials/erdas-imagine-for-beginners/</guid><description>&lt;p>During the course period of GIS in kariavattom, we colleagues created a tutorial on Erdas Imagine, a remote sensing tool. The whole project was bounded to the syllabus and are extremely useful. Later I thought it would be beneficial to the beginners if the work is available as a website. If you find this useful share it with your friends.&lt;/p>
+&lt;!--adsense-->
+&lt;p>&lt;a href="https://arungopi.gitlab.io/erdas">Beginners guide to ERDAS IMAGINE&lt;/a>&lt;/p></description><category>GIS</category><category>Erdas Imagine</category><category>tutorials</category></item><item><title>Linux DD commands മലയാളയത്തിൽ</title><link>https://arungopi.gitlab.io/post/tutorials/dd/</link><pubDate>Fri, 31 Jul 2020 19:05:59 +0530</pubDate><guid>https://arungopi.gitlab.io/post/tutorials/dd/</guid><description>&lt;p>നിങ്ങൾ ഒരു ലിന്ക്സ് OS ആണ് ഇപ്പോൾ ഉപയോഗിക്കുന്നതെങ്കിൽ തീർച്ചയായും തുടർന്ന് വായിക്കുക. ഒരു OS ൽ നിന്നും മറ്റൊരു OS ലേക്ക് (ഉദാഹരണത്തിന് &lt;strong>Ubuntu&lt;/strong> ൽ നിന്നും &lt;strong>Linux mint&lt;/strong> ലേക്ക് ) കൂടുമാറാൻ പ്ലാൻ ചെയ്യുമ്പോൾ ആദ്യം ചെയ്യേണ്ടത് ആവശ്യമുള്ള .iso ഡൌൺലോഡ് ചെയ്തു ആത് bootable രൂപത്തിൽ ആക്കുക എന്നതാണ് . അതിനായി &lt;em>dd command&lt;/em> ഇല്ലാതെ തന്നെ GUI അപ്പുകൾ ഉപയോഗിച്ചും ചെയ്യാവുന്നതാണ് ( &lt;strong>Rufus&lt;/strong> ). ഇവിടെ &lt;strong>&lt;em>terminal&lt;/em>&lt;/strong> വഴി &lt;em>dd command&lt;/em> ഉപയോഗിച്ച് ചെയ്യാവുന്ന ഒരു രീതിയാണ് താഴെ പറയുന്നത്.&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;em>File manager&lt;/em> ൽ പോയി USB കാണിക്കുന്ന option ൽ right ക്ലിക്ക് ചെയ്തു &lt;strong>&lt;em>unmount option&lt;/em>&lt;/strong> തിരഞ്ഞെടുക്കുക .&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>cntrl+ALt+T&lt;/strong> അമർത്തി &lt;em>terminal&lt;/em> ലേക്ക് എത്തി ചേരുക.&lt;/p>
+&lt;p>അടുത്തതായി ഹാർഡ് ഡിസ്ക് എങ്ങനെ partition ചെയ്തിരിക്കുന്നു എന്നറിയാനായി ഈ വരി ടെർമിനലിൽ ടൈപ്പ് ചെയ്തു enter key അമർത്തുക.&lt;/p>
+&lt;pre tabindex="0">&lt;code> sudo fdisk -l
+&lt;/code>&lt;/pre>&lt;p>അപ്പോൾ വിശദമായ ഒരു result നിങ്ങൾക്ക് കാണാൻ കഴിയും. അതിൽ നിന്നും നിങ്ങളുടെ USB യുടെ പേര് കണ്ടുപിടിക്കുക .ആത് ഒരുപക്ഷെ &lt;em>/dev/sdb&lt;/em> എന്നായിരിക്കും.&lt;/p>
+&lt;p>ഇനി നിലം ഒരുക്കുന്നത് പോലെ ഇവിടെ USB ഫോർമാറ്റ് ചെയ്യണം.&lt;/p>
+&lt;pre tabindex="0">&lt;code> sudo mkfs.ext4 /dev/sdb
+&lt;/code>&lt;/pre>&lt;p>ഇവിടെ &lt;strong>ext4&lt;/strong> എന്ന ഫോർമാറ്റിൽ ആണ് format ചെയ്തത് . കൂടാതെ &lt;strong>vfat, ntfs&lt;/strong> എന്നി ഫോർമാറ്റിലും ഇതു ചെയ്യാവുന്നതാണ്.&lt;/p>
+&lt;p>അടുത്തതായി .iso ഡൌൺലോഡ് ചെയ്തിരിക്കുന്ന ഫോൾഡറിൽ പോകുക . നിങ്ങൾ Download ഫോൾഡറിൽ ആണ് ഇതു ചെയ്തതെങ്കിൽ അവിടേക്ക് പോകുക (ടെർമിനലിൽ) .&lt;/p>
+&lt;pre tabindex="0">&lt;code> cd ~/Downloads
+&lt;/code>&lt;/pre>&lt;p>&lt;em>ls&lt;/em> എന്നു type ചെയ്താൽ . ആ ഫോൾഡെറിൽ ഉള്ള എല്ലാ ഫയിൽസ്സും കാണാവുന്നതാണ് .&lt;/p>
+&lt;p>അതുമല്ലെങ്കിൽ &lt;em>pwd&lt;/em> എന്നു type ചെയ്താൽ ഏതു ഫോൾഡെറിൽ ആണ് ഇപ്പോൾ നിങ്ങൾ ഉള്ളതെന്ന് ഉറപ്പു വരുത്തുക.&lt;/p>
+&lt;p>ഞാൻ ഇവിടെ &amp;ldquo;&lt;strong>ubuntu.iso&lt;/strong>&amp;rdquo; എന്നാണ് iso ഫയിൽ നാമകരണം ചെയ്തിരിക്കുന്നത് . ഇനി ഈ കാണുന്ന command എന്റെർ ചെയ്യുക.&lt;/p>
+&lt;pre tabindex="0">&lt;code> sudo dd if=ubuntu.iso of=/dev/sdb status=”progress”
+&lt;/code>&lt;/pre>&lt;blockquote>
+&lt;p>ഇവിടെ &lt;strong>&lt;em>if&lt;/em>&lt;/strong> എന്നത് &lt;strong>&lt;em>input file&lt;/em>&lt;/strong> എന്നതും &lt;strong>&lt;em>of&lt;/em>&lt;/strong> എന്നത് &lt;strong>&lt;em>output file&lt;/em>&lt;/strong> എന്നതുമാണ് . &lt;strong>&lt;em>Progress&lt;/em>&lt;/strong> എന്നു കൊടുക്കുന്നതിനാൽ USB ൽ write ചെയ്യുന്നതിന്റെ പുരോഗതി അറിയാനും കഴിയും.&lt;/p>
+&lt;/blockquote>
+&lt;pre tabindex="0">&lt;code>54648+0 records in
+54648+0 records out
+539979776 bytes (540 MB, 515 MiB) copied, 107.609 s, 5.0 MB/s
+&lt;/code>&lt;/pre>&lt;p>ഫയലിന്റെ വലിപ്പം അനുസരിച്ച് ഒരു 10 മുതൽ 20 മിനുറ്റ് എടുക്കാം.എല്ലാം ശുഭം ആകുമ്പോൾ successful message കാണിക്കുകയും ചെയ്യും.ഇനി USB ഒരു OS bootable ആയി മാറിക്കഴിഞ്ഞു.&lt;/p></description><category>dd command</category><category>linux</category><category>tutorials</category></item><item><title>ആപ്പ് ഇൻസ്റ്റാൾ ചെയ്യാതെയും കാണാം Comet Neowise</title><link>https://arungopi.gitlab.io/post/tutorials/stellarium-web/</link><pubDate>Fri, 17 Jul 2020 15:00:04 +0530</pubDate><guid>https://arungopi.gitlab.io/post/tutorials/stellarium-web/</guid><description>&lt;p>Sky safari ഉപയോഗിച്ച് comet neowise എങ്ങനെ കാണാം എന്നു മുൻപത്തെ ബ്ലോഗ്ഗിൽ നാം കണ്ടതാണല്ലോ. ചിലർക്കെങ്കിലും ആപ്പ് ഒക്കെ ഇൻസ്റ്റാൾ ചെയ്ത് കൊമെറ്റിനെ കാണാൻ മടിയായിരിക്കും. അങ്ങനെ ഉള്ള അന്വേഷണം എത്തി ചേർന്നത് open source planetarium ഭീമനായ Stellarium -ന്റെ website -ൽ ആണ്. അവരുടെ തന്നെ web ആപ്പ് ആണ് നമ്മുടെ സമസ്യക്കുള്ള ഉത്തരം.&lt;/p>
+&lt;h1 id="stellarium-website">Stellarium website&lt;/h1>
+&lt;p>&lt;strong>&lt;a href="https://stellarium-web.org/">https://stellarium-web.org/&lt;/a>&lt;/strong>&lt;/p>
+&lt;blockquote>
+&lt;p>ഈ website എല്ലാത്തരം operating system -ലും ഒരു പോലെ ഉപയോഗിക്കാവുന്നതാണ്.അതുകൊണ്ട് തന്നെ മൊബൈലിൽ ഈസിയായി എപ്പോൾ വേണമെങ്കിലും ഇന്റെർനെറ്റിന്റെ സഹായത്തോടെ ഉപയോഗിക്കാം.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="എങങന-ഉപയഗകക-">എങ്ങനെ ഉപയോഗിക്കാം ?&lt;/h2>
+&lt;ol>
+&lt;li>ആദ്യം തന്നെ &lt;a href="https://stellarium-web.org/">https://stellarium-web.org/&lt;/a> സന്ദർശിക്കുക.&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/98445499-0de91480-213e-11eb-9c81-e614cc45d19e.png" alt="homepage">&lt;/p>
+&lt;ol start="2">
+&lt;li>
+&lt;p>നിങ്ങൾ മൊബൈലിൽ ആണ് എടുക്കുന്നതെങ്കിൽ location access അവർ ചോദിക്കും.നിങ്ങൾക്കു അപ്പോൾ തന്നെ access കൊടുക്കാവുന്നതാണു. (ഡെസ്ക്‍ടോപ്പിൽ location access കൊടുത്താലും gps ഇല്ലാത്തതിനാൽ accuracy കാണില്ല.)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>ഇനി നിങ്ങൾ privacy ആണ് മുൻഗണന നൽക്കുന്നതെങ്കിൽ location manual ആയി എന്റെർ ചെയ്യാനും വഴി ഇതിലുണ്ട്.അതിനായി താഴെ ഇടതു മൂലയിൽ കാണുന്ന ഈ option ക്ലിക്ക് ചെയ്യുക.&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/98445494-09bcf700-213e-11eb-9aad-ba3b7397f1fe.png" alt="location_tool">&lt;/p>
+&lt;ol start="4">
+&lt;li>അപ്പോൾ തെളിഞ്ഞു വരുന്ന window -ൽ location സെ‍ർച് ചെയ്യാൻ അവസരം ഉണ്ട് അങ്ങനെ സെ‍ർച് ചെയ്തു എന്റെർ ചെയ്യുമ്പോൾ വരുന്ന ലിസ്റ്റിൽ നിന്നും നിങ്ങളുടെ ഇഷ്ടാനുസരണം സെലെക്ട്ട് ചെയ്യാം. അതിന് ശേഷം Use this location സെലെക്ട്ട് ചെയ്യുക.&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/98445488-088bca00-213e-11eb-966b-4f42944db45f.png" alt="location_fix">&lt;/p>
+&lt;ol start="5">
+&lt;li>ഇനി ചെയ്യേണ്ടത് സമയം മാറ്റുക എന്നതാണ്. നിങ്ങൾക്കു ആവശ്യമുള്ള സമയം താഴെ വലതു മൂലയിൽ സെറ്റ് ചെയ്യാൻ അവസരം ഉണ്ട്. ഇഷ്ടമുള്ള ദിവസം ഇഷ്ടമുള്ള സമയം സെലെക്ട്ട് ചെയ്യാം. അതിൽ തന്നെ രാത്രിയും പകലും വേഗത്തിൽ മാറ്റാൻ ഒരു വഴിയും കൊടുത്തിട്ടുണ്ട് , അതിലൂടെ ഒന്നോടിച്ചു പോയാൽ അതും വേഗം മനസിലാകും.&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/98445486-06c20680-213e-11eb-975a-c3ebe4b6c3d9.png" alt="time">&lt;/p>
+&lt;ol start="6">
+&lt;li>
+&lt;p>ഇപ്പോൾ realtime ആയി തിരിച്ചു വരാനും ഇതിൽ അവസരമുണ്ട്.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>സമയം വൈകിട്ട് സെറ്റ് ആക്കിയാൽ നമുക്ക് comet Neowise തെളിഞ്ഞു കാണാം. സമയം ചെറുതായി മാറ്റി നോക്കി എവിടെ എത്ര ഉയരത്തിൽ എത്തുമെന്നു അറിയാൻ കഴിയും. കൂടുതൽ സഹായത്തിന് താഴെ കുറെ ഏറെ options ഉണ്ട്. ആത് Constellations, atmosphere എന്നിങ്ങനെ പോകുന്നു. പകൽ- രാത്രി ഒക്കെ സെറ്റ് ചെയ്തു നോക്കാനും കഴിയും.&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/98445483-04f84300-213e-11eb-93df-a0edd258edbf.png" alt="Day">&lt;/p>
+&lt;ol start="8">
+&lt;li>Constellations കൂടി ഉപയോഗപ്പെടുത്തി വേഗം Neowise നെ കണ്ടെത്തുകയും ആവാം.&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/98445473-f742bd80-213d-11eb-89bd-e4e1cc38a948.png" alt="const">&lt;/p>
+&lt;ol start="9">
+&lt;li>Atmosphere എന്ന option ഇട്ടു കഴിഞ്ഞാൽ ശരിക്കമുള്ള ആകാശം അറിയാൻ കഴിയും. താഴെ ഉള്ള ചിത്രങ്ങൾ നോക്കുക.&lt;/li>
+&lt;/ol>
+&lt;p>Atmosphere option enabled screen.&lt;/p>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/98445478-0164bc00-213e-11eb-803f-008d3bf1c906.png" alt="with_atm">&lt;/p>
+&lt;p>Atmosphere option disabled screen.&lt;/p>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/98445476-fe69cb80-213d-11eb-8238-2a13274394f6.png" alt="without_atm">&lt;/p>
+&lt;ol start="10">
+&lt;li>കൂടാതെ ഏതൊരു planaterium software നൽകുന്ന സാങ്കേതിക സഹായവും stellarium വെബ്സൈറ്റിൽ ലഭിക്കുന്നതാണ് .&lt;/li>
+&lt;/ol></description><category>astronomy</category><category>tutorials</category></item><item><title>Comet Neowise (C/2020 F3)</title><link>https://arungopi.gitlab.io/post/tutorials/neowise/</link><pubDate>Fri, 17 Jul 2020 12:00:04 +0530</pubDate><guid>https://arungopi.gitlab.io/post/tutorials/neowise/</guid><description>&lt;h2 id="neowise">Neowise&lt;/h2>
+&lt;p>അടുത്ത 6800 വർഷത്തേക്ക് നമ്മുടെ അടുത്ത് വരാൻ സാധ്യത ഇല്ലാത്ത എന്നാൽ ഇപ്പോൾ കാണാൻ കഴിയുന്നതുമായ ഒരു കോമെറ്റ് ആണ് C/2020 F3 അഥവാ &lt;strong>Neowise&lt;/strong>. അതായത് ഇപ്പൊ കണ്ടില്ലേൽ പിന്നെ ഇല്ല. ഉത്തരധ്രുവത്തിൽ മാത്രമേ ഈ കൊമെറ്റിനെ കാണാൻ കഴിയുകയുള്ളൂ .&lt;/p>
+&lt;blockquote>
+&lt;p>Comet NEOWISE was first discovered in March by the infrared-optimized NEOWISE spacecraft (the name is short for Near-Earth Object Wide-field Infrared Space Explorer)&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>.&lt;/p>
+&lt;/blockquote>
+&lt;p>കൂടുതൽ അറിയാം : &lt;a href="https://www.explainedinmalayalam.com/2020/07/neowise-comet.html">explainedinmalayalam.com&lt;/a>&lt;/p>
+&lt;h3 id="എപപൾ-എവട-കണ-">എപ്പോൾ, എവിടെ കാണാം ?&lt;/h3>
+&lt;p>ജൂലൈ 14 മുതൽ, 20 ദിവസം സൂര്യൻ അസ്തമിച്ചു ഒരു ഇരുപത് മിനുട്ട് നമുക്ക് നഗ്ന നേത്രം കൊണ്ട് തന്നെ കാണാനാകും. കൃത്യമായി പറഞ്ഞാൽ വടക്കു പടിഞ്ഞാറ് ദിശയിൽ. ഒരു ബൈനോക്കുലറൊ ടെലെസ്കൊപ്പൊ ഉണ്ടേൽ ഉഷാർ.&lt;/p>
+&lt;h3 id="എങങന-കണ-">എങ്ങനെ കാണാം ?&lt;/h3>
+&lt;p>കേരളത്തിൽ ഇപ്പോൾ മൺസൂൺ കാലമായതിനാൽ ഈ സുന്ദരനെ കാണുക പ്രയാസം തന്നെ . ഒപ്പം covid കൂടി ഉള്ളതിനാൽ എല്ലാപേർക്കും ഈ അവസരം കിട്ടണം എന്നില്ല. അപ്പോൾ നമ്മുടെ സഹായത്തിന് mobile നെ ആശ്രയിക്കാം . Play store -ൽ ലഭ്യമായ ഒരു ആപ്പ് ആണ് &lt;a href="https://play.google.com/store/apps/details?id=com.simulationcurriculum.skysafari5&amp;amp;hl=en_US">Sky safari&lt;/a>.&lt;/p>
+&lt;h2 id="കണ-sky-safari-ആപപൽ">കാണാം Sky safari ആപ്പിൽ&lt;/h2>
+&lt;p>ആദ്യം ചെയ്യണ്ടതു &lt;a href="https://play.google.com/store/apps/details?id=com.simulationcurriculum.skysafari5&amp;amp;hl=en_US">Sky safari&lt;/a> ആപ്പ് ഇൻസ്റ്റാൾ ചെയ്യുക എന്നതാണ്.&lt;/p>
+&lt;h3 id="ഇന-ആപപ-എങങന-ഉപയഗകക-എനന-നകക">ഇനി ആപ്പ് എങ്ങനെ ഉപയോഗിക്കാം എന്നു നോക്കാം.&lt;/h3>
+&lt;ol>
+&lt;li>
+&lt;p>ആപ്പ് തുറക്കുക. അപ്പോൾ അവർ ആവശ്യപ്പെടുന്ന Media &amp;amp; Location - permissions അനുവദിച്ചു നൽകുക.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>ഇനി താഴെ കാണുന്ന ചിത്രത്തിലെ പോലെ &lt;strong>search&lt;/strong> ബട്ടൺ ക്ലിക്ക് ചെയ്യുക .&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/98445405-a16e1580-213d-11eb-8a52-0aa481766f73.jpg" alt="search">&lt;/p>
+&lt;ol start="3">
+&lt;li>അപ്പോൾ വരുന്ന മെനുവിൽ നിന്നും &lt;strong>Brightest comets&lt;/strong> ക്ലിക്ക് ചെയ്യുക .&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/98445396-9d41f800-213d-11eb-8f83-b1b27ec84dfa.jpg" alt="brighter">&lt;/p>
+&lt;ol start="4">
+&lt;li>അടുത്തതായി വരുന്ന സ്‍‍ക്രീനിൽ ആദ്യം വരുന്ന &lt;strong>C/2020 F3 (Neowise)&lt;/strong> ക്ലിക്ക് ചെയ്യുക.&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/98445391-9a470780-213d-11eb-9b1f-dcbbc37357ae.jpg" alt="neowise">&lt;/p>
+&lt;ol start="5">
+&lt;li>അടുത്ത സ്‍‍ക്രീനിൽ comet Neowise -ന്റെ വിവരണം ലഭ്യമാകും. ഇനി സ്‍‍ക്രീനിന്റെ താഴെ ഇടതു മൂലയിൽ കാണുന്ന &lt;strong>Center&lt;/strong> എന്ന icon-ൽ ക്ലിക്ക് ചെയ്യുക.&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/98445389-97e4ad80-213d-11eb-889a-1496e82b57f2.jpg" alt="focus">&lt;/p>
+&lt;ol start="6">
+&lt;li>ഇത്രയും ചെയ്തു കഴിയുമ്പോൾ comet എവിടെ ആണ് ഇപ്പോൾ എന്ന് സൂചിപ്പിക്കുന്ന ഒരു സ്‍‍ക്രീൻ വന്നിട്ടുണ്ടാകും. ഇനി ചെയ്യേണ്ടത് നിങ്ങളുടെ മൊബൈൽ ഫോൺ സ്‍‍ക്രീനിൽ കാണുന്ന ദിശ സൂചകം അനുസരിച്ച് തിരിക്കുക എന്നത് മാത്രമാണ് . വൈകുന്നേരം വടക്കു പടിഞ്ഞാറു ദിശയിൽ ആശാൻ ഇങ്ങനെ നിൽപുണ്ടാകും.&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/98445386-95825380-213d-11eb-8fac-36df6375f3c5.jpg" alt="target">&lt;/p>
+&lt;h2 id="bonus">Bonus&lt;/h2>
+&lt;p>ഇനി നിങ്ങൾക്ക് ആവശ്യമായത് വടക്കു പടിഞ്ഞാറു ദിശ വ്യക്തമായി കാണുന്ന സ്ഥലം കണ്ടെത്തി അവിടേക്ക് പോകുക എന്നത് മാത്രമാണ്. Time travel ഓപ്ഷനും ആപ്പ് നൽകുന്നുണ്ട് .&lt;/p>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/98445402-9fa45200-213d-11eb-88bd-71e88f708ff7.jpg" alt="time_travel">&lt;/p>
+&lt;p>&lt;strong>Science class&lt;/strong> എന്ന youtube ചാനെലിൽ വന്ന വിശദമായ ഒരു വിഡിയോ കൂടി കണ്ട് നോക്കു.
+&lt;div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+&lt;iframe src="https://www.youtube.com/embed/gGXARIqqpjI" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video">&lt;/iframe>
+&lt;/div>
+&lt;/p>
+&lt;p>Enjoy.&lt;/p>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>&lt;a href="https://en.wikipedia.org/wiki/C/2020_F3_(NEOWISE)">https://en.wikipedia.org/wiki/C/2020_F3_(NEOWISE)&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description><category>astronomy</category><category>tutorials</category></item><item><title>Creating a simple corona virus model using blender</title><link>https://arungopi.gitlab.io/post/tutorials/covid_blender/</link><pubDate>Sat, 18 Apr 2020 18:06:05 +0530</pubDate><guid>https://arungopi.gitlab.io/post/tutorials/covid_blender/</guid><description>&lt;h1 id="blender-ൽ-ഒര-കറണ-വറസ">Blender-ൽ ഒരു കൊറോണ വൈറസ്&lt;/h1>
+&lt;p>ചുമ്മാ internet-ൽ തപ്പി നേരം പോയിരിക്കുമ്പോൾ ആണ് ഒരു ചിന്ത പെട്ടെന്ന് വന്നത് &lt;em>(&lt;a href="https://www.youtube.com/watch?v=ChdKBh2u12Q">ചിന്താ ജെറോം&lt;/a> അല്ല ഇതു വേറെ)&lt;/em>. &lt;strong>&lt;a href="https://www.blender.org/">Blender&lt;/a>&lt;/strong> എന്നൊരു &lt;em>software&lt;/em> ഉണ്ട് നിങ്ങളിൽ പലർക്കും അറിയാവുന്നതായിരിക്കും എന്നാലും ഈ blender, &lt;strong>&lt;em>3D animations&lt;/em>&lt;/strong> ഒക്കെ ഉണ്ടാക്കുവാനുള്ള ഒരു അടിപൊളി &lt;strong>Free &amp;amp; open source software(FOSS)&lt;/strong> ആണ്. സത്യം പറഞ്ഞാൽ അതിന്റെ &lt;em>ABCD&lt;/em> എനിക്ക് അറിയില്ലായിരുന്നു ഈ ചിന്ത ഉണ്ടാകും വരെ. ഒരു കുഞ്ഞൻ കൊറോണയേ blender ൽ ഉണ്ടാക്കിയാൽ ആത് ഒരു രസം തന്നെ. പക്ഷേ youtube -ൽ നോക്കിയപ്പോൾ item അവിടുണ്ട്. ഞാനായിട്ട് ഒരു പുതുമയും ഇവിടെ കൊടുക്കുന്നില്ല പകരം ഞാൻ നിർമിച്ച രസികൻ കൊറോണയെ ഇവിടെ പങ്കുവെക്കാം.&lt;/p>
+&lt;blockquote>
+&lt;p>ഇതൊരു നേരം പോക്കായി കാണുക Covid19 virus ഇങ്ങനെ ഈ രൂപത്തിൽ ആണെന്ന് ഇതിനൊരു അർഥവും ഇല്ല.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="3d-corona">3D Corona&lt;/h2>
+&lt;div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+&lt;iframe src="https://www.youtube.com/embed/bU1N5kiJWp0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video">&lt;/iframe>
+&lt;/div>
+&lt;h1 id="wallpaper">Wallpaper&lt;/h1>
+&lt;p>Wallpaper ആക്കാനും അടിപൊളി ആണ്. Sample ചുവടെ.&lt;/p>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/53209422/98446979-8b655280-2147-11eb-8396-a7261e0a503d.jpg" alt="Screenshot">&lt;/p>
+&lt;h2 id="download-section">Download section&lt;/h2>
+&lt;p>&lt;a href="https://arungopi.gitlab.io/posts/Blender/Wallpaper.jpg">Download ചെയ്യാൻ ഇവിടെ ക്ലിക്ക് ചെയ്യുക&lt;/a>.&lt;/p>
+&lt;h2 id="blender-files">Blender files&lt;/h2>
+&lt;p>Blender source files which can be used to replicate the model are uploaded to github. Feel free to use.&lt;/p>
+&lt;p>&lt;a href="https://github.com/arungop/Covid19-blender">Source files&lt;/a>&lt;/p></description><category>covid 19</category><category>blender</category><category>tutorials</category></item><item><title>How to create a microgreen recipe</title><link>https://arungopi.gitlab.io/post/tutorials/microgreen_experiment/</link><pubDate>Sun, 12 Apr 2020 18:28:47 +0530</pubDate><guid>https://arungopi.gitlab.io/post/tutorials/microgreen_experiment/</guid><description>&lt;p>മാധ്യമങ്ങളിൽ കണ്ട് പരിചയിച്ച ഒരു പേരാണ് &lt;strong>Microgreen&lt;/strong>. ഇത്രക്ക് പറഞ്ഞുകേട്ട സ്ഥിതിക്ക് ഒന്നു നോക്കിക്കളയാം.&lt;/p>
+&lt;h1 id="microgreen">Microgreen?&lt;/h1>
+&lt;p>ഏകദേശം 1–3 ഇഞ്ച് (2.5–7.5 സെ.മീ) ഉയരമുള്ള ഇളം പച്ചക്കറി പച്ചിലകളാണ് മൈക്രോഗ്രീനുകൾ.ഇവ പാചകത്തിനും ശരീരത്തിനും ഉത്തമം.വെറും ഒരാഴ്ച്ച പരിശ്രമിച്ചാൽ രുചികരവും പോഷക സമൃദ്ധമായ ഒരു ഇലക്കറി ഉണ്ടാക്കി എടുക്കാം . &lt;em>Microgreen&lt;/em> ഉണ്ടാക്കാൻ ആവശ്യമായത് ഒരു ചെറിയ പാത്രവും കുറച്ച് വിത്തുകളുമാണു. &lt;strong>പയർ,ഗ്രീൻപീസ്,ഉലുവ&lt;/strong> പോലെ വേഗം മുളക്കുന്ന വിത്തുകൾ ഉത്തമം.&lt;/p>
+&lt;h1 id="nutritional-value">Nutritional value&lt;/h1>
+&lt;blockquote>
+&lt;p>Among the 25 microgreens tested, red cabbage, cilantro, garnet amaranth, and green daikon radish had the highest concentrations of vitamin C, carotenoids, vitamin K, and vitamin E, respectively. In general, microgreens contained considerably higher levels of vitamins and carotenoids—about five times greater—than their mature plant counterparts, an indication that microgreens may be worth the trouble of delivering them fresh during their short lives&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>.&lt;/p>
+&lt;/blockquote>
+&lt;p>സാധാരണ ഇലക്കറിയേക്കാൾ രുചികരം എന്നാണ് വായിച്ചു അറിഞ്ഞത്. എന്നാൽ തുടങ്ങാം&amp;hellip;.&lt;/p>
+&lt;h2 id="day01">day01&lt;/h2>
+&lt;ul>
+&lt;li>ആദ്യം ചെയ്യേണ്ടത് നേരത്തെ പറഞ്ഞപോലുള്ള വിത്തുകൾ ഒരു പിടി എടുക്കുക. ഒരു പരീക്ഷണം എന്ന നിലക്ക് ചെറുപയർ തന്നെ നല്ലത് . ആത് വെള്ളത്തിൽ കുതിരാൻ ഒരു ആറ് മണിക്കൂർ ഇട്ട് വൈക്കുക.(തൽക്കാലം ആത് അവിടിരുന്നോട്ടേ )&lt;/li>
+&lt;li>നമ്മുടെ വിത്തുകൾ പാകുവാൻ തക്ക വലുപ്പമുള്ള ഒരു പാത്രം എടുക്കുക . ഞാൻ ചെറിയൊരു കൂടയാണു എടുത്തത് .&lt;/li>
+&lt;li>ഇനി രണ്ടു വഴിയാണ് മുന്നിലുള്ളത് - മണ്ണ് ഉപയോഗിച്ച് അല്ലെങ്കിൽ പഴയ പേപ്പർ പോലുള്ളവ ഉപയോഗിച്ച്. (ഇടക്ക് cleaning കഴിഞ്ഞത് കൊണ്ട് ധാരാളം പഴയ പേപ്പർ ഒഴിവാക്കാൻ ഒരു മാർഗവുമാണു) . ഇതിനു മൂന്നോ നാലോ താൾ പേപ്പർ മതിയാക്കും.&lt;/li>
+&lt;li>ഒരു ആറ് മണിക്കൂർ കഴിഞ്ഞ് ആ വിത്തുകൾ എടുത്ത് ഒരു ചെറിയ തുണിയിൽ ( cotton ) ഒരു പൊതി കണക്കെ ഈർപ്പത്തോടെ വൈക്കുക. &lt;strong>(ബാക്കി നാളെ)&lt;/strong> .&lt;/li>
+&lt;/ul>
+&lt;h2 id="day02">day02&lt;/h2>
+&lt;p>ഇനി simple ആണ് കാര്യങ്ങൾ. ഇന്നലെ വച്ച വിത്തുകൾ ഇപ്പോൾ മുളച്ച് കഴിഞ്ഞിരിക്കും .&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>നേരത്തേ തയ്യാറാക്കിയ ആ പാത്രത്തിൽ ഈ വിത്തുകൾ വിതറുക .&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>പണി കഴിഞ്ഞു. ഇനി ഒരു മൂന്നു നേരം അൽപ്പം വെള്ളം തളിക്കുക . ഒരുപാട് നനവായാൽ കേടാകും (ചീയ്യാൻ സാധ്യത).&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="day-03">day 03&lt;/h2>
+&lt;p>ഇടക്കിടക്ക് നനക്കുക. കുഞ്ഞ് ഇലകൾ വരുന്നത് കണ്ട് സന്തോഷിക്കുക.&lt;/p>
+&lt;h2 id="day04">day04&lt;/h2>
+&lt;p>Repeat day03&lt;/p>
+&lt;h2 id="day05">day05&lt;/h2>
+&lt;p>Repeat day04. More leaves means more happy.&lt;/p>
+&lt;h2 id="day06">day06&lt;/h2>
+&lt;p>Repeat day05. ഇപ്പോൾ ഇലകൾ &lt;a href="https://en.wikipedia.org/wiki/All_India_Anna_Dravida_Munnetra_Kazhagam">AIDMK യുടെ ചിഹ്നം കണക്കെ&lt;/a> നല്ല പച്ചപ്പായി നിൽപ്പുണ്ടാകും. അൽപ്പം കൂടി വളരട്ടെ നാളെ മുറിചെടുക്കാം.&lt;/p>
+&lt;h2 id="day07">day07&lt;/h2>
+&lt;p>തണ്ടും ഇലകളും ഒക്കെ മുറിച്ചെടുത്ത് നല്ല തോരൻ വച്ചു. രുചിയുണ്ട് ഗുണവും ഉണ്ട് . കുറച്ച് സന്തോഷവും .&lt;/p>
+&lt;h1 id="ഒരകനകക">ഒരുകൈനോക്കം&lt;/h1>
+&lt;p>Lockdown നീട്ടാൻ പോകുവല്ലേ ചുമ്മാ ഒരുകൈനോക്കിയെക്കാമല്ലോ. വലിയ പണിയൊന്നും ഇല്ലാന്നേ. ഇനി മണ്ണ് ഉപയോഗിച്ച് ഉള്ള വഴിയും ഉണ്ട്.&lt;/p>
+&lt;div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+&lt;iframe src="https://www.youtube.com/embed/YXCI4P2cNZQ" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video">&lt;/iframe>
+&lt;/div>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>&lt;a href="https://en.wikipedia.org/wiki/Microgreen#Nutritional_analysis">Nutritional value&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description><category>microgreen</category><category>health</category><category>tutorials</category></item><item><title>How to add audio in hugo static site using a shortcode.</title><link>https://arungopi.gitlab.io/post/tutorials/audio/</link><pubDate>Fri, 03 Apr 2020 00:00:00 +0000</pubDate><guid>https://arungopi.gitlab.io/post/tutorials/audio/</guid><description>&lt;p>This is a simple tutorial on how to add audio files in hugo static sites via shortcodes. Just follow these steps&lt;/p>
+&lt;h1 id="step-1">STEP 1&lt;/h1>
+&lt;p>Create a file &lt;em>audio.html&lt;/em> in &lt;em>layouts/shortcodes&lt;/em> folder.&lt;/p>
+&lt;h1 id="step-2">STEP 2&lt;/h1>
+&lt;p>Add following lines of code in the newly created &lt;em>audio.html&lt;/em> file and save.&lt;/p>
+&lt;h1 id="step-3">STEP 3&lt;/h1>
+&lt;p>Save the required audio file in &lt;em>/static/xxx&lt;/em> . For the demonstrative purpose I put the sample audio file in &lt;em>/static/posts/shortcodes/&lt;/em> (That&amp;rsquo;s where I put my static files for shortcode demonstrating articles). That&amp;rsquo;s all you are ready to go.&lt;/p>
+&lt;script type="application/javascript" src="https://gist.github.com/arungop/3a15a2a99b7fffbf0176e8dcdb803db6.js">&lt;/script>
+&lt;div class="container">
+&lt;audio controls style="width: 100%; margin-bottom: 30px">
+&lt;source src="https://arungopi.gitlab.io/audio/filename.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+&lt;/audio>
+&lt;/div>
+&lt;p>&lt;strong>SONG: &lt;em>Stand By (#CWC19)&lt;/em>&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>CREDITS: &lt;em>SME (on behalf of Black Butter); BMI - Broadcast Music Inc., UNIAO&lt;/em>&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>ARTIST: &lt;em>&lt;a href="https://www.youtube.com/channel/UCNJwoRlTn6tFY7oYO6AXgGQ">LORYN&lt;/a>&lt;/em>&lt;/strong>&lt;/p></description><category>shortcodes</category><category>hugo</category><category>tutorials</category></item><item><title>Covid19 kerala database</title><link>https://arungopi.gitlab.io/post/tutorials/covid_database/</link><pubDate>Thu, 02 Apr 2020 22:17:29 +0530</pubDate><guid>https://arungopi.gitlab.io/post/tutorials/covid_database/</guid><description>&lt;h1 id="live-covid19-patient-database-of-kerala">Live Covid19 patient database of kerala&lt;/h1>
+&lt;p>&lt;a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQU9eLCMT0XwWnoxV_LkyCkxMcPYO7z7ULdODoUFgcdzp48pgGpGrVZFXvraXYvUioVRsQgQDU_pQyI/pubhtml">Google sheet database with regular updates&lt;/a>&lt;/p>
+&lt;p>&lt;strong>SOURCE: &lt;a href="https://covid19kerala.info/">https://covid19kerala.info/&lt;/a>&lt;/strong>&lt;/p>
+&lt;blockquote>
+&lt;p>For detailed infographics visit above website. This is an open source project which is cloned from Covid19japan &lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> and Maintained by Volunteers at CODD-K Team. Supported by Government College Kasaragod. Also available in both malayalam and english languages.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="rshiny-apps">Rshiny apps&lt;/h2>
+&lt;iframe height="800" width="100%" frameborder="no" src="https://arun-gopinath.shinyapps.io/project/"> &lt;/iframe>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>&lt;a href="https://covid19japan.com/">Covid19japan&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description><category>covid 19</category><category>tutorials</category></item><item><title>Adding a leaflet map with a popup</title><link>https://arungopi.gitlab.io/post/tutorials/sample_leaflet/</link><pubDate>Sun, 08 Mar 2020 00:00:00 +0000</pubDate><guid>https://arungopi.gitlab.io/post/tutorials/sample_leaflet/</guid><description>&lt;h1 id="map-with-a-popup">Map with a popup!&lt;/h1>
+&lt;p>Below map is embedded in this post with the help of shortcode created by &lt;a href="https://github.com/simonfrey/hugo-leaflet">Simonfrey&lt;/a> which uses &lt;a href="https://www.openstreetmap.org/">OSM&lt;/a> and &lt;a href="https://leafletjs.com/">Leaflet&lt;/a>. A popup is added like a cherry on the top of a cake. Placing &lt;em>layout/shortcode&lt;/em> in &lt;em>/themes&lt;/em> folder was an issue in the beginning. Later this folder is moved into the root folder of this blog. This change practically resolved the issue with adaptability of &lt;strong>leaflet&lt;/strong> shortcode. Hope this transition will be beneficial in future theme migration.&lt;/p>
+&lt;link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
+crossorigin=""/>
+&lt;script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
+integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
+crossorigin="">&lt;/script>
+&lt;div id="mapid77.12120" style="width:100%;height:400px;">&lt;/div>
+&lt;script>
+let zoom = 13;
+var mymap = L.map('mapid77.12120').setView(["8.423385", "77.12120"], zoom);
+L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+attribution: '&amp;copy; &lt;a href="https://www.openstreetmap.org/copyright">OpenStreetMap&lt;/a> contributors'
+}).addTo(mymap);
+var marker = L.marker(["8.423385", "77.12120"]).addTo(mymap);
+marker.bindPopup("I\u0027m here");
+&lt;/script>
+&lt;p>&lt;strong>Click on the marker to see the popup&lt;/strong>&lt;/p>
+&lt;pre tabindex="0">&lt;code>
+{ {&amp;lt; load-leaflet &amp;gt;} }
+{ {&amp;lt; leaflet-simple mapHeight=&amp;#34;500px&amp;#34; mapWidth=&amp;#34;100%&amp;#34; mapLat=&amp;#34;8.423385&amp;#34; mapLon=&amp;#34;77.12120&amp;#34; markerLat=&amp;#34;8.423385&amp;#34; markerLon=&amp;#34;77.12120&amp;#34; markerContent=&amp;#34;I&amp;#39;m here&amp;#34; &amp;gt;} }
+&lt;/code>&lt;/pre></description><category>leaflet</category><category>tutorials</category></item></channel></rss>

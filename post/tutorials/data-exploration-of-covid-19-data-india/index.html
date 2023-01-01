@@ -1,0 +1,295 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><link rel=icon type=image/png sizes=32x32 href=/img/logo.png><meta name=viewport content="width=device-width,initial-scale=1"><title>Exploratory Data Analysis of Covid 19 data of India - Arun Gopinath</title><meta property="og:title" content="Exploratory Data Analysis of Covid 19 data of India - Arun Gopinath"><meta name=twitter:card content="summary"><meta property="description" content="A detailed Exploratory Data Analysis (EDA) of Covid 19 data of India using R. A wide variety of questions are answered here."><meta property="og:description" content="A detailed Exploratory Data Analysis (EDA) of Covid 19 data of India using R. A wide variety of questions are answered here."><meta name=twitter:image content="https://arungopi.gitlab.io/post/tutorials/data-exploration-of-covid-19-data-india/index_files/figure-html/unnamed-chunk-16-1.png"><link href=//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css rel=stylesheet type=text/css><link rel=stylesheet href=/css/style.css><link rel=stylesheet href=/css/fonts.css><link rel=stylesheet href=/css/custom.css></head><body class=post><header class=masthead><h1><a href=/><img src=/img/logo.png alt="Arun Gopinath"></a></h1><p class=tagline>Welcome to blog of Arun Gopinath</p><nav class=menu><input id=menu-check type=checkbox hidden>
+<label id=menu-label for=menu-check class=unselectable hidden><span class="icon close-icon">✕</span>
+<span class="icon open-icon">☰</span>
+<span class=text>Menu</span></label><ul><li><a href=/>Home</a></li><li><a href=/about/>About</a></li><li><a href=/post/>Blog</a></li><li><a href=/galleries/>Gallery</a></li><li><a href=/categories/>Category</a></li></ul></nav></header><article class=main><header class=title><h1>Exploratory Data Analysis of Covid 19 data of India</h1><h3>Arun Gopinath
+/ 2021-08-03</h3><hr></header><script src=https://arungopi.gitlab.io/post/tutorials/data-exploration-of-covid-19-data-india/index_files/header-attrs/header-attrs.js></script>
+<script src=https://arungopi.gitlab.io/post/tutorials/data-exploration-of-covid-19-data-india/index_files/kePrint/kePrint.js></script>
+<link href=https://arungopi.gitlab.io/post/tutorials/data-exploration-of-covid-19-data-india/index_files/lightable/lightable.css rel=stylesheet><script src=https://arungopi.gitlab.io/post/tutorials/data-exploration-of-covid-19-data-india/index_files/htmlwidgets/htmlwidgets.js></script>
+<script src=https://arungopi.gitlab.io/post/tutorials/data-exploration-of-covid-19-data-india/index_files/pymjs/pym.v1.js></script>
+<script src=https://arungopi.gitlab.io/post/tutorials/data-exploration-of-covid-19-data-india/index_files/widgetframe-binding/widgetframe.js></script><div id=TOC><ul><li><a href=#exploring-and-visualising-covid-19-dataset-of-indian-states-using-r>Exploring and visualising Covid 19 dataset of Indian states using R</a><ul><li><a href=#load-required-packages>Load required packages</a></li><li><a href=#data-data..>Data… Data..</a><ul><li><a href=#loading-latest-shapefile-of-indian-states>Loading latest shapefile of Indian states</a></li></ul></li></ul></li><li><a href=#exploratory-data-analysis>Exploratory Data Analysis</a><ul><li><a href=#first-reporting-case---when-where>First reporting case - When ? Where ?</a></li><li><a href=#peak-active-covid-case-in-india---when>Peak active covid case in India - When ?</a></li><li><a href=#which-day-records-maximum-tpr-in-india>Which day records maximum TPR in India?</a></li><li><a href=#highest-death-rate-recorded>Highest death rate recorded ?</a></li><li><a href=#top-5-states-with-cumulative-confirmed-cases>Top 5 states with cumulative confirmed cases ?</a></li><li><a href=#least-cumulative-confirmed-cases>Least cumulative confirmed cases ?</a></li><li><a href=#most-deaths---top-5>Most deaths - Top 5 ?</a></li><li><a href=#least-deaths---state-or-ut>Least deaths - State or UT ?</a></li><li><a href=#which-state-has-most-number-of-active-cases>Which state has most number of active cases ?</a></li><li><a href=#which-state-has-least-number-of-active-cases>Which state has least number of active cases ?</a></li><li><a href=#highest-tpr-ever-recorded-in-a-state>Highest TPR ever recorded in a state ?</a></li><li><a href=#highest-tpr-7-day-moving-average-recorded>Highest TPR 7 day moving average recorded ?</a></li><li><a href=#check-weather-any-reletion-between-weekdays-and-covid-19-deaths>Check weather any reletion between weekdays and Covid 19 deaths</a></li><li><a href=#daily-cases-in-india>Daily cases in India</a></li></ul></li><li><a href=#lets-see-some-interesting-heat-maps-created-using-plotly-package.>Let’s see some interesting heat maps created using Plotly package.</a><ul><li><a href=#covid-19-confirmed-cases>Covid 19 confirmed cases</a></li><li><a href=#deaths-during-pandemic-cummulative>Deaths during pandemic (Cummulative)</a></li><li><a href=#test-positivity-rate-tpr-during-pandemic>Test Positivity Rate (TPR) during pandemic</a></li></ul></li><li><a href=#maps-tell-more-stories..>Maps tell more stories..</a></li></ul></div><div id=exploring-and-visualising-covid-19-dataset-of-indian-states-using-r class="section level1"><h1>Exploring and visualising Covid 19 dataset of Indian states using R</h1><blockquote><p>Last update : Oct 31,2021</p></blockquote><p>Covid 19 data is availabe publically and updates on daily basis. This is an attempt to explore the same with interesting questions all done using the power of “R”.</p><p>I will try to make sure to update the post on regular basis. So you can revisit this post again to see latest stats (atleast weekly update will be provided).</p><div id=load-required-packages class="section level2"><h2>Load required packages</h2><p>Load R packages needed for this data exploration and proper visualisation.</p><pre class=r><code>library(plotly)
+library(tidyverse)
+library(lubridate)
+library(knitr)
+library(kableExtra)
+library(sf)
+library(viridis)
+library(glue)
+library(scales)
+library(widgetframe)
+library(here)</code></pre></div><div id=data-data.. class="section level2"><h2>Data… Data..</h2><p>Data is obtained from <a href=https://github.com/covid19india/api>Github</a>.</p><ul><li>Removed “India” and “State unassigned” from ’State coloumn</li><li>Calculate TPR rate = (Confirmed cases/Total tests)* 100)</li><li>Calculate 7 day moving average of TPR</li><li>Calculate active cases per state = Confirmed -(Recovered + Deceased)</li><li>Calculate Mortality rate per confirmed cases = (Deceased / Confirmed ) * 100</li><li>Calculate daily deaths</li></ul><pre class=r><code>states &lt;- read_csv(&quot;https://api.covid19india.org/csv/latest/states.csv&quot;)
+
+states_daily &lt;- states %&gt;%
+  filter(!(State %in% c(&quot;India&quot;,&quot;State Unassigned&quot;))) %&gt;% 
+  mutate(TPR = (Confirmed/Tested)* 100) %&gt;% 
+  group_by(State) %&gt;%
+  mutate(Daily_cases = Confirmed - lag(Confirmed, default = 0)) %&gt;% 
+  mutate(Daily_deaths = Deceased - lag(Deceased, default = 0)) %&gt;% 
+  mutate(TPR_7d = zoo::rollmean(TPR, k=7,fill = NA)) %&gt;% 
+  mutate(Active_cases = Confirmed -  (Recovered + Deceased)) %&gt;% 
+  mutate(Mortality_rate = (Deceased / Confirmed ) * 100) %&gt;% 
+  mutate(across(where(is.numeric), ~ round(., 3))) %&gt;% 
+  mutate(Code = toupper(substr(State,0,3))) %&gt;% 
+  ungroup()
+  
+states_daily$Date &lt;- ymd(states_daily$Date)
+
+covid_latest &lt;- states_daily %&gt;% 
+  filter(Date==max(Date)) %&gt;% 
+  rename(State_Name = State)</code></pre><ul><li>A national level data subset</li></ul><pre class=r><code># India_stats
+India_stats&lt;- states %&gt;%
+  filter((State %in% c(&quot;India&quot;))) %&gt;% 
+  mutate(TPR = (Confirmed/Tested)* 100) %&gt;% 
+  group_by(State) %&gt;%
+  mutate(Daily_cases = Confirmed - lag(Confirmed, default = 0)) %&gt;% 
+  mutate(Daily_deaths = Deceased - lag(Deceased, default = 0)) %&gt;% 
+  mutate(TPR_7d = zoo::rollmean(TPR, k=7,fill = NA)) %&gt;% 
+  mutate(Active_cases = Confirmed -  (Recovered + Deceased)) %&gt;% 
+  mutate(Mortality_rate = (Deceased / Confirmed ) * 100) %&gt;% 
+  mutate(across(where(is.numeric), ~ round(., 3))) %&gt;% 
+  ungroup()
+  
+India_stats$Date &lt;- ymd(India_stats$Date)</code></pre><div id=loading-latest-shapefile-of-indian-states class="section level3"><h3>Loading latest shapefile of Indian states</h3><p>Covid stats are merged with this shapefile for further analysis</p><pre class=r><code># India latest map
+map_in &lt;- st_read(here(&quot;static&quot;,&quot;/data/india/India_State_Boundary.shp&quot;))</code></pre><pre><code>## Reading layer `India_State_Boundary&#39; from data source 
+##   `/home/arungopinath/Public/arungopi.gitlab.io/static/data/india/India_State_Boundary.shp&#39; 
+##   using driver `ESRI Shapefile&#39;
+## Simple feature collection with 37 features and 1 field
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: 7583508 ymin: 753607.8 xmax: 10843390 ymax: 4452638
+## Projected CRS: WGS 84 / Pseudo-Mercator</code></pre><pre class=r><code>map_latest &lt;- merge(map_in,covid_latest, by =&quot;State_Name&quot;)</code></pre></div></div></div><div id=exploratory-data-analysis class="section level1"><h1>Exploratory Data Analysis</h1><p>This section is interesting because here we can explore our data to seek important and cool facts.</p><div id=first-reporting-case---when-where class="section level2"><h2>First reporting case - When ? Where ?</h2><pre class=r><code>first &lt;- states_daily %&gt;% 
+  filter(Date==min(Date)) %&gt;% 
+  select(Date,State,Confirmed) %&gt;% 
+  kable() %&gt;% 
+  kable_styling()
+first</code></pre><table class=table style=margin-left:auto;margin-right:auto><thead><tr><th style=text-align:left>Date</th><th style=text-align:left>State</th><th style=text-align:right>Confirmed</th></tr></thead><tbody><tr><td style=text-align:left>2020-01-30</td><td style=text-align:left>Kerala</td><td style=text-align:right>1</td></tr></tbody></table><ul><li>State = Kerala & Date: 30 Jan,2020</li></ul></div><div id=peak-active-covid-case-in-india---when class="section level2"><h2>Peak active covid case in India - When ?</h2><pre class=r><code>Peak_day &lt;- India_stats %&gt;% 
+  arrange(desc(Daily_cases)) %&gt;% 
+  top_n(1,Daily_cases) %&gt;% 
+  select(Date,Daily_cases) %&gt;% 
+  kable() %&gt;% 
+  kable_styling()
+Peak_day</code></pre><table class=table style=margin-left:auto;margin-right:auto><thead><tr><th style=text-align:left>Date</th><th style=text-align:right>Daily_cases</th></tr></thead><tbody><tr><td style=text-align:left>2021-05-06</td><td style=text-align:right>414280</td></tr></tbody></table></div><div id=which-day-records-maximum-tpr-in-india class="section level2"><h2>Which day records maximum TPR in India?</h2><pre class=r><code>Peak_tpr &lt;- India_stats %&gt;% 
+  arrange(desc(TPR)) %&gt;% 
+  top_n(1,TPR) %&gt;% 
+  select(Date,TPR) %&gt;% 
+  kable() %&gt;% 
+  kable_styling()
+Peak_tpr</code></pre><table class=table style=margin-left:auto;margin-right:auto><thead><tr><th style=text-align:left>Date</th><th style=text-align:right>TPR</th></tr></thead><tbody><tr><td style=text-align:left>2020-08-09</td><td style=text-align:right>9.007</td></tr></tbody></table></div><div id=highest-death-rate-recorded class="section level2"><h2>Highest death rate recorded ?</h2><pre class=r><code>Peak_mortality &lt;- India_stats %&gt;% 
+  arrange(desc(Mortality_rate)) %&gt;% 
+  top_n(1,Mortality_rate) %&gt;% 
+  select(Date,Mortality_rate) %&gt;% 
+  kable() %&gt;% 
+  kable_styling()
+Peak_mortality</code></pre><table class=table style=margin-left:auto;margin-right:auto><thead><tr><th style=text-align:left>Date</th><th style=text-align:right>Mortality_rate</th></tr></thead><tbody><tr><td style=text-align:left>2020-04-12</td><td style=text-align:right>3.604</td></tr></tbody></table></div><div id=top-5-states-with-cumulative-confirmed-cases class="section level2"><h2>Top 5 states with cumulative confirmed cases ?</h2><pre class=r><code>top_5 &lt;- states_daily %&gt;% 
+  filter(Date==max(Date)) %&gt;% 
+  arrange(desc(Confirmed)) %&gt;% 
+  top_n(5,Confirmed)%&gt;% 
+  select(Date,State,Confirmed) %&gt;% 
+  kable() %&gt;% 
+  kable_styling()
+
+top_5  </code></pre><table class=table style=margin-left:auto;margin-right:auto><thead><tr><th style=text-align:left>Date</th><th style=text-align:left>State</th><th style=text-align:right>Confirmed</th></tr></thead><tbody><tr><td style=text-align:left>2021-10-31</td><td style=text-align:left>Maharashtra</td><td style=text-align:right>6611078</td></tr><tr><td style=text-align:left>2021-10-31</td><td style=text-align:left>Kerala</td><td style=text-align:right>4968657</td></tr><tr><td style=text-align:left>2021-10-31</td><td style=text-align:left>Karnataka</td><td style=text-align:right>2988333</td></tr><tr><td style=text-align:left>2021-10-31</td><td style=text-align:left>Tamil Nadu</td><td style=text-align:right>2702623</td></tr><tr><td style=text-align:left>2021-10-31</td><td style=text-align:left>Andhra Pradesh</td><td style=text-align:right>2066450</td></tr></tbody></table></div><div id=least-cumulative-confirmed-cases class="section level2"><h2>Least cumulative confirmed cases ?</h2><pre class=r><code>least_affect &lt;- states_daily %&gt;% 
+  filter(Date==max(Date)) %&gt;% 
+  arrange(desc(Confirmed)) %&gt;% 
+  slice_min(order_by = Confirmed) %&gt;%
+  select(Date,State,Confirmed) %&gt;% 
+  kable() %&gt;% 
+  kable_styling()
+
+least_affect </code></pre><table class=table style=margin-left:auto;margin-right:auto><thead><tr><th style=text-align:left>Date</th><th style=text-align:left>State</th><th style=text-align:right>Confirmed</th></tr></thead><tbody><tr><td style=text-align:left>2021-10-31</td><td style=text-align:left>Andaman and Nicobar Islands</td><td style=text-align:right>7651</td></tr></tbody></table></div><div id=most-deaths---top-5 class="section level2"><h2>Most deaths - Top 5 ?</h2><pre class=r><code>most_death &lt;- states_daily %&gt;% 
+  filter(Date==max(Date)) %&gt;% 
+  arrange(desc(Deceased)) %&gt;% 
+  top_n(5,Deceased) %&gt;%
+  select(State,Deceased) %&gt;% 
+  kable() %&gt;% 
+  kable_styling()
+
+most_death  </code></pre><table class=table style=margin-left:auto;margin-right:auto><thead><tr><th style=text-align:left>State</th><th style=text-align:right>Deceased</th></tr></thead><tbody><tr><td style=text-align:left>Maharashtra</td><td style=text-align:right>140216</td></tr><tr><td style=text-align:left>Karnataka</td><td style=text-align:right>38082</td></tr><tr><td style=text-align:left>Tamil Nadu</td><td style=text-align:right>36116</td></tr><tr><td style=text-align:left>Kerala</td><td style=text-align:right>31681</td></tr><tr><td style=text-align:left>Delhi</td><td style=text-align:right>25091</td></tr></tbody></table></div><div id=least-deaths---state-or-ut class="section level2"><h2>Least deaths - State or UT ?</h2><pre class=r><code>least_death &lt;- states_daily %&gt;% 
+  filter(Date==max(Date)) %&gt;% 
+  arrange(desc(Deceased)) %&gt;% 
+  top_n(-1,Deceased)%&gt;%
+  select(State,Deceased) %&gt;% 
+  kable() %&gt;% 
+  kable_styling()
+
+least_death </code></pre><table class=table style=margin-left:auto;margin-right:auto><thead><tr><th style=text-align:left>State</th><th style=text-align:right>Deceased</th></tr></thead><tbody><tr><td style=text-align:left>Dadra and Nagar Haveli and Daman and Diu</td><td style=text-align:right>4</td></tr></tbody></table></div><div id=which-state-has-most-number-of-active-cases class="section level2"><h2>Which state has most number of active cases ?</h2><pre class=r><code>active_cases_top &lt;- states_daily %&gt;% 
+  filter(Date==max(Date)) %&gt;% 
+  arrange(desc(Active_cases)) %&gt;% 
+  top_n(1,Active_cases) %&gt;% 
+  select(Date,State,Active_cases,TPR) %&gt;%
+  kable() %&gt;% 
+  kable_styling() 
+
+active_cases_top </code></pre><table class=table style=margin-left:auto;margin-right:auto><thead><tr><th style=text-align:left>Date</th><th style=text-align:left>State</th><th style=text-align:right>Active_cases</th><th style=text-align:right>TPR</th></tr></thead><tbody><tr><td style=text-align:left>2021-10-31</td><td style=text-align:left>Kerala</td><td style=text-align:right>79795</td><td style=text-align:right>13.115</td></tr></tbody></table></div><div id=which-state-has-least-number-of-active-cases class="section level2"><h2>Which state has least number of active cases ?</h2><pre class=r><code>active_cases_least&lt;- states_daily %&gt;% 
+  filter(Date==max(Date)) %&gt;% 
+  arrange(desc(Active_cases)) %&gt;% 
+  top_n(-1,Active_cases) %&gt;%
+  select(Date,State,Active_cases,TPR) %&gt;%
+  kable() %&gt;% 
+  kable_styling()
+
+active_cases_least </code></pre><table class=table style=margin-left:auto;margin-right:auto><thead><tr><th style=text-align:left>Date</th><th style=text-align:left>State</th><th style=text-align:right>Active_cases</th><th style=text-align:right>TPR</th></tr></thead><tbody><tr><td style=text-align:left>2021-10-31</td><td style=text-align:left>Andaman and Nicobar Islands</td><td style=text-align:right>4</td><td style=text-align:right>1.279</td></tr></tbody></table></div><div id=highest-tpr-ever-recorded-in-a-state class="section level2"><h2>Highest TPR ever recorded in a state ?</h2><pre class=r><code>tpr_highest &lt;- states_daily %&gt;% 
+  arrange(desc(TPR)) %&gt;% 
+  top_n(1,TPR)%&gt;%
+  select(Date,State,Active_cases,TPR) %&gt;%
+  kable() %&gt;% 
+  kable_styling()
+
+tpr_highest   </code></pre><table class=table style=margin-left:auto;margin-right:auto><thead><tr><th style=text-align:left>Date</th><th style=text-align:left>State</th><th style=text-align:right>Active_cases</th><th style=text-align:right>TPR</th></tr></thead><tbody><tr><td style=text-align:left>2020-06-15</td><td style=text-align:left>Telangana</td><td style=text-align:right>2240</td><td style=text-align:right>22.204</td></tr></tbody></table></div><div id=highest-tpr-7-day-moving-average-recorded class="section level2"><h2>Highest TPR 7 day moving average recorded ?</h2><pre class=r><code>tpr_7_highest &lt;- states_daily %&gt;% 
+  arrange(desc(TPR_7d)) %&gt;% 
+  top_n(1,TPR_7d)  %&gt;%
+  select(Date,State,Active_cases,TPR_7d) %&gt;%
+  kable() %&gt;% 
+  kable_styling()
+
+tpr_7_highest </code></pre><table class=table style=margin-left:auto;margin-right:auto><thead><tr><th style=text-align:left>Date</th><th style=text-align:left>State</th><th style=text-align:right>Active_cases</th><th style=text-align:right>TPR_7d</th></tr></thead><tbody><tr><td style=text-align:left>2020-07-08</td><td style=text-align:left>Telangana</td><td style=text-align:right>11933</td><td style=text-align:right>21.287</td></tr></tbody></table></div><div id=check-weather-any-reletion-between-weekdays-and-covid-19-deaths class="section level2"><h2>Check weather any reletion between weekdays and Covid 19 deaths</h2><pre class=r><code># Calculate weekdays
+
+India_stats &lt;- India_stats %&gt;% 
+  mutate(weekdays = weekdays(Date))
+
+# Reorder weekdays
+India_stats$weekdays &lt;- factor(India_stats$weekdays, weekdays(as.Date(&#39;1970-01-03&#39;) + 1:7))</code></pre><pre class=r><code>ggplot(India_stats, aes(x=weekdays, y=Daily_deaths)) + 
+  geom_bar(stat=&quot;identity&quot;, width=.5, fill=&quot;tomato3&quot;)+
+  labs(title=&quot;Any relation between Weekdays and Daily deaths&quot;, 
+       subtitle=&quot;Mondays have lowest reported deaths&quot;, 
+       caption= glue(&quot;Last update: {max(map_latest$Date)}&quot;)) + 
+  theme(axis.text.x = element_text(angle=65, vjust=0.6))</code></pre><p><img src=https://arungopi.gitlab.io/post/tutorials/data-exploration-of-covid-19-data-india/index_files/figure-html/unnamed-chunk-16-1.png width=100%></p><ul><li>Mondays record minimum deaths while tuesdays are having higher number of deaths.</li></ul></div><div id=daily-cases-in-india class="section level2"><h2>Daily cases in India</h2><pre class=r><code># Daily cases
+
+active &lt;-  ggplot(India_stats)+
+  geom_line(aes(Date,Daily_cases, color =&quot;Daily_cases&quot;),show.legend = F)+
+  labs(title=&quot;Covid 19 cases in India a time series&quot;, 
+       subtitle=&quot;&quot;, 
+       caption= glue(&quot;Last update: {max(map_latest$Date)}&quot;)) + 
+  theme(axis.text.x = element_text(angle=65, vjust=0.6),legend.position=&#39;none&#39;)
+
+covid_time &lt;- ggplotly(active, dynamicTicks = TRUE) %&gt;%
+  rangeslider() %&gt;%
+  layout(hovermode = &quot;x&quot;) 
+
+frameWidget(covid_time)</code></pre><div id=htmlwidget-1 style=width:100%;height:480px class="widgetframe html-widget"></div><script type=application/json data-for=htmlwidget-1>{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-17.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script></div></div><div id=lets-see-some-interesting-heat-maps-created-using-plotly-package. class="section level1"><h1>Let’s see some interesting heat maps created using Plotly package.</h1><div id=covid-19-confirmed-cases class="section level2"><h2>Covid 19 confirmed cases</h2><pre class=r><code>Confirmed &lt;- plot_ly(x=states_daily$Date, 
+               y=states_daily$Code, 
+               z = states_daily$Confirmed,
+               type = &quot;heatmap&quot;,
+               hoverinfo=&#39;text&#39;,
+               showscale=FALSE ,
+               text = ~paste(&#39;State: &#39;,states_daily$State, &#39;&lt;br&gt;Date : &lt;/br&gt;&#39;, states_daily$Date,&#39;&lt;br&gt;Total Confirmed: &lt;/br&gt;&#39;,states_daily$Confirmed),
+              colorscale= &quot;Portland&quot;)%&gt;% 
+  layout(title=&quot;Covid 19 cases in Indian states (Cummulative)&quot;)
+
+
+frameWidget(Confirmed) </code></pre><div id=htmlwidget-2 style=width:100%;height:480px class="widgetframe html-widget"></div><script type=application/json data-for=htmlwidget-2>{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-18.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script></div><div id=deaths-during-pandemic-cummulative class="section level2"><h2>Deaths during pandemic (Cummulative)</h2><pre class=r><code>Deaths &lt;- plot_ly(x=states_daily$Date, 
+               y=states_daily$Code, 
+               z = states_daily$Daily_deaths, 
+               type = &quot;heatmap&quot;,
+               hoverinfo=&#39;text&#39;,
+               showscale=FALSE ,
+               text = ~paste(&#39;State: &#39;,states_daily$State, &#39;&lt;br&gt;Date : &lt;/br&gt;&#39;, states_daily$Date,&#39;&lt;br&gt;Deaths &lt;/br&gt;&#39;,states_daily$Daily_deaths),
+               colorscale= &quot;Blackbody&quot;) %&gt;% 
+  layout(title=&quot;Life lost in Indian states during Covid 19 pandemic&quot;) 
+
+frameWidget(Deaths) </code></pre><div id=htmlwidget-3 style=width:100%;height:480px class="widgetframe html-widget"></div><script type=application/json data-for=htmlwidget-3>{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-19.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script><ul><li>Abnormality numbers may occur while states re-evaluate their stats.</li></ul></div><div id=test-positivity-rate-tpr-during-pandemic class="section level2"><h2>Test Positivity Rate (TPR) during pandemic</h2><pre class=r><code>TPR &lt;- plot_ly(x=states_daily$Date, 
+               y=states_daily$Code, 
+               z = states_daily$TPR,
+               type = &quot;heatmap&quot;,
+               showscale=FALSE ,
+               hoverinfo=&#39;text&#39;,
+               text = ~paste(&#39;State: &#39;,states_daily$State, &#39;&lt;br&gt;Date : &lt;/br&gt;&#39;, states_daily$Date,&#39;&lt;br&gt;TPR rate:&lt;/br&gt;&#39;,states_daily$TPR, &#39;&lt;br&gt;Cases today: &lt;/br&gt;&#39;,states_daily$Daily_cases))%&gt;% 
+  layout(title=&quot;TPR rate in India states during Covid 19 pandemic&quot;) 
+  
+frameWidget(TPR) </code></pre><div id=htmlwidget-4 style=width:100%;height:480px class="widgetframe html-widget"></div><script type=application/json data-for=htmlwidget-4>{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-20.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script></div></div><div id=maps-tell-more-stories.. class="section level1"><h1>Maps tell more stories..</h1><pre class=r><code># Covid 19 Confirmed cases in India
+
+ggplot(map_latest)+
+geom_sf(aes(fill = Confirmed))+
+ scale_fill_viridis_c(option = &quot;magma&quot;,labels = comma)+
+labs(
+    title = &quot;Covid 19 Confirmed cases in India&quot;,
+    subtitle = glue(&quot;Last update: {max(map_latest$Date)}&quot;)
+  ) +
+
+  theme(
+    text = element_text(color = &quot;#22211d&quot;),
+    plot.background = element_rect(fill = &quot;#f5f5f2&quot;, color = NA),
+    panel.background = element_rect(fill = &quot;#f5f5f2&quot;, color = NA),
+    legend.background = element_rect(fill = &quot;#f5f5f2&quot;, color = NA),
+
+    plot.title = element_text(size= 13, hjust=0.01, color = &quot;#4e4d47&quot;, margin = margin(b = -0.1, t = 0.4, l = 2, unit = &quot;cm&quot;)),
+    plot.subtitle = element_text(size= 10, hjust=0.01, color = &quot;#4e4d47&quot;, margin = margin(b = -0.1, t = 0.43, l = 2, unit = &quot;cm&quot;)),
+    plot.caption = element_text( size=12, color = &quot;#4e4d47&quot;, margin = margin(b = 0.3, r=-99, unit = &quot;cm&quot;) ),
+
+    legend.position = c(1.3, 0.25)
+  )</code></pre><p><img src=https://arungopi.gitlab.io/post/tutorials/data-exploration-of-covid-19-data-india/index_files/figure-html/unnamed-chunk-21-1.png width=100%></p><pre class=r><code># Covid 19 Deaths in India
+ggplot(map_latest)+
+geom_sf(aes(fill = Deceased))+
+ scale_fill_viridis_c(labels = comma)+
+labs(
+    title = &quot;Covid 19 Deaths in India&quot;,
+    subtitle = glue(&quot;Last update: {max(map_latest$Date)}&quot;)
+  ) +
+
+  theme(
+    text = element_text(color = &quot;#22211d&quot;),
+    plot.background = element_rect(fill = &quot;#f5f5f2&quot;, color = NA),
+    panel.background = element_rect(fill = &quot;#f5f5f2&quot;, color = NA),
+    legend.background = element_rect(fill = &quot;#f5f5f2&quot;, color = NA),
+
+    plot.title = element_text(size= 13, hjust=0.01, color = &quot;#4e4d47&quot;, margin = margin(b = -0.1, t = 0.4, l = 2, unit = &quot;cm&quot;)),
+    plot.subtitle = element_text(size= 10, hjust=0.01, color = &quot;#4e4d47&quot;, margin = margin(b = -0.1, t = 0.43, l = 2, unit = &quot;cm&quot;)),
+    plot.caption = element_text( size=12, color = &quot;#4e4d47&quot;, margin = margin(b = 0.3, r=-99, unit = &quot;cm&quot;) ),
+
+    legend.position = c(1.3, 0.25)
+  )</code></pre><p><img src=https://arungopi.gitlab.io/post/tutorials/data-exploration-of-covid-19-data-india/index_files/figure-html/unnamed-chunk-22-1.png width=100%></p><pre class=r><code># Covid 19 Test Positivity rate (TPR) in India
+ggplot(map_latest)+
+geom_sf(aes(fill = TPR))+
+ scale_fill_gradient(low = &quot;#EEFCDF&quot;, high = &quot;#F2251D&quot;,labels = comma)+
+labs(
+    title = &quot;Covid 19 Test Positivity rate (TPR) in India&quot;,
+    subtitle = glue(&quot;Last update: {max(map_latest$Date)}&quot;)
+  ) +
+
+  theme(
+    text = element_text(color = &quot;#22211d&quot;),
+    plot.background = element_rect(fill = &quot;#f5f5f2&quot;, color = NA),
+    panel.background = element_rect(fill = &quot;#f5f5f2&quot;, color = NA),
+    legend.background = element_rect(fill = &quot;#f5f5f2&quot;, color = NA),
+
+    plot.title = element_text(size= 11.6, hjust=0.01, color = &quot;#4e4d47&quot;, margin = margin(b = -0.1, t = 0.4, l = 2, unit = &quot;cm&quot;)),
+    plot.subtitle = element_text(size= 10, hjust=0.01, color = &quot;#4e4d47&quot;, margin = margin(b = -0.1, t = 0.43, l = 2, unit = &quot;cm&quot;)),
+    plot.caption = element_text( size=12, color = &quot;#4e4d47&quot;, margin = margin(b = 0.3, r=-99, unit = &quot;cm&quot;) ),
+
+    legend.position = c(1.3, 0.25)
+  )</code></pre><p><img src=https://arungopi.gitlab.io/post/tutorials/data-exploration-of-covid-19-data-india/index_files/figure-html/unnamed-chunk-23-1.png width=100%></p><pre class=r><code># Covid 19 Active case in India
+
+ggplot(map_latest)+
+geom_sf(aes(fill = Active_cases))+
+ scale_fill_gradient(low = &quot;white&quot;, high = &quot;#3D94EF&quot;,labels = comma)+
+labs(
+    title = &quot;Covid 19 active cases in India&quot;,
+    subtitle = glue(&quot;Last update: {max(map_latest$Date)}&quot;)
+  ) +
+
+  theme(
+    text = element_text(color = &quot;#22211d&quot;),
+    plot.background = element_rect(fill = &quot;#f5f5f2&quot;, color = NA),
+    panel.background = element_rect(fill = &quot;#f5f5f2&quot;, color = NA),
+    legend.background = element_rect(fill = &quot;#f5f5f2&quot;, color = NA),
+
+    plot.title = element_text(size= 11.6, hjust=0.01, color = &quot;#4e4d47&quot;, margin = margin(b = -0.1, t = 0.4, l = 2, unit = &quot;cm&quot;)),
+    plot.subtitle = element_text(size= 10, hjust=0.01, color = &quot;#4e4d47&quot;, margin = margin(b = -0.1, t = 0.43, l = 2, unit = &quot;cm&quot;)),
+    plot.caption = element_text( size=12, color = &quot;#4e4d47&quot;, margin = margin(b = 0.3, r=-99, unit = &quot;cm&quot;) ),
+    legend.position = c(1.3, 0.25)
+  )</code></pre><p><img src=https://arungopi.gitlab.io/post/tutorials/data-exploration-of-covid-19-data-india/index_files/figure-html/unnamed-chunk-24-1.png width=100%>
+# Feel free to add intresting questions</p><p>Please point out any error you found as soon as possible. Also, comment your thoughts and raise interesting questions so that we can explore this data more.</p></div><nav class=post-nav><span class=nav-prev>&larr; <a href=/post/tutorials/2021-07-31-convert-a-bulk-of-pdf-into-images-in-two-lines-of-code/>Convert a bulk of pdf files into images in just two lines of code (Only for linux users)</a></span>
+<span class=nav-next><a href=/post/tutorials/2021-11-21-a-fun-analysis-of-tweets-of-cristiano-ronaldo-in-r/>Is Cristiano Ronaldo lost his interest in twitter? A fun analysis of tweets of Cristiano Ronaldo using R</a> &rarr;</span></nav><script type=text/javascript>document.addEventListener("keyup",function(e){if(e.target.nodeName.toUpperCase()!="BODY")return;var t=!1;e.which==37?t="/post/tutorials/2021-07-31-convert-a-bulk-of-pdf-into-images-in-two-lines-of-code/":e.which==39&&(t="/post/tutorials/2021-11-21-a-fun-analysis-of-tweets-of-cristiano-ronaldo-in-r/"),t&&(window.location=t)})</script><section class=comments><div id=disqus_thread></div><script>var disqus_config=function(){this.page.url="https://arungopi.gitlab.io"+location.pathname};(function(){if(a=function(){var e=!0;try{e=window.self!==window.top}catch{}return e},a())return;var e,s,o,i,a,r="//blogging-and-beyond.disqus.com/embed.js",t=document,n=t.createElement("script");if(n.src=r,n.async=!0,n.setAttribute("data-timestamp",+new Date),e=t.getElementById("disqus_thread"),s=!1,o=function(o){if(s)return;(t.head||t.body).appendChild(n),s=!0,o&&e.scrollIntoView()},n.onerror=function(){if(sessionStorage.getItem("failure-note"))return;e.innerText="Sorry, but you cannot make comments because Disqus failed to load for some reason. If you are sure it is not blocked in your region, please refresh the page. 中国大陆地区读者需要翻墙才能发表评论。",e.style.border="1px dashed",e.style.padding=".5em",e.style.background="lightyellow",sessionStorage.setItem("failure-note",!0)},location.hash.match(/^#comment-[0-9]+$/))return o(!0);i=function(){if(s)return;var t=e.getBoundingClientRect();t.top<window.innerHeight&&t.bottom>=0&&o()},window.addEventListener("load",i),t.addEventListener("scroll",i)})()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></section><script async src=/js/fix-toc.js></script>
+<script async src=/js/center-img.js></script>
+<script async src=/js/right-quote.js></script>
+<script async src=/js/no-highlight.js></script>
+<script async src=/js/fix-footnote.js></script>
+<script async src=/js/math-code.js></script>
+<script async src=/js/external-link.js></script>
+<script async src=/js/alt-title.js></script>
+<script async src=/js/header-link.js></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src=//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js></script>
+<script src=//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js></script>
+<script src=//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js></script>
+<script src=//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/tex.min.js></script>
+<script>hljs.configure({languages:[]}),hljs.initHighlightingOnLoad()</script><hr><div class=copyright>© <a href=/>Arun Gopinath</a> 2019-2021</div></footer></article><script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(e,t,n,s,o,i,a){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,i=t.createElement(n),a=t.getElementsByTagName(n)[0],i.async=1,i.src=s,a.parentNode.insertBefore(i,a)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-159568026-1","auto"),ga("send","pageview"))</script></body></html>

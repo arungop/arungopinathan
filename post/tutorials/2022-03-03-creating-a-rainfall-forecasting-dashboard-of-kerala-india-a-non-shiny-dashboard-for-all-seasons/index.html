@@ -1,0 +1,181 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><link rel=icon type=image/png sizes=32x32 href=/img/logo.png><meta name=viewport content="width=device-width,initial-scale=1"><title>Creating a rainfall forecasting dashboard of Kerala, India. A non-shiny dashboard for all seasons. - Arun Gopinath</title><meta property="og:title" content="Creating a rainfall forecasting dashboard of Kerala, India. A non-shiny dashboard for all seasons. - Arun Gopinath"><meta name=twitter:card content="summary"><meta property="description" content="A R dashboard created with the help of {flexdashboard} and github actions. Rainfall forecast from indian meteorological department for Kerala state of India is released multiple times a day in pdf form. These pdf are scrapped and converted to map form. Leaflet is uesd for visualization. By using github action, task is repeated and each update makes the dashboard up and running without {shiny}."><meta property="og:description" content="A R dashboard created with the help of {flexdashboard} and github actions. Rainfall forecast from indian meteorological department for Kerala state of India is released multiple times a day in pdf form. These pdf are scrapped and converted to map form. Leaflet is uesd for visualization. By using github action, task is repeated and each update makes the dashboard up and running without {shiny}."><meta name=twitter:image content="https://arungopi.gitlab.io/img/logo.png"><link href=//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css rel=stylesheet type=text/css><link rel=stylesheet href=/css/style.css><link rel=stylesheet href=/css/fonts.css><link rel=stylesheet href=/css/custom.css></head><body class=post><header class=masthead><h1><a href=/><img src=/img/logo.png alt="Arun Gopinath"></a></h1><p class=tagline>Welcome to blog of Arun Gopinath</p><nav class=menu><input id=menu-check type=checkbox hidden>
+<label id=menu-label for=menu-check class=unselectable hidden><span class="icon close-icon">✕</span>
+<span class="icon open-icon">☰</span>
+<span class=text>Menu</span></label><ul><li><a href=/>Home</a></li><li><a href=/about/>About</a></li><li><a href=/post/>Blog</a></li><li><a href=/galleries/>Gallery</a></li><li><a href=/categories/>Category</a></li></ul></nav></header><article class=main><header class=title><h1>Creating a rainfall forecasting dashboard of Kerala, India. A non-shiny dashboard for all seasons.</h1><h3>Arun Gopinath
+/ 2022-03-03</h3><hr></header><script src=https://arungopi.gitlab.io/post/tutorials/2022-03-03-creating-a-rainfall-forecasting-dashboard-of-kerala-india-a-non-shiny-dashboard-for-all-seasons/index_files/header-attrs/header-attrs.js></script><div id=TOC><ul><li><a href=#a-non-shiny-dashboard-for-all-seasons>A non-shiny dashboard for all seasons</a><ul><li><a href=#ideas-and-implemenation>Ideas and implemenation</a></li><li><a href=#lets-dive-in>Let’s dive in</a><ul><li><a href=#part-1---tabulizer-helps-but..>Part 1 - Tabulizer helps but..</a></li><li><a href=#part-2---flexdashboard-and-leaflet-is-a-great-combo.>Part 2 - Flexdashboard and leaflet is a great combo.</a></li><li><a href=#part-3---automation-using-github-actions.>Part 3 - Automation using Github actions.</a></li></ul></li></ul></li></ul></div><div id=a-non-shiny-dashboard-for-all-seasons class="section level1"><h1>A non-shiny dashboard for all seasons</h1><p>Dashboards are exciting tools to present an idea in the most human-friendly form available. Ideas are infectious it took some time to fix the theme of my dashboard will be ‘Rainfall forecast of Kerala’. Indian meteorological department(IMD) is keen to release rainfall forecast of Kerala state, India number of times a day (usually three times). But the journey is not as smooth as expected.</p><p><a href=https://keralaweather.netlify.app><strong>CHECKOUT DASHBOARD NOW</strong></a></p><div class=figure><img src=images/mobile.png alt><p class=caption>Mobile version of rainfall dashboard</p></div><div id=ideas-and-implemenation class="section level2"><h2>Ideas and implemenation</h2><p>The major drawback with these ‘IMD’ data is that all bulletins are in <a href=https://mausam.imd.gov.in/thiruvananthapuram/mcdata/district_rainfall_forecast.pdf>pdf format</a>. ‘Tabulizer’ package comes in handy to scrape this pdf and converts data into dataframe. This data is joined with shapefile to plot in leaflet. But this dashboard is useless until it is automated. Github actions are super useful for these minimal processes.</p></div><div id=lets-dive-in class="section level2"><h2>Let’s dive in</h2><p>Whole process is divided into three parts</p><ol style=list-style-type:decimal><li>Data scrapping</li><li>Dashboard creation</li><li>Automation using github actions</li></ol><div id=packages-used class="section level4"><h4>Packages used</h4><p>{tidyverse}
+{tabulizer}
+{lubridate}
+{janitor}
+{sf}
+{lubridate}
+{flexdashboard}
+{leaflet}</p></div><div id=part-1---tabulizer-helps-but.. class="section level3"><h3>Part 1 - Tabulizer helps but..</h3><p>Package ‘Tabulizer’ is super handy to scrape pdf files. But things may get weird sometimes. Weird tables are painful to extract. ‘extract_tables’ function gives a complex output.</p><pre class=r><code>
+# Source data
+
+pdf &lt;- &quot;https://mausam.imd.gov.in/thiruvananthapuram/mcdata/district_rainfall_forecast.pdf&quot;
+
+# Collect data from pdf
+warning &lt;- extract_tables(pdf,
+                                output = &quot;matrix&quot;,
+                                pages = c(1,1),
+                                area = list(
+                                  c(164.24098 , 32.80293, 708.75162 ,550.67989),
+                                  c(149.44450,  29.84363, 164.24098, 555.11884  )),
+                                guess = FALSE,
+                                method = &quot;stream&quot;)
+
+# Convert both matrix to data.frames
+data &lt;- as.data.frame(warning[[1]]) 
+header &lt;- as.data.frame(warning[[2]])</code></pre><p>I found that every third line of table is what I actually looking for. A half an hour internet search solves that problem.</p><pre class=r><code># Date as header
+data &lt;- data[,-1]
+
+data_tvm &lt;- slice_head(data,n = 1)
+ 
+row_tri &lt;- seq_len(nrow(data)) %% 3  #  Table issues fixed
+data_row_tri &lt;- data[row_tri == 0, ] 
+</code></pre><p>Districts are assigned as headers. {Janitor} package helps to solve header issues and makes table good looking.</p><pre class=r><code># Districts as headers
+combined &lt;- rbind(data_tvm, data_row_tri ) %&gt;% 
+mutate(V1= c(&quot;Thiruvananthapuram&quot;,&quot;Kollam&quot;,&quot;Pathanamthitta&quot;,
+            &quot;Alappuzha&quot;,&quot;Kottayam&quot;,&quot;Ernakulam&quot;,&quot;Idukki&quot;,
+            &quot;Thrissur&quot;,&quot;Palakkad&quot;,&quot;Malappuram&quot;,&quot;Kozhikode&quot;,
+            &quot;Wayanad&quot;,&quot;Kannur&quot;,&quot;Kasaragode&quot;,&quot;Lakshadweep&quot;) ) 
+
+# Reorder coloumns
+combined &lt;- combined[,c(6,1,2,3,4,5)] 
+
+
+warning_five &lt;- rbind(header,combined) %&gt;% 
+  row_to_names(row_number = 1)</code></pre><p>To avoid complexity the output is saved as .csv format. All codes above are saved in ‘warn.R’ file. Later in the process this R file is called within dashboard Rmd file.</p><pre class=r><code># Write output
+write.csv(warning_five,&quot;./data/weather_warn.csv&quot;, row.names = F,quote=F)
+</code></pre></div><div id=part-2---flexdashboard-and-leaflet-is-a-great-combo. class="section level3"><h3>Part 2 - Flexdashboard and leaflet is a great combo.</h3><p>I want this dashboard independent from server side approach of {Shiny}. Only solution I have right now is {flexdashboard}. Before choosing leaflet as mapping option {ggiraph} is tried but is avoided due to non-friendliness in mobile web browsers.</p><p>Previously created ‘warn.R’ is set to run within this ‘index.Rmd’ file. Shapefile of kerala state and output of ‘warn.R’ is loaded as shown below.</p><pre class=r><code>
+source(&quot;warn.R&quot;, local = knitr::knit_global())
+
+map_in &lt;- st_read(&quot;./data/kerala/kerala_lak.shp&quot;)
+
+weather_a  &lt;- read_csv(&quot;./data/weather_warn.csv&quot;)</code></pre><p>IMD chooses another weird way of representing alerts with acronymns worse as possible. So you have to recode to display it beautifully.</p><pre class=r><code># re-code
+
+weather_a[weather_a == &quot;No rain&quot;] &lt;- &quot;No alert&quot;
+weather_a[weather_a == &quot;L.&quot; ] &lt;- &quot;Green alert&quot;
+weather_a[weather_a == &quot;L. to M&quot; ] &lt;- &quot;Green alert&quot;
+weather_a[weather_a == &quot;L to M&quot; ] &lt;- &quot;Green alert&quot;
+weather_a[weather_a == &quot;VL&quot; ] &lt;- &quot;No alert&quot;
+weather_a[weather_a == &quot;VL.&quot; ] &lt;- &quot;No alert&quot;
+weather_a[weather_a == &quot;M&quot; ] &lt;- &quot;Yellow alert&quot;
+weather_a[weather_a == &quot;M.&quot; ] &lt;- &quot;Yellow alert&quot;
+weather_a[weather_a == &quot;M. to H&quot; ] &lt;- &quot;Yellow alert&quot;
+weather_a[weather_a == &quot;M to H&quot; ] &lt;- &quot;Yellow alert&quot;
+weather_a[weather_a == &quot;H&quot; ] &lt;- &quot;Orange alert&quot;
+weather_a[weather_a == &quot;H.&quot; ] &lt;- &quot;Orange alert&quot;
+weather_a[weather_a == &quot;VH&quot; ] &lt;- &quot;Red alert&quot;
+weather_a[weather_a == &quot;VH.&quot; ] &lt;- &quot;Red alert&quot;
+weather_a[weather_a == &quot;XH&quot; ] &lt;- &quot;Red alert - Extremely heavy rainfall&quot;
+weather_a[weather_a == &quot;XH.&quot; ] &lt;- &quot;Red alert - Extremely heavy rainfall&quot;</code></pre><p>Shapefile and csv data is merged with ‘merge’ function. Coloumn names represent dates. These values are stored for ease of use. Also, to avoid complex issues with changing headers values (date values) they are replaced with dummy variables.</p><pre class=r><code>
+# col
+
+colnames(weather_a)[1] &lt;- &quot;Name_1&quot;
+
+# shp + csv
+
+map_latest &lt;- merge(map_in,weather_a, by =&quot;Name_1&quot;) %&gt;% 
+  filter(!grepl(&#39;Lakshadweep&#39;, Name_1))
+
+
+# Col names
+
+col2 &lt;- sym(names(map_latest)[2])
+col3 &lt;- sym(names(map_latest)[3])
+col4 &lt;- sym(names(map_latest)[4])
+col5 &lt;- sym(names(map_latest)[5])
+col6 &lt;- sym(names(map_latest)[6])
+
+
+# Select only date headers
+col &lt;- colnames(map_latest[2:6])
+
+# Dummy date headers
+map_ker &lt;- map_latest %&gt;% 
+  `colnames&lt;-`(c(&quot;District&quot;,&quot;d1&quot;,&quot;d2&quot;,&quot;d3&quot;,&quot;d4&quot;,&quot;d5&quot;,&quot;geometry&quot;))</code></pre><p>Let’s move on to {leaflet} part. As a first step, rainfall warnings are categorised and are colour coded.</p><pre class=r><code>pal &lt;- 
+  colorFactor(palette = c(&#39;White&#39;, &#39;#188f14&#39;, &#39;Yellow&#39;, &#39;Orange&#39;, &#39;Red&#39;, &#39;#8B0000&#39;), 
+              levels = c(&quot;No alert&quot;,&quot;Green alert&quot;,&quot;Yellow alert&quot;,&quot;Orange alert&quot;,
+                         &quot;Red alert&quot;,&quot;Red alert - Extremely heavy rainfall&quot;))
+</code></pre><p>Since warning data is available for five days, each of them is added after adding a base tile (OSM). Setview is set after some iterations. For ease of use, layer controls are added with first layer always checked. An inset map is added to increase overall aesthetic value.</p><pre class=r><code>map &lt;-leaflet(map_ker) %&gt;% 
+  addTiles()  %&gt;% 
+  
+  # A base layer of Kerala to always visible
+  
+  addPolygons(fillColor  = pal(map_ker$District), fillOpacity = 0, color = &quot;black&quot;) %&gt;%
+  
+  # Day 1
+  addPolygons(fillColor  = pal(map_ker$d1), fillOpacity = .5,
+              popup = paste(&quot;Date: &quot;,col2, &quot;&lt;br&gt;&quot;,
+                            &quot;District: &quot;,map_ker$District, &quot;&lt;br&gt;&quot;,
+                            &quot;Rainfall alert: &quot;, map_ker$d1, &quot;&lt;br&gt;&quot;), group = col[1]) %&gt;% 
+  
+  # Day 2
+  addPolygons(fillColor  = pal(map_ker$d2), fillOpacity = .5,
+              popup = paste(&quot;Date: &quot;,col3, &quot;&lt;br&gt;&quot;,
+                            &quot;District: &quot;,map_ker$District, &quot;&lt;br&gt;&quot;,
+                            &quot;Rainfall alert: &quot;, map_ker$d2, &quot;&lt;br&gt;&quot;) , group = col[2]) %&gt;% 
+  
+  #Day 3
+  addPolygons(fillColor  = pal(map_ker$d3), fillOpacity = .5,
+              popup = paste(&quot;Date: &quot;,col4, &quot;&lt;br&gt;&quot;,
+                            &quot;District: &quot;,map_ker$District, &quot;&lt;br&gt;&quot;,
+                            &quot;Rainfall alert: &quot;, map_ker$d3, &quot;&lt;br&gt;&quot;) , group = col[3]) %&gt;% 
+  # Day 4
+  addPolygons(fillColor  = pal(map_ker$d4), fillOpacity = .5,
+              popup = paste(&quot;Date: &quot;,col5, &quot;&lt;br&gt;&quot;,
+                            &quot;District: &quot;,map_ker$District, &quot;&lt;br&gt;&quot;,
+                            &quot;Rainfall alert: &quot;, map_ker$d4, &quot;&lt;br&gt;&quot;) , group = col[4]) %&gt;% 
+  
+  # Day 5
+  
+  addPolygons(fillColor  = pal(map_ker$d5), fillOpacity = .5,
+              popup = paste(&quot;Date: &quot;,col6, &quot;&lt;br&gt;&quot;,
+                            &quot;District: &quot;,map_ker$District, &quot;&lt;br&gt;&quot;,
+                            &quot;Rainfall alert: &quot;, map_ker$d5, &quot;&lt;br&gt;&quot;) , group = col[5]) %&gt;% 
+  
+  setView(lng = 76.5711, lat = 10.5, zoom = 7) %&gt;%
+  
+  # More freedom to you
+  
+  addLayersControl(overlayGroups = col[1:5] ,
+                   options = layersControlOptions(collapsed = T))%&gt;% 
+  
+  # add inset map
+  addMiniMap(
+    tiles = providers$Esri.OceanBasemap,
+    position = &#39;bottomleft&#39;, 
+    width = 120, height = 120,
+    toggleDisplay = FALSE) %&gt;% 
+ 
+  # Only first layer need to toggle  
+    hideGroup(col[2:5])
+    
+</code></pre><p>Dashboard consists of two parts, one with map and other with warning explanation.</p><pre class=r><code>Rainfall alert 
+=====================================  
+
+Column {.tabset}
+-----------------------------------------------------------------------
+
+### Rainfall Alert for the week - Weather Forecast for Kerala
+</code></pre><pre class=r><code>Info
+=====================================  
+
+ 
+</code></pre><p>What does these alerts actually mean ?</p><table><col width=18%><col width=49%><col width=31%><thead><tr class=header><th>Type</th><th>Intensity of rainfall</th><th>Warning colour code</th></tr></thead><tbody><tr class=odd><td>No alert</td><td>Very Light Rainfall (0.1 to 2.4 mm)</td><td>No warning (No action)</td></tr><tr class=even><td>Green alert</td><td>Light rainfall (2.5-15.5 mm)</td><td>No warning (No action)</td></tr><tr class=odd><td>Yellow alert</td><td>Moderate (15.6-64.4 mm)</td><td>Watch (Be updated)</td></tr><tr class=even><td>Orange alert</td><td>Heavy Rainfall (64.5-115.5 mm)</td><td>Alert (Be prepared)</td></tr><tr class=odd><td>Red alert</td><td>Very Heavy Rainfall (115.6-204,4 mm)</td><td>Warning (Take action)</td></tr><tr class=even><td>Red alert</td><td>Extremely Heavy Rainfall (>204.4mm)</td><td>Warning (Take action)</td></tr></tbody></table></div><div id=part-3---automation-using-github-actions. class="section level3"><h3>Part 3 - Automation using Github actions.</h3><p>This part is the core of the project. Thanks <a href=https://github.com/athulvis>Athul</a> for the invaluable help in this part of work. For activation of github actions one have to create a folder named ‘workflow’ and create ‘anyname.yaml’. Job of this yaml file is to activate at scheduled time and run the task repeatedly. Basically, these actions will give you a working operating system to play with. Here, an ubuntu os is selected and necessary packages are installed and cached for further use. Finally whenever a change is detected in processed files, they will commit automatically. More info on github actions can be <a href=https://github.com/r-lib/actions>read here</a>.</p><div class=figure><img src=images/desktop.png alt><p class=caption>Desktop version of rainfall dashboard</p></div><p>Netlify solves rendering issues as smooth as possible. <a href=https://github.com/arungop/kerala-weather-collector>Source code</a> is available on github.</p></div></div></div><nav class=post-nav><span class=nav-prev>&larr; <a href=/post/tutorials/qgis_bound_box_model/qgis_bound_box_model/>QGIS model to quickly calculate bound box of all polygons in a shapefile</a></span>
+<span class=nav-next><a href=/post/tutorials/2022-12-18-movie-barcode-of-dileesh-pothan-movies/>Movie barcodes of Dileesh Pothan movies</a> &rarr;</span></nav><script type=text/javascript>document.addEventListener("keyup",function(e){if(e.target.nodeName.toUpperCase()!="BODY")return;var t=!1;e.which==37?t="/post/tutorials/qgis_bound_box_model/qgis_bound_box_model/":e.which==39&&(t="/post/tutorials/2022-12-18-movie-barcode-of-dileesh-pothan-movies/"),t&&(window.location=t)})</script><section class=comments><div id=disqus_thread></div><script>var disqus_config=function(){this.page.url="https://arungopi.gitlab.io"+location.pathname};(function(){if(a=function(){var e=!0;try{e=window.self!==window.top}catch{}return e},a())return;var e,s,o,i,a,r="//blogging-and-beyond.disqus.com/embed.js",t=document,n=t.createElement("script");if(n.src=r,n.async=!0,n.setAttribute("data-timestamp",+new Date),e=t.getElementById("disqus_thread"),s=!1,o=function(o){if(s)return;(t.head||t.body).appendChild(n),s=!0,o&&e.scrollIntoView()},n.onerror=function(){if(sessionStorage.getItem("failure-note"))return;e.innerText="Sorry, but you cannot make comments because Disqus failed to load for some reason. If you are sure it is not blocked in your region, please refresh the page. 中国大陆地区读者需要翻墙才能发表评论。",e.style.border="1px dashed",e.style.padding=".5em",e.style.background="lightyellow",sessionStorage.setItem("failure-note",!0)},location.hash.match(/^#comment-[0-9]+$/))return o(!0);i=function(){if(s)return;var t=e.getBoundingClientRect();t.top<window.innerHeight&&t.bottom>=0&&o()},window.addEventListener("load",i),t.addEventListener("scroll",i)})()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></section><script async src=/js/fix-toc.js></script>
+<script async src=/js/center-img.js></script>
+<script async src=/js/right-quote.js></script>
+<script async src=/js/no-highlight.js></script>
+<script async src=/js/fix-footnote.js></script>
+<script async src=/js/math-code.js></script>
+<script async src=/js/external-link.js></script>
+<script async src=/js/alt-title.js></script>
+<script async src=/js/header-link.js></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src=//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js></script>
+<script src=//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js></script>
+<script src=//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js></script>
+<script src=//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/tex.min.js></script>
+<script>hljs.configure({languages:[]}),hljs.initHighlightingOnLoad()</script><hr><div class=copyright>© <a href=/>Arun Gopinath</a> 2019-2021</div></footer></article><script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(e,t,n,s,o,i,a){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,i=t.createElement(n),a=t.getElementsByTagName(n)[0],i.async=1,i.src=s,a.parentNode.insertBefore(i,a)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-159568026-1","auto"),ga("send","pageview"))</script></body></html>

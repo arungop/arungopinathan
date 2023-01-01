@@ -1,0 +1,49 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><link rel=icon type=image/png sizes=32x32 href=/img/logo.png><meta name=viewport content="width=device-width,initial-scale=1"><title>Can you identify this legendary malayalam novel ? A ggwordcloud experiment in R - Arun Gopinath</title><meta property="og:title" content="Can you identify this legendary malayalam novel ? A ggwordcloud experiment in R  - Arun Gopinath"><meta name=twitter:card content="summary"><meta property="description" content="A fun analysis of famous malayalam novel in R using ggwordcloud package. This specific novel is a milestone in malayalam literature history"><meta property="og:description" content="A fun analysis of famous malayalam novel in R using ggwordcloud package. This specific novel is a milestone in malayalam literature history"><meta name=twitter:image content="https://arungopi.gitlab.io/post/tutorials/r-wordcloud/index_files/figure-html/unnamed-chunk-3-1.png"><link href=//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css rel=stylesheet type=text/css><link rel=stylesheet href=/css/style.css><link rel=stylesheet href=/css/fonts.css><link rel=stylesheet href=/css/custom.css></head><body class=post><header class=masthead><h1><a href=/><img src=/img/logo.png alt="Arun Gopinath"></a></h1><p class=tagline>Welcome to blog of Arun Gopinath</p><nav class=menu><input id=menu-check type=checkbox hidden>
+<label id=menu-label for=menu-check class=unselectable hidden><span class="icon close-icon">✕</span>
+<span class="icon open-icon">☰</span>
+<span class=text>Menu</span></label><ul><li><a href=/>Home</a></li><li><a href=/about/>About</a></li><li><a href=/post/>Blog</a></li><li><a href=/galleries/>Gallery</a></li><li><a href=/categories/>Category</a></li></ul></nav></header><article class=main><header class=title><h1>Can you identify this legendary malayalam novel ? A ggwordcloud experiment in R</h1><h3>Arun Gopinath
+/ 2021-06-17</h3><hr></header><script src=https://arungopi.gitlab.io/post/tutorials/r-wordcloud/index_files/header-attrs/header-attrs.js></script><div id=a-legendary-novel class="section level1"><h1>A legendary novel</h1><p>Yesterday out of nowhere the masterpiece novel, which changed the course of Malayalam literature forever pop up in my social media feed. After reading the digital copy (.epub) of the same, the idea for this article came into my mind.
+All I have for you is “words”.</p><div id=create-a-word-cloud-using-r class="section level2"><h2>Create a word cloud using R</h2><p>First of all, load necessary R packages. {readtext} and {tidytext} for load our novel. {tidyverse} - the most important package for data wrangling. {ggplot2} and {ggwordcloud} for visualisation.</p><pre class=r><code>library(tidytext)
+library(readtext)
+library(here)
+library(tidyverse)
+library(ggplot2)
+library(ggwordcloud)</code></pre></div><div id=load-files class="section level2"><h2>Load files</h2><p>Load files. (If you follow the clue, you are already in the right direction to find this masterpiece novel). Here, the novel is in ‘.txt’ format. “unnest_token” will convert the entire file into a two-column table.</p><pre class=r><code>k &lt;- readtext(here(&quot;static/data&quot;,&quot;k.txt&quot;))
+token_k &lt;- k %&gt;% unnest_tokens(word,text)</code></pre></div></div><div id=little-bit-data-wrangling class="section level1"><h1>Little bit data wrangling</h1><p>We are almost there. The only thing we want to visualise is nothing but the word count. “count(word,sort = TRUE)” will get the job done for us. For tidiness of the plot count greater than “25” is used (Who loves messy visuals?). As a final step,{ggwordcloud} is applied with suitable text size, colour. The benefit of {ggwordcloud} is its integration with {ggplot2} outputs. For cooler representation some tilting of words are also included and stored in a new coloumn named “angle”.</p><pre class=r><code>wcloud &lt;- token_k %&gt;% 
+  count(word,sort = TRUE) %&gt;% 
+  filter(n &gt; 25) %&gt;%  
+  mutate(word = reorder(word,n)) %&gt;% 
+  mutate(angle = 45 * sample(-2:2, n(), replace = TRUE, prob = c(1, 1, 4, 1, 1)))</code></pre><div id=final-step---visualisation class="section level2"><h2>Final step - Visualisation</h2><p>In the visualisation step, {ggplot} is used along with “geom_text_wordcloud_area” function in {ggwordcloud}. Colour is based on the frequency of words in the file. Also, most frequent words are set to “red” and less frequent ones to “blue”. Finally, a cool title and caption are added (Theme section)</p><pre class=r><code>set.seed(42)
+kplot &lt;- ggplot(wcloud, aes(label = word,size =n, angle = angle,
+                            color = n)) +
+   geom_text_wordcloud_area() +
+  scale_size_area(max_size = 20) +
+  
+  # theme section
+  theme_minimal()+
+  scale_colour_gradient(low = &quot;blue&quot;, high = &quot;red&quot;, na.value = NA)+
+  
+  # title and caption
+  labs(
+    title = &quot;Can you identify this legendary malayalam novel ?&quot;,
+    caption = &quot;Design: Arun Gopinath&quot;
+  )+
+  theme(
+  plot.title = element_text(color = &quot;red&quot;, size = 18, face = &quot;bold&quot;,hjust = 0.5),
+  plot.caption = element_text(color = &quot;darkgreen&quot;, face = &quot;italic&quot;)
+)
+kplot</code></pre><p><img src=https://arungopi.gitlab.io/post/tutorials/r-wordcloud/index_files/figure-html/unnamed-chunk-3-1.png width=672></p></div></div><nav class=post-nav><span class=nav-prev>&larr; <a href=/post/tutorials/maps-online/>Convert a shapefile into a interactive online map</a></span>
+<span class=nav-next><a href=/post/tutorials/2021-07-31-convert-a-bulk-of-pdf-into-images-in-two-lines-of-code/>Convert a bulk of pdf files into images in just two lines of code (Only for linux users)</a> &rarr;</span></nav><script type=text/javascript>document.addEventListener("keyup",function(e){if(e.target.nodeName.toUpperCase()!="BODY")return;var t=!1;e.which==37?t="/post/tutorials/maps-online/":e.which==39&&(t="/post/tutorials/2021-07-31-convert-a-bulk-of-pdf-into-images-in-two-lines-of-code/"),t&&(window.location=t)})</script><section class=comments><div id=disqus_thread></div><script>var disqus_config=function(){this.page.url="https://arungopi.gitlab.io"+location.pathname};(function(){if(a=function(){var e=!0;try{e=window.self!==window.top}catch{}return e},a())return;var e,s,o,i,a,r="//blogging-and-beyond.disqus.com/embed.js",t=document,n=t.createElement("script");if(n.src=r,n.async=!0,n.setAttribute("data-timestamp",+new Date),e=t.getElementById("disqus_thread"),s=!1,o=function(o){if(s)return;(t.head||t.body).appendChild(n),s=!0,o&&e.scrollIntoView()},n.onerror=function(){if(sessionStorage.getItem("failure-note"))return;e.innerText="Sorry, but you cannot make comments because Disqus failed to load for some reason. If you are sure it is not blocked in your region, please refresh the page. 中国大陆地区读者需要翻墙才能发表评论。",e.style.border="1px dashed",e.style.padding=".5em",e.style.background="lightyellow",sessionStorage.setItem("failure-note",!0)},location.hash.match(/^#comment-[0-9]+$/))return o(!0);i=function(){if(s)return;var t=e.getBoundingClientRect();t.top<window.innerHeight&&t.bottom>=0&&o()},window.addEventListener("load",i),t.addEventListener("scroll",i)})()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></section><script async src=/js/fix-toc.js></script>
+<script async src=/js/center-img.js></script>
+<script async src=/js/right-quote.js></script>
+<script async src=/js/no-highlight.js></script>
+<script async src=/js/fix-footnote.js></script>
+<script async src=/js/math-code.js></script>
+<script async src=/js/external-link.js></script>
+<script async src=/js/alt-title.js></script>
+<script async src=/js/header-link.js></script>
+<script src=//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js></script>
+<script src=//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js></script>
+<script src=//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js></script>
+<script src=//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/tex.min.js></script>
+<script>hljs.configure({languages:[]}),hljs.initHighlightingOnLoad()</script><hr><div class=copyright>© <a href=/>Arun Gopinath</a> 2019-2021</div></footer></article><script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(e,t,n,s,o,i,a){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,i=t.createElement(n),a=t.getElementsByTagName(n)[0],i.async=1,i.src=s,a.parentNode.insertBefore(i,a)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-159568026-1","auto"),ga("send","pageview"))</script></body></html>

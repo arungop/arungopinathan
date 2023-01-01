@@ -1,0 +1,20 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>fun on Arun Gopinath</title><link>https://arungopi.gitlab.io/categories/fun/</link><description>Recent content in fun on Arun Gopinath</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 17 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://arungopi.gitlab.io/categories/fun/index.xml" rel="self" type="application/rss+xml"/><item><title>Movie barcodes of Dileesh Pothan movies</title><link>https://arungopi.gitlab.io/post/tutorials/2022-12-18-movie-barcode-of-dileesh-pothan-movies/</link><pubDate>Sat, 17 Dec 2022 00:00:00 +0000</pubDate><guid>https://arungopi.gitlab.io/post/tutorials/2022-12-18-movie-barcode-of-dileesh-pothan-movies/</guid><description>&lt;h1 id="movie-barcodes-of-dileesh-pothan-movies">Movie barcodes of Dileesh Pothan movies&lt;/h1>
+&lt;p>&lt;a href="https://www.imdb.com/name/nm4584004/">Dileesh Pothan&lt;/a> is already a rocking star in the Malayalam movie industry for his outstanding movies. Within just three films, he already owns a place in the minds of movie buffs. Subtle details and realistic presentation of stories are popularly known as Pothettan brilliance.His works with &lt;a href="https://www.imdb.com/name/nm1335704/?ref_=tt_cl_t_1">Fahad Faasil&lt;/a> are a treat to watch. Apart from directorial skills, he is also known for his produced movies.&lt;/p>
+&lt;p>In this post, I will show you three barcodes of Pothen’s movie. Each line of the barcode represents the average colour of the frame. These frames are stacked to form a barcode.&lt;/p>
+&lt;h2 id="can-you-guess-the-movies-">Can you guess the movies ?&lt;/h2>
+&lt;h3 id="a">A&lt;/h3>
+&lt;p>&lt;img src="images/mah.JPG" alt="">&lt;/p>
+&lt;h3 id="b">B&lt;/h3>
+&lt;p>&lt;img src="images/joji.jpg" alt="">&lt;/p>
+&lt;h3 id="c">C&lt;/h3>
+&lt;p>&lt;img src="images/tmd.jpg" alt="">&lt;/p>
+&lt;h3 id="answers">Answers&lt;/h3>
+&lt;p>Movies are:&lt;/p>
+&lt;p>C: &lt;a href="https://www.imdb.com/title/tt5906392/?ref_=nm_knf_t_2">Thondimuthalum Driksakshiyum&lt;/a>&lt;/p>
+&lt;p>B: &lt;a href="https://www.imdb.com/title/tt13206926/?ref_=nm_knf_t_1">Joji&lt;/a>&lt;/p>
+&lt;p>A: &lt;a href="https://www.imdb.com/title/tt4851630/?ref_=nm_knf_t_3">Maheshinte Prathikaaram&lt;/a>&lt;/p>
+&lt;h2 id="whats-next-">What&amp;rsquo;s next ?&lt;/h2>
+&lt;p>If you are a movie buff, then you can recollect scenes by analysing the barcode. Like the one where the Chachan character of the movie Maheshinte Prathikaram develops his photographs in a dark room with red lights. Yes, just goosebumps&amp;hellip;&lt;/p>
+&lt;blockquote>
+&lt;p>All movie barcodes are made using python code created by &lt;a href="https://github.com/andrewdcampbell/movie-barcodes">Andrew Campbell&lt;/a>&lt;/p>
+&lt;/blockquote></description><category>python</category><category>movie</category><category>barcode</category><category>fun</category><category>tutorials</category></item></channel></rss>
